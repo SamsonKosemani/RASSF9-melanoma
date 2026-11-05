@@ -1,0 +1,109 @@
+tumour,class,n,pct9,pct10
+53,CAF,4,25,0
+53,Endothelial,10,20,0
+53,Macrophage,12,0,0
+53,Malignant,16,0,0
+53,NK,10,0,10
+53,"Non-malignant, unassigned",16,0,0
+53,T cell,72,0,0
+58,B cell,2,0,0
+58,Macrophage,2,0,0
+58,NK,4,0,0
+58,"Non-malignant, unassigned",16,0,0
+58,T cell,117,0,0
+59,CAF,7,0,0
+59,Macrophage,1,0,0
+59,Malignant,54,0,0
+59,"Non-malignant, unassigned",4,0,0
+60,B cell,95,1.0526315789473684,0
+60,Macrophage,4,0,0
+60,Malignant,9,0,0
+60,NK,10,0,0
+60,"Non-malignant, unassigned",25,0,0
+60,T cell,79,0,0
+65,B cell,5,0,0
+65,Macrophage,1,0,0
+65,Malignant,4,0,0
+65,"Non-malignant, unassigned",8,0,0
+65,T cell,41,0,0
+67,B cell,19,0,0
+67,NK,1,0,0
+67,"Non-malignant, unassigned",10,0,0
+67,T cell,65,1.5384615384615385,0
+71,Macrophage,2,0,0
+71,Malignant,54,0,0
+71,"Non-malignant, unassigned",5,0,0
+71,T cell,23,0,0
+72,B cell,35,0,0
+72,NK,1,0,0
+72,"Non-malignant, unassigned",28,0,0
+72,T cell,117,0,0
+74,B cell,13,0,0
+74,Macrophage,5,0,0
+74,NK,1,0,0
+74,"Non-malignant, unassigned",10,0,0
+74,T cell,118,0,0
+75,Macrophage,1,0,0
+75,Malignant,3,0,0
+75,"Non-malignant, unassigned",1,0,0
+75,T cell,338,1.4792899408284024,0.2958579881656805
+78,B cell,1,0,0
+78,CAF,1,0,0
+78,Malignant,120,0,0
+78,T cell,1,0,0
+79,B cell,78,0,0
+79,CAF,1,0,0
+79,Endothelial,2,50,0
+79,Malignant,468,0.2136752136752137,0.4273504273504274
+79,NK,1,0,0
+79,"Non-malignant, unassigned",16,0,0
+79,T cell,295,0.3389830508474576,0
+80,B cell,49,0,0
+80,CAF,20,20,0
+80,Endothelial,27,48.148148148148145,0
+80,Malignant,125,0.8,0.8
+80,NK,3,0,0
+80,"Non-malignant, unassigned",33,6.0606060606060606,3.0303030303030303
+80,T cell,212,0,0
+81,B cell,3,0,0
+81,Endothelial,2,0,0
+81,Malignant,133,6.7669172932330826,0
+81,"Non-malignant, unassigned",13,0,0
+81,T cell,43,0,0
+82,B cell,1,0,0
+82,CAF,5,0,0
+82,Macrophage,4,0,0
+82,Malignant,32,0,0
+82,NK,2,0,0
+82,"Non-malignant, unassigned",11,0,0
+82,T cell,24,0,0
+84,B cell,25,0,0
+84,CAF,1,0,0
+84,Endothelial,1,100,0
+84,Macrophage,21,0,0
+84,Malignant,14,0,0
+84,NK,7,0,0
+84,"Non-malignant, unassigned",23,4.3478260869565215,0
+84,T cell,59,0,0
+88,B cell,16,0,0
+88,CAF,2,0,0
+88,Macrophage,38,0,0
+88,Malignant,117,0,0
+88,NK,9,0,0
+88,"Non-malignant, unassigned",43,0,2.3255813953488373
+88,T cell,109,0,0
+89,B cell,106,0,0.9433962264150944
+89,Endothelial,1,0,0
+89,Macrophage,26,0,0
+89,Malignant,98,1.0204081632653061,0
+89,NK,1,0,0
+89,"Non-malignant, unassigned",35,0,0
+89,T cell,201,0,0
+94,B cell,64,0,0
+94,CAF,15,0,0
+94,Endothelial,19,31.57894736842105,0
+94,Macrophage,2,0,0
+94,Malignant,10,0,0
+94,NK,1,0,0
+94,"Non-malignant, unassigned",119,1.680672268907563,0.8403361344537815
+94,T cell,126,0.7936507936507936,0

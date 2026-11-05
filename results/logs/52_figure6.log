@@ -1,0 +1,58 @@
+
+== 1. Inputs ===================================================
+  nevus_vs_melanoma_values.csv                 ok
+  nevus_vs_melanoma_tests.csv                  ok
+  tirosh_detection_by_class.csv                ok
+  46_line_level_data.csv                       ok
+
+== 2. Panel D source ===========================================
+  using cache: fig6_tcga_perpatient.csv (469 patients)
+  panel D: n = 469, Spearman rho = -0.3789
+
+== 3. Panel A ==================================================
+  158 samples across 2 cohorts
+    GSE112509    Nevus     n = 23
+    GSE112509    Melanoma  n = 57
+    GSE98394     Nevus     n = 27
+    GSE98394     Melanoma  n = 51
+
+== 4. Panel B ==================================================
+    GSE112509    d = -0.886 [-1.389, -0.383]  (23 vs 57)
+    GSE98394     d = -1.000 [-1.492, -0.508]  (27 vs 51)
+
+== 5. Panel C ==================================================
+  scales present: all cells | depth band
+  using scale: 'depth band'
+    Endothelial       41 cells    11 positive   26.83%
+    B cell           200 cells     1 positive    0.50%
+    T cell           864 cells     4 positive    0.46%
+    Malignant        494 cells     1 positive    0.20%
+    CAF               16 cells     0 positive    0.00%
+    Macrophage        53 cells     0 positive    0.00%
+    NK                19 cells     0 positive    0.00%
+    Non-malignant, unassigned   120 cells     0 positive    0.00%
+  malignant: 1 of 494 = 0.20%
+  endothelial: 11 of 41 = 26.83%
+  compartments: Immune=4, Malignant=1, Unassigned=1, Vascular / stromal=2
+  classed as Unassigned: Non-malignant, unassigned
+
+== 6. Panel D ==================================================
+  n = 469 | rho = -0.379
+
+== 7. Panels E and F ===========================================
+  panel E rebuilt from 44b_locus_betas.rds | core probes: 5
+  panel E: 56 melanoma vs 940 other lines
+    medians: 0.588 vs 0.183
+  panel F: 741 lines | rho = -0.383
+
+== 8. Assembling ===============================================
+  180 x 228 mm at final size
+  wrote Figure6.pdf
+  wrote Figure6.png
+
+  Place at 100%. The type sizes written here are the printed sizes;
+  scaling the figure on a slide reduces them below the journal minimum.
+
+  WHAT STILL NEEDS A HUMAN: panel C's cell-class labels come straight
+  from the Tirosh annotation. Check they read the way the manuscript
+  describes them before submission.

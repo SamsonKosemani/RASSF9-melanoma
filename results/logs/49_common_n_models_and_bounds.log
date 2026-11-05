@@ -1,0 +1,82 @@
+
+== 0. Input ====================================================
+  46_line_level_data.csv: 741 lines
+
+== 1. Mann-Whitney p-value floors ==============================
+  Both are computed, not asserted. n1 = 56 melanoma, n2 = 940 others.
+
+  NORMAL APPROXIMATION
+    sigma_U = 2091.3 | max |z| = 12.585
+    floor on the two-sided p  ~ 1e-35.6
+    This is the bound that applies to the tests actually reported,
+    because those use the normal approximation with tie correction.
+
+  EXACT TEST
+    number of distinct group assignments: choose(996, 56) = 1e92.4
+    floor on the two-sided p  = 2 / choose(N, n1) ~ 1e-92.1
+    The exact floor is about 1e56 times smaller than the normal one.
+
+  WHAT THIS CORRECTS: script 48 described ~1e-36 as the smallest
+  attainable p for this comparison. That holds for the normal
+  approximation only. The exact test can in principle go far lower. No
+  reported value changes: the two significant comparisons are 8.7e-17 and
+  1.1e-16, far above both floors, and the exact test is not used here
+  because with n = 996 it is computationally impractical and the normal
+  approximation is the standard choice at this sample size.
+
+== 2. Melanoma subtypes among the lines with paired data =======
+  melanoma lines (non-uveal) in the matched file: 39
+  with both methylation and expression          : 39
+
+  subtype                                   n   %TPM>1 medianExp   maxExp  medianCore    core range
+  Melanoma                                 26     0.0%     0.019    0.879       0.526  0.157-0.827
+  Cutaneous Melanoma                       12     0.0%     0.016    0.153       0.625  0.444-0.861
+  Mucosal Melanoma of the Vulva/Vagina      1     0.0%     0.000    0.000       0.771  0.771-0.771
+
+  The subtype labels are DepMap Oncotree values. Lines labelled simply
+  'Melanoma' are of unstated site and are NOT assumed to be cutaneous.
+  No acral line appears here: none is present in the methylation panel.
+
+== 3. Nested models refitted on identical lines =================
+  Script 46 fitted M0 and M1 on 736 lines and M2 and M3 on 611, because
+  copy number is missing for some. A percentage retained computed across
+  models fitted on different samples confounds adjustment with sample
+  change. All four models are refitted here on the complete-case set.
+
+  RASSF9: lines with methylation + expression + lineage = 736
+         of those with usable copy number (complete case) = 611
+
+    model                                n       beta                 95% CI           p  retained
+    M0 unadjusted                      611     -1.456  [-1.749, -1.163]    6.56e-21      100%
+    M1 + lineage                       611     -1.241  [-1.560, -0.923]    8.66e-14       85%
+    M2 + log2 copy number              611     -1.456  [-1.749, -1.164]    5.19e-21      100%
+    M3 + lineage + log2 copy number    611     -1.234  [-1.551, -0.917]    9.91e-14       85%
+    all four models fitted on the same 611 lines
+    for reference, M0 on all 736 lines: beta = -1.384, p = 2.56e-24
+    (a difference between this and M0 above reflects the restriction to
+     lines with copy number, not any adjustment)
+
+  RASSF10: lines with methylation + expression + lineage = 736
+         of those with usable copy number (complete case) = 611
+
+    model                                n       beta                 95% CI           p  retained
+    M0 unadjusted                      611     -1.443  [-1.709, -1.177]    2.75e-24      100%
+    M1 + lineage                       611     -1.340  [-1.623, -1.058]    2.67e-19       93%
+    M2 + log2 copy number              611     -1.368  [-1.631, -1.105]    1.23e-22       95%
+    M3 + lineage + log2 copy number    611     -1.278  [-1.556, -1.000]    2.71e-18       89%
+    all four models fitted on the same 611 lines
+    for reference, M0 on all 736 lines: beta = -1.485, p = 1.96e-31
+    (a difference between this and M0 above reflects the restriction to
+     lines with copy number, not any adjustment)
+
+== 4. Changes required in the analysis note =====================
+  1. Methods: attribute the ~1e-36 floor to the NORMAL APPROXIMATION and
+     state the exact-test floor separately, with the reason the normal
+     approximation is used at this sample size.
+  2. Table 8: replace with the four models above, all on the same lines,
+     and report the all-lines M0 separately for reference.
+  3. Table 2 or Results 1: add the subtype breakdown of the 39 paired
+     lines from section 2.
+  4. Throughout: methylation-ASSOCIATED repression, not demonstrated
+     silencing; and state that whether promoter methylation constrains UV
+     inducibility is untested here.

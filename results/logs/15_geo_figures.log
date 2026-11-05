@@ -1,0 +1,55 @@
+GEO figures rebuild — 2026-10-07 17:50:42 
+
+
+== 0. Removing superseded figures ============================== 
+  removed 8 old figure file(s): 
+    geo_rassf10_nevus_vs_melanoma.pdf 
+    geo_rassf10_nevus_vs_melanoma.png 
+    geo_rassf10_progression_gse4587.pdf 
+    geo_rassf10_progression_gse4587.png 
+    geo_rassf9_nevus_vs_melanoma.pdf 
+    geo_rassf9_nevus_vs_melanoma.png 
+    geo_rassf9_progression_gse4587.pdf 
+    geo_rassf9_progression_gse4587.png 
+  removed 4 old per-gene table(s) 
+
+== 1. Inputs =================================================== 
+  nevus/melanoma values: 158 samples 
+  nevus/melanoma tests:  3 rows 
+  GSE4587 values:        54 rows 
+
+== 4. Nevus vs melanoma ======================================== 
+  wrote: geo_rassf9_nevus_vs_melanoma.{pdf,png}  (183 x 78 mm) 
+  wrote: geo_rassf10_nevus_vs_melanoma.{pdf,png}  (183 x 78 mm) 
+
+== 5. GSE4587 progression series =============================== 
+  wrote: geo_rassf9_progression_gse4587.{pdf,png}  (140 x 150 mm) 
+  wrote: geo_rassf10_progression_gse4587.{pdf,png}  (140 x 85 mm) 
+
+== 6. What is now in figures/geo =============================== 
+  geo_rassf10_nevus_vs_melanoma.pdf 
+  geo_rassf10_nevus_vs_melanoma.png 
+  geo_rassf10_progression_gse4587.pdf 
+  geo_rassf10_progression_gse4587.png 
+  geo_rassf9_nevus_vs_melanoma.pdf 
+  geo_rassf9_nevus_vs_melanoma.png 
+  geo_rassf9_progression_gse4587.pdf 
+  geo_rassf9_progression_gse4587.png 
+
+  per-gene tables in results/geo: 
+  table_geo_rassf10_nevus_vs_melanoma.csv 
+  table_geo_rassf10_progression_gse4587.csv 
+  table_geo_rassf9_nevus_vs_melanoma.csv 
+  table_geo_rassf9_progression_gse4587.csv 
+
+  Every figure covers ONE gene, so either can become a main or a 
+  supplementary figure without rework. 
+
+  NOTE: the TCGA figures (scripts 04-10) still carry the previous 
+  palette. Re-run those scripts to pick up the validated colours and 
+  keep one house style across the paper. 
+  1 warning(s), 1 unique: 
+    - [1m[22mThe `fatten` argument of `geom_crossbar()` is deprecated as of ggplot2 4.0.0.
+[36mℹ[39m Please use the `middle.linewidth` argument instead. 
+
+Full log: E:/RASSF9 Project/results/logs/15_geo_figures.log 

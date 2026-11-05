@@ -1,0 +1,19 @@
+patient,visium_id,sex,age,site,breslow_mm,stage,site_grouped
+1,B1,Male,48,mid back,3.1,"T3aN0M0, Stage IIA",back
+2,A2,Female,49,shoulder,0.4,"T1aN0M0, Stage IA",shoulder
+3,D3,Female,41,"face, jaw",0.7,"T1aN0M0, Stage IA",face
+4,B4,Male,72,upper back,2,"T2aN0M0, Stage IB",back
+7,A7,Female,31,lower back,0.9,"T1bN0M0, Stage IA",back
+8,B8,Male,62,mid back,0.6,"T1aN0M0, Stage IA",back
+13,B13,Female,38,"face, temporal",3,"T3bN3cM0, Stage IIIC",face
+14,B14,Female,47,upper arm,0.9,"T1bN0M0, Stage IA",upper arm
+15,B15,Female,53,back,1.1,"T2aN0M0, Stage IB",back
+16,A16,Female,72,shoulder,1.2,"T2aN0M0, Stage IB",shoulder
+17,A17,Female,36,"face, cheek",1.1,"T2aN0M0, Stage IB",face
+20,D20,Male,43,abdomen,1,"T1bN0M0, Stage IA",abdomen
+21,A21,Female,40,lower back,1.3,"T2aN0M0, Stage IB",back
+22,A22,Male,48,lower back,1.5,"T2aN0M0, Stage IB",back
+23,A23,Male,37,shoulder,0.9,"T1bN0M0, Stage IA",shoulder
+24,A24,Male,71,upper arm,2.4,"T3aN0M0, Stage IIA",upper arm
+34,A34,Female,17,"face, temporal",0.9,"T1bN0M0, Stage IA",face
+38,B38,Male,47,"face, jaw",0.7,"T1aN0M0, Stage IA",face

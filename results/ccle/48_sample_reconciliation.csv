@@ -1,0 +1,15 @@
+n,label,where
+2554,"DepMap models, all",Model.csv
+154,Melanoma models in DepMap (any subtype),Table 2; Oncotree primary disease contains 'melanoma'
+129,Melanoma models with expression,Table 2
+113,"Melanoma models with expression, non-uveal","Tables 2, 3; the expression-gate denominator"
+16,Uveal melanoma models with expression,Table 2; excluded from all primary analyses
+56,"Melanoma lines with HM450 methylation, non-uveal","Tables 2, 5, 6, 7; the methylation denominator"
+39,Melanoma lines with BOTH methylation and expression,"Tables 2, 10; Figure 5; the only set where both exist"
+1028,Cell lines in GSE68379,Table 1
+996,GSE68379 lines matched to a DepMap lineage,Script 45 section 2
+940,Non-melanoma lines WITH a lineage (script 45 baseline),Table 6 comparison group
+972,"Non-melanoma columns, lineage not required (script 44b baseline)",Table 5 'other lineages' column
+741,"Lines with methylation AND expression, all lineages","Tables 8, 9; Figure 4"
+736,"As above, retained in the lineage-adjusted model",Table 9 rows M0 and M1
+611,"As above, also having copy number",Table 9 rows M2 and M3

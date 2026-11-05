@@ -1,0 +1,41 @@
+TCGA-SKCM expression download — 2026-10-02 12:21:19 
+
+
+== 1. Checking for existing download =========================== 
+
+== 2. Querying the GDC ========================================= 
+Project:       TCGA-SKCM 
+Data category: Transcriptome Profiling 
+Data type:     Gene Expression Quantification 
+Workflow:      STAR - Counts 
+Files matched: 473 
+
+== 3. Downloading ============================================== 
+This is the slow step. Progress is printed by TCGAbiolinks below. 
+
+== 4. Preparing SummarizedExperiment =========================== 
+Saved: E:/RASSF9 Project/data/raw/skcm_star_counts.rds 
+
+== 5. Contents ================================================= 
+Genes:   60660 
+Samples: 473 
+Assays:  unstranded, stranded_first, stranded_second, tpm_unstrand, fpkm_unstrand, fpkm_uq_unstrand 
+[ ok ] tpm_unstrand assay present (used for expression). 
+
+Sample types: 
+           sample_type   n
+ Additional Metastatic   1
+            Metastatic 368
+         Primary Tumor 103
+   Solid Tissue Normal   1
+
+Gene symbol column: gene_name 
+  [ ok ] RASSF9 found (1 row): ENSG00000198774.5 
+  [ ok ] RASSF10 found (1 row): ENSG00000189431.8 
+
+Patients with more than one RNA-seq sample: 4 
+  These need a documented rule in script 03 (e.g. keep the primary tumour, or the first barcode). 
+
+== DONE ======================================================== 
+Next: script 03 builds the analysis cohort by matching this expression data to data/processed/skcm_uv_proxies.csv 
+Full log: E:/RASSF9 Project/results/logs/02_download.log 

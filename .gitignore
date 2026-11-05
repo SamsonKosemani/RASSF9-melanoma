@@ -1,0 +1,15 @@
+﻿# raw data and heavy intermediates are never committed
+data/raw/
+data/processed/*.rds
+*.rds
+*.RData
+*.gz
+*.tar
+*.mtx
+*.idat
+
+# R workspace cruft
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj

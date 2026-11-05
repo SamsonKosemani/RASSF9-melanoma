@@ -1,0 +1,269 @@
+GEO inventory — 2026-10-05 11:44:51 
+
+
+== GSE112509 =================================================== 
+  title:    RNA-seq analysis identifies different transcriptomic types and developmental trajectories of primary melanomas 
+  platform: GPL11154 
+  samples:  80 
+  features: 0 
+
+  candidate grouping columns: 
+    title                            80 distinct value(s) 
+        LE.063.SP.064_N 
+        LE.117.RB.118_N 
+        FKH.021.022_N 
+        LE.081.TR.082_N 
+        BO.001.SH.002_N 
+        LE.047.LF.048_N 
+        LE.061.TM.062_N 
+        LE.037.RG.038_N 
+        ... and 72 more 
+    characteristics_ch1              2 distinct value(s) 
+        tissue: benign melanocytic nevi 
+        tissue: primary melanoma 
+    characteristics_ch1.1            4 distinct value(s) 
+        group: Naevi_1 
+        group: Mel_1 
+        group: Naevi_2 
+        group: Mel_2 
+    characteristics_ch1.2            4 distinct value(s) 
+        nevus type: dermal 
+        nevus type: compound 
+        melanoma on nevus: yes 
+        melanoma on nevus: no 
+    characteristics_ch1.3            3 distinct value(s) 
+        braf mutation: mut 
+        braf mutation: wt 
+        braf mutation: n.a. 
+    characteristics_ch1.4            3 distinct value(s) 
+        nras mutation: wt 
+        nras mutation: mut 
+        nras mutation: n.a. 
+
+  sample titles (first 20): 
+    LE.063.SP.064_N 
+    LE.117.RB.118_N 
+    FKH.021.022_N 
+    LE.081.TR.082_N 
+    BO.001.SH.002_N 
+    LE.047.LF.048_N 
+    LE.061.TM.062_N 
+    LE.037.RG.038_N 
+    LE.019.WP.020_N 
+    LE.029.SE.030_N 
+    X018_N 
+    LE.021.TH.022_N 
+    FKH.027.028_N 
+    PS_M 
+    LE.129.NG_M 
+    RH_M 
+    LE.117.RB_M 
+    LE.037.RG_M 
+    KO.679_M 
+    BO.003.AW_M 
+    ... and 60 more 
+
+  processed expression matrix via GEOquery: NO (supplementary files needed) 
+
+  no feature annotation returned; gene presence must be 
+  checked in the supplementary files instead. 
+
+  supplementary files: 
+    1 
+
+== GSE4587 ===================================================== 
+  title:    Whole-genome expression profiling of melanoma progression. 
+  platform: GPL570 
+  samples:  18 
+  features: 54675 
+
+  candidate grouping columns: 
+    title                            18 distinct value(s) 
+        NS1 
+        NS2 
+        BN1 
+        BN2 
+        AN1 
+        AN2 
+        in situ 1 
+        in situ 2 
+        ... and 10 more 
+    source_name_ch1                  10 distinct value(s) 
+        normal skin 
+        benign nevi 
+        atypical nevi 
+        melanoma in situ 
+        VGP melanoma 
+        MGP melanoma 
+        lymph node metastasis 
+        metastatic melanoma culture 
+        ... and 2 more 
+    characteristics_ch1              2 distinct value(s) 
+        Gender: female 
+        Gender: male 
+    characteristics_ch1.1            14 distinct value(s) 
+        Age: 62 
+        Age: 25 
+        Age: 37 
+        Age: 35 
+        Age: 74 
+        Age: 51 
+        Age: 46 
+        Age: 75 
+        ... and 6 more 
+    characteristics_ch1.2            16 distinct value(s) 
+        Source: skin, hip 
+        Source: skin, left thigh 
+        Source: skin, left leg 
+        Source: skin, right scapula 
+        Source: skin, left flank 
+        Source: skin, abdomen 
+        Source: skin, left ear 
+        Source: skin, neck 
+        ... and 8 more 
+    Source tissue:ch1                3 distinct value(s) 
+        NA 
+        lymph node of the scalp/neck 
+        foreskin 
+    Source:ch1                       16 distinct value(s) 
+        skin, hip 
+        skin, left thigh 
+        skin, left leg 
+        skin, right scapula 
+        skin, left flank 
+        skin, abdomen 
+        skin, left ear 
+        skin, neck 
+        ... and 8 more 
+
+  sample titles (first 20): 
+    NS1 
+    NS2 
+    BN1 
+    BN2 
+    AN1 
+    AN2 
+    in situ 1 
+    in situ 2 
+    VGP1 
+    VGP2 
+    MGP1 
+    MGP2 
+    LN1 
+    LN2 
+    LN3 
+    cultured MGP melanoma cells 
+    Mel 
+    Ker 
+
+  processed expression matrix via GEOquery: YES 
+    range 0.00 to 15690.90, 0.0% missing 
+
+  feature annotation columns: ID, GB_ACC, SPOT_ID, Species Scientific Name, Annotation Date, Sequence Type, Sequence Source, Target Description, Representative Public ID, Gene Title, Gene Symbol, ENTREZ_GENE_ID 
+    [ ok ] RASSF9   2 probe(s)/feature(s): 210335_at, 241470_x_at 
+    [ ok ] RASSF10  1 probe(s)/feature(s): 238755_at 
+
+== GSE109245 =================================================== 
+  title:    Next Generation Sequencing of Transcriptomes of Cutaneous Melanocytes and Metastatic Melanoma Cell Lines (mRNA-Seq) 
+  platform: GPL16791 
+  samples:  6 
+  features: 0 
+
+  candidate grouping columns: 
+    title                            6 distinct value(s) 
+        MRA2  mRNA-seq 
+        MRA4 mRNA-seq 
+        MRA5 mRNA-seq 
+        MRA6 mRNA-seq 
+        MRA9 mRNA-seq 
+        Melanocyte in F10 Media mRNA-seq 
+    source_name_ch1                  2 distinct value(s) 
+        Metastatic tumor 
+        Human neonatal foreskin 
+    characteristics_ch1              2 distinct value(s) 
+        tissue: Metastatic tumor 
+        tissue: Human neonatal foreskin 
+    characteristics_ch1.1            4 distinct value(s) 
+        genotype: WT BRAF/ WT NRAS 
+        genotype: BRAF(V600E)/WT NRAS 
+        genotype: WT BRAF/ NRAS(Q61K) 
+        genotype: WT BRAF/WT NRAS 
+    genotype:ch1                     4 distinct value(s) 
+        WT BRAF/ WT NRAS 
+        BRAF(V600E)/WT NRAS 
+        WT BRAF/ NRAS(Q61K) 
+        WT BRAF/WT NRAS 
+    tissue:ch1                       2 distinct value(s) 
+        Metastatic tumor 
+        Human neonatal foreskin 
+
+  sample titles (first 20): 
+    MRA2  mRNA-seq 
+    MRA4 mRNA-seq 
+    MRA5 mRNA-seq 
+    MRA6 mRNA-seq 
+    MRA9 mRNA-seq 
+    Melanocyte in F10 Media mRNA-seq 
+
+  processed expression matrix via GEOquery: NO (supplementary files needed) 
+
+  no feature annotation returned; gene presence must be 
+  checked in the supplementary files instead. 
+
+  supplementary files: 
+    1 
+    2 
+
+== GSE230574 =================================================== 
+  title:    Gene expression profile at single cell level of human melanoma cell lines, normal human melanocytes and human nevus cells. 
+  platform: GPL24676 
+  samples:  2 
+  features: 0 
+
+  candidate grouping columns: 
+    title                            2 distinct value(s) 
+        19145X1 Nevus 
+        19145X2 Cultured melanomas and melanocytes 
+    source_name_ch1                  2 distinct value(s) 
+        nevus 
+        melanoma 
+    characteristics_ch1              2 distinct value(s) 
+        cell type: Primary human nevus cells 
+        cell type: Human melanoma and melanocyte cell lines 
+    characteristics_ch1.1            2 distinct value(s) 
+        tissue: nevus 
+        tissue: melanoma 
+    characteristics_ch1.2            2 distinct value(s) 
+         
+        strain: 624Mel, A375, WM793, 1205Lu 
+    cell type:ch1                    2 distinct value(s) 
+        Primary human nevus cells 
+        Human melanoma and melanocyte cell lines 
+
+  sample titles (first 20): 
+    19145X1 Nevus 
+    19145X2 Cultured melanomas and melanocytes 
+
+  processed expression matrix via GEOquery: NO (supplementary files needed) 
+
+  no feature annotation returned; gene presence must be 
+  checked in the supplementary files instead. 
+
+  supplementary files: 
+    1 
+
+== SUMMARY ===================================================== 
+    series status platform n_samples expr_matrix rassf9 rassf10 note
+ GSE112509     ok GPL11154        80       FALSE  FALSE   FALSE     
+   GSE4587     ok   GPL570        18        TRUE   TRUE    TRUE     
+ GSE109245     ok GPL16791         6       FALSE  FALSE   FALSE     
+ GSE230574     ok GPL24676         2       FALSE  FALSE   FALSE     
+
+  Read the per-dataset sections above before the analysis is 
+  written. Three things decide what is feasible: 
+    1. whether both genes are on the platform at all 
+    2. how many samples per group (GSE4587 and GSE230574 are small) 
+    3. whether expression comes from GEOquery or supplementary files 
+  no warnings raised 
+
+Full log: E:/RASSF9 Project/results/logs/12_geo_inventory.log 

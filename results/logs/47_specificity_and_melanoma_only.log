@@ -1,0 +1,161 @@
+
+== 1. Inputs ===================================================
+  46_line_level_data.csv: 741 lines, 17 columns
+
+  strata relevant to the Skin confusion:
+    Melanoma (non-uveal)       39 lines
+    Uveal melanoma              0 lines
+    Skin (non-melanoma)         2 lines
+
+  Script 46 reported a 'Skin' lineage of n = 40. That pooled the two
+  groups above. Script 45's n = 3 referred to non-melanoma skin only.
+
+== 2. Specificity, signed ======================================
+  condition: core rho < 0 AND core is the MOST NEGATIVE of the three sets
+
+  RASSF9:
+    core     n =  741  rho = -0.383  p = 2.34e-27
+    shore    n =  741  rho = +0.520  p = 1.37e-52
+    distal   n =  741  rho = +0.291  p = 6.86e-16
+    core is the most negative set: TRUE
+    -> opposite signs across the island boundary: the shore inversion,
+       as in TCGA (core negative, shore positive). Confirmatory.
+
+  RASSF10:
+    core     n =  741  rho = -0.562  p = 5.44e-63
+    shore    n =  741  rho = -0.418  p = 1.22e-32
+    distal   n =  741  rho = +0.157  p = 1.76e-05
+    core is the most negative set: TRUE
+    -> shore runs in the same direction as the core, so this locus
+       does not show the island-shore inversion.
+
+
+== 3. Within-stratum correlations ==============================
+  as script 46 section 8, but with melanoma as its own stratum and
+  non-melanoma skin kept separate
+
+  RASSF9  (strata with n >= 15):
+    stratum                          n      rho          p       BH p     %det medianCore
+    Pancreas                        27   -0.679   9.97e-05   4.24e-04    44.4%      0.165
+    Ovary/Fallopian Tube            33   -0.635   7.14e-05   4.24e-04    39.4%      0.100
+    Melanoma (non-uveal)            39   -0.585   9.07e-05   4.24e-04     0.0%      0.572  <<<
+    Uterus                          16   -0.578   1.91e-02   4.63e-02    18.8%      0.142
+    Lung                           138   -0.505   2.63e-10   4.46e-09    19.6%      0.195
+    Head and Neck                   26   -0.476   1.50e-02   4.25e-02    61.5%      0.151
+    Breast                          46   -0.455   1.50e-03   5.09e-03    10.9%      0.159
+    Kidney                          17   -0.397   1.16e-01   2.46e-01    17.6%      0.207
+    Liver                           18   -0.369   1.32e-01   2.49e-01    44.4%      0.089
+    Peripheral Nervous System       22   -0.252   2.59e-01   3.67e-01     4.5%      0.580
+    Esophagus/Stomach               49   -0.186   2.02e-01   3.12e-01    34.7%      0.117
+    Bone                            21   -0.174   4.49e-01   5.87e-01    23.8%      0.230
+    Bladder/Urinary Tract           18   -0.139   5.80e-01   6.58e-01    16.7%      0.202
+    Lymphoid                        88   -0.139   1.98e-01   3.12e-01     0.0%      0.343
+    Bowel                           47   -0.087   5.59e-01   6.58e-01    12.8%      0.102
+    CNS/Brain                       41   -0.052   7.46e-01   7.93e-01    31.7%      0.120
+    Myeloid                         33   -0.022   9.03e-01   9.03e-01     3.0%      0.371
+    median rho -0.369 | negative in 17 of 17 (sign test p = 1.53e-05)
+    BH-significant and negative: 7
+    strata below n = 15 (not tested):
+      Soft Tissue                  12 lines | 0.0% detected | median core 0.266
+      Thyroid                      14 lines | 21.4% detected | median core 0.166
+      Prostate                      7 lines | 0.0% detected | median core 0.257
+      Pleura                        7 lines | 0.0% detected | median core 0.218
+      Cervix                       13 lines | 46.2% detected | median core 0.175
+      Fibroblast                    1 lines | 0.0% detected | median core 0.480
+      Biliary Tract                 3 lines | 33.3% detected | median core 0.140
+      Skin (non-melanoma)           2 lines | 50.0% detected | median core 0.146
+      Vulva/Vagina                  1 lines | 0.0% detected | median core 0.117
+      Adrenal Gland                 1 lines | 100.0% detected | median core 0.198
+      Testis                        1 lines | 0.0% detected | median core 0.505
+
+  RASSF10  (strata with n >= 15):
+    stratum                          n      rho          p       BH p     %det medianCore
+    Liver                           18   -0.764   2.22e-04   7.55e-04    11.1%      0.715
+    Bowel                           47   -0.727   7.35e-09   1.25e-07    38.3%      0.173
+    Pancreas                        27   -0.654   2.96e-04   8.40e-04    55.6%      0.130
+    Bladder/Urinary Tract           18   -0.651   4.29e-03   9.11e-03    38.9%      0.164
+    Esophagus/Stomach               49   -0.630   1.23e-06   6.98e-06    38.8%      0.102
+    Breast                          46   -0.584   2.02e-05   8.58e-05    13.0%      0.472
+    Kidney                          17   -0.543   2.44e-02   4.15e-02    23.5%      0.163
+    CNS/Brain                       41   -0.502   8.23e-04   2.00e-03     9.8%      0.407
+    Uterus                          16   -0.484   5.72e-02   8.84e-02     6.2%      0.724
+    Lung                           138   -0.421   2.67e-07   2.27e-06    37.7%      0.141
+    Ovary/Fallopian Tube            33   -0.274   1.22e-01   1.73e-01    39.4%      0.317
+    Lymphoid                        88   -0.259   1.48e-02   2.79e-02     4.5%      0.696
+    Head and Neck                   26   -0.257   2.05e-01   2.68e-01    61.5%      0.064
+    Peripheral Nervous System       22   -0.117   6.03e-01   6.41e-01     0.0%      0.079
+    Melanoma (non-uveal)            39   -0.093   5.74e-01   6.41e-01     2.6%      0.374  <<<
+    Myeloid                         33   -0.078   6.64e-01   6.64e-01     0.0%      0.371
+    Bone                            21    0.213   3.53e-01   4.28e-01     4.8%      0.151
+    median rho -0.484 | negative in 16 of 17 (sign test p = 0.000275)
+    BH-significant and negative: 10
+    strata below n = 15 (not tested):
+      Soft Tissue                  12 lines | 0.0% detected | median core 0.246
+      Thyroid                      14 lines | 14.3% detected | median core 0.353
+      Prostate                      7 lines | 42.9% detected | median core 0.376
+      Pleura                        7 lines | 0.0% detected | median core 0.249
+      Cervix                       13 lines | 46.2% detected | median core 0.163
+      Fibroblast                    1 lines | 0.0% detected | median core 0.206
+      Biliary Tract                 3 lines | 100.0% detected | median core 0.099
+      Skin (non-melanoma)           2 lines | 100.0% detected | median core 0.074
+      Vulva/Vagina                  1 lines | 0.0% detected | median core 0.063
+      Adrenal Gland                 1 lines | 0.0% detected | median core 0.359
+      Testis                        1 lines | 0.0% detected | median core 0.050
+
+== 4. Loading control genes =====================================
+  control genes loaded: ACTB, GAPDH, MYOD1, RASSF1, RASSF2, RASSF4
+
+== 5. Melanoma lines only ======================================
+  melanoma lines with methylation and expression: 39
+
+  RASSF9 expression in these lines, log2(TPM + 1):
+    min 0.0000 | Q1 0.0079 | median 0.0173 | Q3 0.0957 | p90 0.1940 | max 0.8795
+    at or above TPM 1: 0 of 39 (0.0%)
+    exactly zero: 6 | distinct values: 34
+
+  EVERY value below the TPM = 1 line is beneath the threshold scripts
+  42 and 43 used to declare expression untestable. Any correlation here
+  is a correlation among sub-threshold values.
+
+  RASSF9 core vs RASSF9 expression: rho = -0.585
+    permutation p (one-sided, 20000 permutations) = 5e-05
+    null distribution: mean +0.000, 5th pct -0.265
+
+  Control genes -- RASSF9 core methylation vs each gene's expression
+  in the same melanoma lines. These should NOT be strongly negative.
+    gene          n      rho     perm p medianExp     %det
+    ACTB         39   +0.029     0.5664    11.123   100.0%
+    GAPDH        39   -0.004     0.4906    12.617   100.0%
+    MYOD1        39   -0.130     0.2179     0.000     0.0%
+    RASSF1       39   -0.013     0.4721     4.312   100.0%
+    RASSF2       39   +0.232     0.9201     0.688    38.5%
+    RASSF4       39   -0.276     0.0452     1.783    87.2%
+
+== 6. Verdict, melanoma-only question ==========================
+  SUGGESTIVE    rho < 0, permutation p < 0.05, and no control gene
+                reaches a similar negative correlation
+  UNINFORMATIVE otherwise
+
+  VERDICT: SUGGESTIVE
+    direction negative        : TRUE
+    permutation p < 0.05      : TRUE (p = 5e-05)
+    no control gene as strong : TRUE (most negative control rho -0.276)
+
+  Either way this is NOT a demonstration of a methylation-expression
+  relationship within melanoma cells. The expression values are all
+  below the detection threshold. At best it hints that the pan-cancer
+  relationship persists below that floor; at worst it is tie-structure
+  noise. It belongs in a supplementary note, not a main claim.
+
+== 7. Figure ===================================================
+  wrote: 47_rassf9_melanoma_only.png
+
+== 8. What this changes about script 46 ========================
+  1. The specificity condition in 46 was unsigned and mislabelled RASSF9
+     as COMPOSITION. On the signed test the core is the most negative set
+     and the shore runs the other way, reproducing the TCGA inversion.
+     Quote this script's specificity table, not 46's verdict line.
+  2. 46's 'Skin' lineage row pooled melanoma with non-melanoma skin and
+     should not be cited. Use section 3 here instead.
+  3. The melanoma-only correlation is reported with a permutation test
+     and control genes, and remains supplementary whatever its verdict.

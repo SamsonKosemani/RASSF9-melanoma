@@ -1,0 +1,138 @@
+Stromal adjustment — 2026-10-07 20:45:44 
+
+
+== 1. Marker gene annotation =================================== 
+  markers requested: 28 
+  mapped to Ensembl: 28 
+
+== 2. Cohorts ================================================== 
+  GSE112509: 57820 genes x 80 samples 
+  GSE98394:  24505 genes x 78 samples (log2 CPM from the counts file) 
+  GSE98394 id column: title (matches 78 of 78) 
+
+== 3. Composition scores ======================================= 
+
+  GSE112509 
+    Melanocytic   7 of 7 panel genes 
+    Fibroblast    6 of 6 panel genes 
+    Keratinocyte  5 of 5 panel genes 
+    Immune        6 of 6 panel genes 
+    Endothelial   3 of 4 panel genes 
+
+  GSE98394 
+    Melanocytic   7 of 7 panel genes 
+    Fibroblast    6 of 6 panel genes 
+    Keratinocyte  5 of 5 panel genes 
+    Immune        6 of 6 panel genes 
+    Endothelial   3 of 4 panel genes 
+
+  wrote: results/geo/stromal_scores.csv 
+
+== 4. Condition 1 -- composition differs by group? ============= 
+
+  GSE112509 
+    panel             nevus  melanoma        d          p 
+    Melanocytic       0.136    -0.055    -0.25      0.566 
+    Fibroblast       -0.124     0.050     0.22      0.264 
+    Keratinocyte      0.116    -0.047    -0.18      0.766 
+    Immune           -0.332     0.134     0.60      0.010 
+    Endothelial       0.332    -0.134    -0.52      0.041 
+
+  GSE98394 
+    panel             nevus  melanoma        d          p 
+    Melanocytic       0.082    -0.043    -0.19      0.698 
+    Fibroblast       -0.667     0.353     1.47   9.53e-08 
+    Keratinocyte      0.088    -0.046    -0.16      0.578 
+    Immune           -0.657     0.348     1.77   1.88e-09 
+    Endothelial      -0.941     0.498     2.22   7.43e-11 
+ 
+  CONDITION 1 HOLDS: stromal content differs by group in 5 of 6 panel-cohort tests. 
+  Composition is therefore a live confounder and adjustment is 
+  warranted. 
+
+== 5. Condition 2 -- gene tracks stroma within group? ========== 
+  dataset     gene      group         n      rho          p 
+  GSE112509   RASSF9    Nevus        23    0.709   2.23e-04 
+  GSE112509   RASSF9    Melanoma     57    0.527   3.29e-05 
+  GSE112509   RASSF10   Nevus        23   -0.111      0.614 
+  GSE112509   RASSF10   Melanoma     57    0.160      0.233 
+  GSE98394    RASSF9    Nevus        27    0.302      0.126 
+  GSE98394    RASSF9    Melanoma     51    0.372      0.008 
+ 
+  Spearman against the fibroblast score, computed WITHIN group so the 
+  group difference itself cannot generate it. 
+
+== 6. Group effect before and after adjustment ================= 
+
+  GSE112509 / RASSF9 
+    model                                n      beta             95% CI          p    adjR2 
+    unadjusted                          80    -1.158  [ -1.800,  -0.515]   5.82e-04    0.131 
+    adjusted (stroma)                   80    -0.601  [ -1.131,  -0.071]      0.027    0.573 
+    adjusted (stroma + melanocytic)     80    -0.609  [ -1.149,  -0.069]      0.028    0.567 
+    the group coefficient shrinks by 48% on adjustment 
+    -> the group effect SURVIVES adjustment, same direction. 
+
+  GSE112509 / RASSF10 
+    model                                n      beta             95% CI          p    adjR2 
+    unadjusted                          80    -1.190  [ -2.011,  -0.370]      0.005    0.085 
+    adjusted (stroma)                   80    -0.116  [ -0.933,   0.700]      0.777    0.346 
+    adjusted (stroma + melanocytic)     80    -0.141  [ -0.972,   0.691]      0.737    0.338 
+    the group coefficient shrinks by 90% on adjustment 
+    -> the group effect does NOT survive. Composition is a 
+       sufficient explanation for this cohort. 
+
+  GSE98394 / RASSF9 
+    model                                n      beta             95% CI          p    adjR2 
+    unadjusted                          78    -0.776  [ -1.126,  -0.426]   3.31e-05    0.194 
+    adjusted (stroma)                   78    -1.462  [ -1.935,  -0.989]   3.57e-08    0.382 
+    adjusted (stroma + melanocytic)     78    -1.404  [ -1.826,  -0.982]   5.17e-09    0.510 
+    the group coefficient shrinks by -88% on adjustment 
+    -> the group effect SURVIVES adjustment, same direction. 
+
+  wrote: results/geo/stromal_adjustment_models.csv 
+
+== 7. Caliper-matched subset (model-free) ====================== 
+
+  GSE112509 
+    per-panel SMD before matching: 
+      Fibroblast    +0.218 
+      Endothelial   -0.496 
+      Immune        +0.623 
+    caliper 0.330 on the linear propensity -> 18 pairs (36 of 80 samples) 
+    per-panel SMD after matching: 
+      Fibroblast    +0.156   <- imbalanced 
+      Endothelial   +0.129   <- imbalanced 
+      Immune        +0.122   <- imbalanced 
+    worst panel |SMD| = 0.156  [STILL IMBALANCED] 
+    [FLAG] at least one panel is still imbalanced, so the test 
+           below controls for less than it appears to. Treat it 
+           as suggestive and rely on section 6. 
+    RASSF9    d = -0.395, p = 0.339 
+    RASSF10   d =  0.209, p = 0.501 
+
+  GSE98394 
+    per-panel SMD before matching: 
+      Fibroblast    +1.514 
+      Endothelial   +2.255 
+      Immune        +1.929 
+    caliper 0.801 on the linear propensity -> 9 pairs (18 of 78 samples) 
+    per-panel SMD after matching: 
+      Fibroblast    +0.257   <- imbalanced 
+      Endothelial   +0.144   <- imbalanced 
+      Immune        +0.582   <- imbalanced 
+    worst panel |SMD| = 0.582  [STILL IMBALANCED] 
+    [FLAG] at least one panel is still imbalanced, so the test 
+           below controls for less than it appears to. Treat it 
+           as suggestive and rely on section 6. 
+    [FLAG] only 9 pairs; underpowered, and the 
+           retained samples are a selected tail of the larger 
+           group rather than a representative subset. 
+    RASSF9    d = -2.750, p = 1.65e-04 
+    RASSF10: not available in this cohort 
+
+  wrote: results/geo/stromal_matched_subset.csv and _balance.csv 
+
+== 8. Figures ================================================== 
+  wrote: geo_rassf9_stromal_adjustment.{pdf,png,svg} 
+  wrote: geo_rassf10_stromal_adjustment.{pdf,png,svg} 
+  no warnings raised 

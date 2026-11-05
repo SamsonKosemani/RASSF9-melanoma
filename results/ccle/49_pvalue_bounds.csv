@@ -1,0 +1,3 @@
+method,n1,n2,statistic,log10_floor
+Normal approximation (used),56,940,max |z| = 12.585,-35.5943933662848
+Exact Mann-Whitney (not used),56,940,"choose(996,56) = 1e92.4",-92.0652925435935

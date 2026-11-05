@@ -1,0 +1,162 @@
+RASSF9 methylation specificity — 2026-10-16 14:56:21 
+
+  seed: 20261016 | global index probes: 20000 | null probes: 2000 
+
+== 1. Expression =============================================== 
+  expression patients: 469 
+
+== 2. Methylation ============================================== 
+  probes on array: 485577 | samples: 475 
+  RASSF9: 12 probes, 7 promoter, 5 TSS-proximal 
+  RASSF10: 39 probes, 11 promoter, 9 TSS-proximal 
+  pool for index/null (loci +/-1 Mb removed): 485181 
+  global methylation index: median 0.484, range 0.337-0.588 
+  matched patients: 469 | with CPE: 411 
+
+== 3. The confound's own premises ============================== 
+  For the purity explanation to work, three things must hold: 
+    (a) purity correlates NEGATIVELY with RASSF9 expression 
+    (b) purity correlates POSITIVELY with global methylation 
+    (c) global methylation correlates negatively with expression 
+  If any fails, the confound cannot generate the observed pattern. 
+ 
+    (a) CPE purity vs RASSF9 expression            n = 411  rho = -0.204  p = 3.05e-05 
+    (a) CPE purity vs RASSF10 expression           n = 411  rho = +0.075  p = 0.130 
+    (b) CPE purity vs global methylation           n = 411  rho = -0.033  p = 0.510 
+    (c) global methylation vs RASSF9 expression    n = 469  rho = -0.030  p = 0.523 
+    (c) global methylation vs RASSF10 expression   n = 469  rho = -0.032  p = 0.488 
+
+== 4. Does the promoter effect survive adjustment? ============= 
+ 
+  RASSF9 / promoter: 
+    M0 unadjusted                  n = 469  beta = -1.352 [-1.716, -0.988]  p = 1.24e-12   100% retained 
+    M1 + sample type               n = 469  beta = -1.291 [-1.658, -0.924]  p = 1.57e-11    95% retained 
+    M2 + global methylation        n = 469  beta = -1.757 [-2.173, -1.341]  p = 1.15e-15   130% retained 
+    M3 + global + sample type      n = 469  beta = -1.684 [-2.104, -1.264]  p = 2.43e-14   125% retained 
+    M4 + global + type + purity    n = 411  beta = -1.826 [-2.334, -1.318]  p = 6.95e-12   135% retained 
+ 
+  RASSF9 / tss_proximal: 
+    M0 unadjusted                  n = 469  beta = -1.266 [-1.532, -1.000]  p = < 2.2e-16  100% retained 
+    M1 + sample type               n = 469  beta = -1.224 [-1.491, -0.956]  p = < 2.2e-16   97% retained 
+    M2 + global methylation        n = 469  beta = -1.556 [-1.849, -1.262]  p = < 2.2e-16  123% retained 
+    M3 + global + sample type      n = 469  beta = -1.511 [-1.806, -1.215]  p = < 2.2e-16  119% retained 
+    M4 + global + type + purity    n = 411  beta = -1.568 [-1.904, -1.232]  p = < 2.2e-16  124% retained 
+ 
+  RASSF9 / distal: 
+    M0 unadjusted                  n = 469  beta = -0.667 [-1.030, -0.305]  p = 3.27e-04   100% retained 
+    M1 + sample type               n = 469  beta = -0.646 [-1.006, -0.287]  p = 4.54e-04    97% retained 
+    M2 + global methylation        n = 469  beta = -0.953 [-1.402, -0.504]  p = 3.61e-05   143% retained 
+    M3 + global + sample type      n = 469  beta = -0.937 [-1.384, -0.490]  p = 4.47e-05   140% retained 
+    M4 + global + type + purity    n = 411  beta = -0.680 [-1.165, -0.195]  p = 0.006      102% retained 
+ 
+  RASSF10 / promoter: 
+    M0 unadjusted                  n = 469  beta = -1.029 [-1.507, -0.551]  p = 2.81e-05   100% retained 
+    M1 + sample type               n = 469  beta = -1.012 [-1.476, -0.547]  p = 2.31e-05    98% retained 
+    M2 + global methylation        n = 469  beta = -1.352 [-1.902, -0.803]  p = 1.81e-06   131% retained 
+    M3 + global + sample type      n = 469  beta = -1.291 [-1.827, -0.756]  p = 2.84e-06   125% retained 
+    M4 + global + type + purity    n = 411  beta = -1.471 [-2.084, -0.858]  p = 3.31e-06   143% retained 
+ 
+  RASSF10 / tss_proximal: 
+    M0 unadjusted                  n = 469  beta = -0.950 [-1.388, -0.512]  p = 2.42e-05   100% retained 
+    M1 + sample type               n = 469  beta = -0.921 [-1.347, -0.495]  p = 2.63e-05    97% retained 
+    M2 + global methylation        n = 469  beta = -1.199 [-1.692, -0.705]  p = 2.43e-06   126% retained 
+    M3 + global + sample type      n = 469  beta = -1.131 [-1.612, -0.650]  p = 4.99e-06   119% retained 
+    M4 + global + type + purity    n = 411  beta = -1.230 [-1.770, -0.689]  p = 9.93e-06   129% retained 
+ 
+  RASSF10 / distal: 
+    M0 unadjusted                  n = 469  beta = -0.023 [-0.999, +0.953]  p = 0.963        n/a (baseline ~ 0) 
+    M1 + sample type               n = 469  beta = -0.133 [-1.082, +0.817]  p = 0.784        n/a (baseline ~ 0) 
+    M2 + global methylation        n = 469  beta = +0.023 [-1.206, +1.252]  p = 0.970        n/a (baseline ~ 0) 
+    M3 + global + sample type      n = 469  beta = -0.039 [-1.235, +1.156]  p = 0.949        n/a (baseline ~ 0) 
+    M4 + global + type + purity    n = 411  beta = -1.115 [-2.690, +0.460]  p = 0.165        n/a (baseline ~ 0) 
+
+== 5. Empirical null: 2,000 random probes genome-wide ========== 
+  A locus-specific effect puts RASSF9's own promoter probes in the 
+  extreme tail of this distribution. A sample-level property puts 
+  them in the bulk, because then any probe would do as well. 
+ 
+  RASSF9 null: n = 1729 probes, median rho -0.011, 5%ile -0.198, 10%ile -0.155 
+    probe          TSS dist set                rho null pctile 
+    cg06740227         +383 TSS-proximal    -0.294      0.81% 
+    cg02569458          +94 TSS-proximal    -0.395      0.12% 
+    cg00310523          +11 TSS-proximal    -0.429      0.00% 
+    cg25456477         -180 TSS-proximal    -0.485      0.00% 
+    cg27035734         -370 TSS-proximal    -0.368      0.29% 
+    cg19622623         -638 promoter        +0.136     91.32% 
+    cg18827107         -770 promoter        +0.135     91.09% 
+    cg03707749       -10274 distal          -0.080     25.27% 
+    cg08888956       -37652 distal          -0.152     10.29% 
+    cg18877737       -37694 distal          -0.118     16.08% 
+    cg04916911       -37967 distal          -0.155     10.01% 
+    cg11846905      -112093 distal          -0.214      3.88% 
+    -> 5 of 5 TSS-proximal probes fall in the extreme 5% tail 
+    -> 1 of 5 distal probes also fall in that tail 
+       (distal probes in the tail argue the locus matters; 
+        distal probes in the bulk argue only the promoter does) 
+ 
+  RASSF10 null: n = 1729 probes, median rho -0.014, 5%ile -0.174, 10%ile -0.135 
+    probe          TSS dist set                rho null pctile 
+    cg12399536      -145979 distal          -0.213      1.91% 
+    cg14665901      -145732 distal          -0.157      6.82% 
+    cg20445806      -138015 distal          +0.059     80.34% 
+    cg13845161      -129145 distal          +0.065     82.59% 
+    cg20233228      -127253 distal          -0.004     55.47% 
+    cg26770464      -119934 distal          -0.009     52.28% 
+    cg01482376      -117257 distal          +0.010     61.36% 
+    cg24517989      -115361 distal          -0.100     16.71% 
+    cg24506086      -108745 distal          +0.033     70.68% 
+    cg09711214      -106038 distal          +0.119     93.12% 
+    cg15805337       -94966 distal          -0.169      5.55% 
+    cg18525873       -86319 distal          +0.096     89.82% 
+    cg24442572       -69274 distal          +0.068     83.46% 
+    cg05059451       -19707 distal          +0.181     98.03% 
+    cg04755604       -19679 distal          +0.088     88.20% 
+    cg27075800       -19265 distal          +0.229     99.42% 
+    cg23548136        -3157 distal          +0.196     98.61% 
+    cg11518550        -1141 promoter        +0.022     65.88% 
+    cg08148891         -554 promoter        -0.003     55.87% 
+    cg19665644         -389 TSS-proximal    -0.093     18.74% 
+    cg20918243         -351 TSS-proximal    -0.077     23.77% 
+    cg09596429         -346 TSS-proximal    -0.019     47.89% 
+    cg05817758         -296 TSS-proximal    -0.243      0.46% 
+    cg08876434         -226 TSS-proximal    -0.287      0.06% 
+    cg25344734         -220 TSS-proximal    -0.205      2.26% 
+    cg26005578         -187 TSS-proximal    -0.189      3.53% 
+    cg05095158          +10 TSS-proximal    -0.233      0.93% 
+    cg22740547          +13 TSS-proximal    -0.221      1.45% 
+    cg07600636         +940 distal          +0.145     95.72% 
+    cg00326127        +1541 distal          +0.190     98.38% 
+    cg20098471        +1750 distal          +0.133     94.74% 
+    cg08161666        +4034 distal          -0.005     54.77% 
+    cg04844534       +43041 distal          -0.020     47.66% 
+    cg25068253       +93431 distal          -0.089     19.72% 
+    cg04137004      +109216 distal          +0.207     99.19% 
+    cg02452500      +131064 distal          -0.063     27.82% 
+    -> 6 of 9 TSS-proximal probes fall in the extreme 5% tail 
+    -> 1 of 25 distal probes also fall in that tail 
+       (distal probes in the tail argue the locus matters; 
+        distal probes in the bulk argue only the promoter does) 
+
+== 6. Verdict against the pre-set criterion ==================== 
+  PROMOTER-SPECIFIC = adjusted effect keeps >60% at p < 0.05 AND 
+                      TSS-proximal probes in the extreme 5% of the null 
+  GLOBAL CONFOUND   = keeps <60%, OR probes outside the 10% tail 
+  PARTIAL           = in between; unresolved, NOT support 
+ 
+  RASSF9: PROMOTER-SPECIFIC 
+    unadjusted beta -1.352 -> fully adjusted -1.826 (135% retained, p = 6.95e-12) 
+    TSS-proximal null percentiles: 0.81%, 0.12%, 0.00%, 0.00%, 0.29% 
+ 
+  RASSF10: GLOBAL CONFOUND NOT EXCLUDED 
+    unadjusted beta -1.029 -> fully adjusted -1.471 (143% retained, p = 3.31e-06) 
+    TSS-proximal null percentiles: 18.74%, 23.77%, 47.89%, 0.46%, 0.06%, 2.26%, 3.53%, 0.93%, 1.45% 
+ 
+  ASYMMETRY, stated so it cannot be read both ways later: the global 
+  index is itself partly driven by purity, so adjusting for it also 
+  removes real promoter signal. Surviving is therefore strong 
+  evidence; not surviving is failure to EXCLUDE the confound, not 
+  proof of one. 
+
+== 7. Figure =================================================== 
+  wrote: tcga_rassf9_specificity 
+  no warnings raised 

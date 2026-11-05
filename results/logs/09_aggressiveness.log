@@ -1,0 +1,85 @@
+Aggressiveness analysis — 2026-10-07 17:52:04 
+
+
+== 1. Clinical data ============================================ 
+  stage: 
+    using column: ajcc_pathologic_stage 
+  Breslow: 
+    using column: paper_CURATED_BRESLOW 
+  vital status: 
+    using column: vital_status 
+  days to death: 
+    using column: days_to_death 
+  days to last follow-up: 
+    using column: days_to_last_follow_up 
+
+  Cohort with clinical data: 320 
+  Stage available:   86 
+  Breslow available: 20 
+  Survival usable:   309 (127 deaths) 
+ stage   n
+     0   1
+     I   6
+    II  36
+   III  35
+    IV   8
+  <NA> 234
+
+== 2. Association tests (D15) ================================== 
+
+  RASSF9: 
+    A1 site     n=320  median diff (met - primary) = +0.098  p = 0.002 
+    A2 stage    n=86  KW p = 0.524   | monotone trend rho = +0.142, p = 0.191 
+    A3 Breslow  insufficient data (n = 20) 
+    A4 survival n=309 (125 deaths)  HR = 0.968 [0.731, 1.280]  p = 0.817 
+       adjusted (purity + site): HR = 1.054 [0.800, 1.388]  p = 0.708 
+    -> 1 of 3 tests significant after BH correction 
+
+  RASSF10: 
+    A1 site     n=320  median diff (met - primary) = -0.258  p = 3.18e-05 
+    A2 stage    n=86  KW p = 0.565   | monotone trend rho = -0.128, p = 0.240 
+    A3 Breslow  insufficient data (n = 20) 
+    A4 survival n=309 (125 deaths)  HR = 1.360 [1.077, 1.718]  p = 0.010 
+       adjusted (purity + site): HR = 1.263 [0.989, 1.613]  p = 0.061 
+    -> 2 of 3 tests significant after BH correction 
+
+== 3. Verdict ================================================== 
+  RASSF9: associated with 1 measure(s): 
+    - A1 tumour site (primary vs metastatic) (p.adj = 0.006) 
+  RASSF10: associated with 2 measure(s): 
+    - A1 tumour site (primary vs metastatic) (p.adj = 9.54e-05) 
+    - A4 overall survival (Cox, per log2 unit) (p.adj = 0.015) 
+
+  Reminder: tumour site is NOT a clean aggressiveness measure -- a  
+  metastatic sample indicates the disease metastasised, but the  
+  expression difference may reflect the tissue the lesion sits in  
+  rather than tumour behaviour. Stage, Breslow and survival are the  
+  measures that bear on aggressiveness directly. 
+
+== 4. Figures ================================================== 
+
+== 5. Results tables =========================================== 
+    gene                                     test   n statistic estimate
+  RASSF9   A1 tumour site (primary vs metastatic) 320  7245.500   0.0976
+  RASSF9           A2 AJCC stage (Kruskal-Wallis)  86     3.204   0.1423
+  RASSF9 A4 overall survival (Cox, per log2 unit) 309    -0.231   0.9676
+ RASSF10   A1 tumour site (primary vs metastatic) 320 12391.000  -0.2575
+ RASSF10           A2 AJCC stage (Kruskal-Wallis)  86     2.960  -0.1280
+ RASSF10 A4 overall survival (Cox, per log2 unit) 309     2.586   1.3603
+  p_value    p_adj
+ 2.04e-03 6.11e-03
+ 5.24e-01 7.86e-01
+ 8.17e-01 8.17e-01
+ 3.18e-05 9.54e-05
+ 5.65e-01 5.65e-01
+ 9.72e-03 1.46e-02
+
+== 6. Warnings ================================================= 
+  no warnings raised 
+
+== DONE ======================================================== 
+Figure 5 (main) : figures/figure5_rassf9_aggressiveness.* 
+Figure S5 (supp): figures/figureS5_rassf10_aggressiveness.* 
+
+Whatever this shows, it is now an analysis that exists and can be described accurately to Gustavo. 
+Full log: E:/RASSF9 Project/results/logs/09_aggressiveness.log 

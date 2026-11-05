@@ -1,0 +1,85 @@
+Correlation analysis — 2026-10-07 17:51:42 
+
+
+== 1. Cohort =================================================== 
+Cohort: n = 320 
+
+== 2. Correlation tests ======================================== 
+
+RASSF9: 
+  UV burden (SBS7)           Spearman  n=320  estimate=-0.120  p=0.033 
+  UV burden (SBS7), raw      Pearson   n=320  estimate=-0.032  p=0.570 
+  UV burden (SBS7), log10    Pearson   n=320  estimate=-0.081  p=0.150 
+  SBS7 fraction              Spearman  n=320  estimate=-0.121  p=0.030 
+  SBS7 fraction              Pearson   n=320  estimate=-0.098  p=0.079 
+  Total mutational burden    Spearman  n=320  estimate=-0.072  p=0.196 
+  Total burden, log10        Pearson   n=320  estimate=-0.061  p=0.280 
+
+RASSF10: 
+  UV burden (SBS7)           Spearman  n=320  estimate=-0.178  p=0.001 
+  UV burden (SBS7), raw      Pearson   n=320  estimate=-0.122  p=0.029 
+  UV burden (SBS7), log10    Pearson   n=320  estimate=-0.217  p=9.40e-05 
+  SBS7 fraction              Spearman  n=320  estimate=-0.068  p=0.228 
+  SBS7 fraction              Pearson   n=320  estimate=-0.086  p=0.126 
+  Total mutational burden    Spearman  n=320  estimate=-0.173  p=0.002 
+  Total burden, log10        Pearson   n=320  estimate=-0.218  p=8.41e-05 
+
+== 3. Why Spearman and Pearson differ ========================== 
+  RASSF9   Spearman rho = -0.120 (p=0.033) | Pearson on raw = -0.032 (p=0.570) | Pearson on log10 = -0.081 (p=0.150) 
+  RASSF10  Spearman rho = -0.178 (p=0.001) | Pearson on raw = -0.122 (p=0.029) | Pearson on log10 = -0.217 (p=9.40e-05) 
+
+  SBS7 spans three orders of magnitude (5 to 23,393). Pearson on the 
+  raw scale is dominated by a handful of hypermutated tumours and is 
+  therefore uninformative here; on the log scale it should align with 
+  Spearman. Report Spearman as primary and the log-scale Pearson as 
+  support; do not present the raw-scale Pearson as a contradiction. 
+
+== 4. Figures ================================================== 
+
+== 5. Results tables =========================================== 
+
+MAIN (RASSF9): 
+   gene               predictor      variable   method   n estimate conf_low
+ RASSF9        UV burden (SBS7)    SBS7_total Spearman 320  -0.1196       NA
+ RASSF9   UV burden (SBS7), raw    SBS7_total  Pearson 320  -0.0319   -0.141
+ RASSF9 UV burden (SBS7), log10    log10_SBS7  Pearson 320  -0.0806   -0.189
+ RASSF9           SBS7 fraction SBS7_fraction Spearman 320  -0.1213       NA
+ RASSF9           SBS7 fraction SBS7_fraction  Pearson 320  -0.0984   -0.206
+ RASSF9 Total mutational burden       TMB_sig Spearman 320  -0.0725       NA
+ RASSF9     Total burden, log10     log10_TMB  Pearson 320  -0.0605   -0.169
+ conf_high p_value
+        NA  0.0325
+    0.0780  0.5698
+    0.0293  0.1504
+        NA  0.0301
+    0.0113  0.0787
+        NA  0.1959
+    0.0494  0.2804
+
+SUPPLEMENTARY (RASSF10): 
+    gene               predictor      variable   method   n estimate conf_low
+ RASSF10        UV burden (SBS7)    SBS7_total Spearman 320  -0.1781       NA
+ RASSF10   UV burden (SBS7), raw    SBS7_total  Pearson 320  -0.1220   -0.229
+ RASSF10 UV burden (SBS7), log10    log10_SBS7  Pearson 320  -0.2166   -0.319
+ RASSF10           SBS7 fraction SBS7_fraction Spearman 320  -0.0675       NA
+ RASSF10           SBS7 fraction SBS7_fraction  Pearson 320  -0.0856   -0.193
+ RASSF10 Total mutational burden       TMB_sig Spearman 320  -0.1727       NA
+ RASSF10     Total burden, log10     log10_TMB  Pearson 320  -0.2180   -0.320
+ conf_high  p_value
+        NA 1.38e-03
+   -0.0125 2.92e-02
+   -0.1095 9.40e-05
+        NA 2.28e-01
+    0.0242 1.26e-01
+        NA 1.94e-03
+   -0.1110 8.41e-05
+
+== 6. Warnings ================================================= 
+  no warnings raised 
+
+== DONE ======================================================== 
+Figure 2 (main) : figures/figure2_rassf9_correlation.* 
+Figure S2 (supp): figures/figureS2_rassf10_correlation.* 
+
+Note: a correlation of this magnitude explains a few percent of variance at most. The adjusted model in script 06 is what decides how this is reported. 
+Full log: E:/RASSF9 Project/results/logs/05_correlation.log 

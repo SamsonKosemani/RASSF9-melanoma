@@ -1,0 +1,5 @@
+gene,reference,donors,higher,prop,p_wilcox,verdict
+RASSF9,Keratinocyte,17,17,1,1.52587890625e-5,DONOR-SUPPORTED
+RASSF9,Eccrine,3,3,1,NA,NOT SUPPORTED at the donor level
+RASSF10,Keratinocyte,17,16,0.9411764705882353,3.0517578125e-5,DONOR-SUPPORTED
+RASSF10,Eccrine,3,3,1,NA,NOT SUPPORTED at the donor level

@@ -1,0 +1,2 @@
+file,delimiter,n_header_fields,n_data_fields,field_offset,layout,probe_data_field,n_beta_fields,n_pval_fields,beta_data_first,beta_data_last,pval_data_first,pval_data_last
+GSE68379_Matrix.processed.txt.gz,TAB,2057,2058,1,paired_beta_pval,2,1028,1028,3,1030,1031,2058

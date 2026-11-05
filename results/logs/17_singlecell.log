@@ -1,0 +1,186 @@
+GSE230574 single cell — 2026-10-07 20:16:48 
+
+
+== 1. Unpack =================================================== 
+  archive: GSE230574_RAW.tar 
+  already extracted (4 files) -- reusing 
+  count matrices: 2 
+  tag call files: 2 
+
+== 2. Series metadata (tag meanings) =========================== 
+  GSM7226899: 19145X1 Nevus 
+      cell type: Primary human nevus cells 
+      tissue: nevus 
+  GSM7226900: 19145X2 Cultured melanomas and melanocytes 
+      cell type: Human melanoma and melanocyte cell lines 
+      tissue: melanoma 
+      strain: 624Mel, A375, WM793, 1205Lu 
+  overall design: 
+      Melanoma cell lines were grown in RPMI media supplemented with 10% 
+      FBS. NHMs were grown in 254 media supplemented with HGMS. Nevus 
+      cells were obtained by excising nevi and sorting for KIT positive 
+      cells using the protocol in PMID: 34475532 
+
+== 3. Sample tag calls ========================================= 
+  cells with a tag call: 80259 
+ 
+    GSM7226899_19145X1           Undetermined            22092 cells 
+    GSM7226899_19145X1           SampleTag01_hs           7674 cells 
+    GSM7226899_19145X1           SampleTag02_hs           6952 cells 
+    GSM7226899_19145X1           SampleTag03_hs           5138 cells 
+    GSM7226899_19145X1           SampleTag04_hs           3556 cells 
+    GSM7226899_19145X1           Multiplet                 120 cells 
+    GSM7226900_19145X2           Multiplet                4525 cells 
+    GSM7226900_19145X2           501Mel_Parental          3616 cells 
+    GSM7226900_19145X2           melanocytes              3159 cells 
+    GSM7226900_19145X2           501Mel_mcherry_off       3034 cells 
+    GSM7226900_19145X2           A375                     2962 cells 
+    GSM7226900_19145X2           melanocyte_CDKN2A        2899 cells 
+    GSM7226900_19145X2           1205Lu                   2731 cells 
+    GSM7226900_19145X2           501Mel_vemurafenib       2514 cells 
+    GSM7226900_19145X2           501Mel_mcherry_high      2445 cells 
+    GSM7226900_19145X2           WM793                    2247 cells 
+    GSM7226900_19145X2           501Mel_mcherry_low       2210 cells 
+    GSM7226900_19145X2           501Mel_CDKN2A            1958 cells 
+    GSM7226900_19145X2           Undetermined              427 cells 
+ 
+  dropping 27164 cells called Multiplet/Undetermined (33.8% of tagged cells) 
+  cells carried forward: 53095 
+
+== 4. Expression extraction ==================================== 
+  GSM7226899_19145X1 
+    columns: 27364 
+    found:  RASSF9, RASSF10, ACTB, GAPDH, MITF, PMEL, SOX10, TYR 
+      RASSF9   -> column 21314 (RASSF9) 
+      RASSF10  -> column 21305 (RASSF10) 
+      ACTB     -> column 4494 (ACTB) 
+      GAPDH    -> column 12802 (GAPDH) 
+      MITF     -> column 17619 (MITF) 
+      PMEL     -> column 20269 (PMEL) 
+      SOX10    -> column 23409 (SOX10) 
+      TYR      -> column 25683 (TYR) 
+    cells read: 45532 | median library size: 423 
+  GSM7226900_19145X2 
+    columns: 28990 
+    found:  RASSF9, RASSF10, ACTB, GAPDH, MITF, PMEL, SOX10, TYR 
+      RASSF9   -> column 22899 (RASSF9) 
+      RASSF10  -> column 22890 (RASSF10) 
+      ACTB     -> column 5149 (ACTB) 
+      GAPDH    -> column 13919 (GAPDH) 
+      MITF     -> column 19095 (MITF) 
+      PMEL     -> column 21836 (PMEL) 
+      SOX10    -> column 25008 (SOX10) 
+      TYR      -> column 27273 (TYR) 
+    cells read: 34727 | median library size: 15608 
+ 
+  cells with BOTH a tag call and counts: 53095 
+
+== 5a. Sequencing depth per tag ================================ 
+  run                        tag                   cells    med_lib   n_deep   %deep 
+  GSM7226899_19145X1         SampleTag02_hs         6952       4510     4918   70.7% 
+  GSM7226899_19145X1         SampleTag04_hs         3556       3046     2152   60.5% 
+  GSM7226899_19145X1         SampleTag01_hs         7674        271     2083   27.1% 
+  GSM7226899_19145X1         SampleTag03_hs         5138        254     1396   27.2% 
+  GSM7226900_19145X2         501Mel_vemurafenib     2514      18974     2514  100.0% 
+  GSM7226900_19145X2         501Mel_Parental        3616      18542     3616  100.0% 
+  GSM7226900_19145X2         A375                   2962      18072     2962  100.0% 
+  GSM7226900_19145X2         501Mel_mcherry_off     3034      17604     3034  100.0% 
+  GSM7226900_19145X2         501Mel_mcherry_high    2445      17224     2445  100.0% 
+  GSM7226900_19145X2         501Mel_mcherry_low     2210      16330     2210  100.0% 
+  GSM7226900_19145X2         501Mel_CDKN2A          1958      15864     1958  100.0% 
+  GSM7226900_19145X2         WM793                  2247      13285     2247  100.0% 
+  GSM7226900_19145X2         1205Lu                 2731      12468     2731  100.0% 
+  GSM7226900_19145X2         melanocyte_CDKN2A      2899       9117     2899  100.0% 
+  GSM7226900_19145X2         melanocytes            3159       7448     3159  100.0% 
+ 
+  A tag whose median library size is a few hundred molecules cannot 
+  support a claim that any particular gene is absent: most genes read 
+  zero at that depth. Such tags are reported but must not be used as 
+  evidence of absence. Depth floor for the sensitivity pass: 2000 molecules. 
+
+== 5b. Positive controls ======================================= 
+  percent of cells positive: 
+  run                        tag                      ACTB    GAPDH     MITF     PMEL    SOX10      TYR 
+  GSM7226899_19145X1         SampleTag01_hs          52.1%    31.4%    22.6%    11.9%    14.0%    17.5% 
+  GSM7226899_19145X1         SampleTag02_hs          85.0%    72.1%    38.5%     9.5%    28.3%    28.5% 
+  GSM7226899_19145X1         SampleTag03_hs          50.7%    31.1%    22.5%    11.3%    13.8%    15.8% 
+  GSM7226899_19145X1         SampleTag04_hs          82.1%    64.8%    23.2%    14.8%    15.7%    18.0% 
+  GSM7226900_19145X2         1205Lu                 100.0%    99.9%    48.3%    90.0%    73.8%    30.5% 
+  GSM7226900_19145X2         501Mel_CDKN2A           99.9%    99.4%    98.6%    99.2%    95.5%    90.1% 
+  GSM7226900_19145X2         501Mel_Parental        100.0%   100.0%    99.5%    99.8%    98.5%    97.2% 
+  GSM7226900_19145X2         501Mel_mcherry_high    100.0%    99.8%    98.3%    99.2%    95.1%    92.7% 
+  GSM7226900_19145X2         501Mel_mcherry_low      99.9%    99.8%    99.2%    99.7%    98.3%    92.3% 
+  GSM7226900_19145X2         501Mel_mcherry_off     100.0%    99.9%    99.5%    99.9%    98.4%    94.6% 
+  GSM7226900_19145X2         501Mel_vemurafenib     100.0%    99.7%    98.6%    99.8%    97.2%    96.4% 
+  GSM7226900_19145X2         A375                   100.0%   100.0%    56.9%    89.5%    91.4%    31.5% 
+  GSM7226900_19145X2         WM793                  100.0%   100.0%    55.8%    90.0%    96.1%    31.5% 
+  GSM7226900_19145X2         melanocyte_CDKN2A      100.0%    99.7%    97.2%   100.0%    99.2%    99.5% 
+  GSM7226900_19145X2         melanocytes            100.0%    99.6%    98.6%   100.0%    99.1%    99.7% 
+ 
+  CONTROLS PASS: ACTB is positive in >=80% of cells in every 
+  adequately sequenced tag (minimum 82.1%). The pipeline detects genes 
+  that are present, so a zero below is evidence of absence. 
+
+== 5c. Per-tag detection and level ============================= 
+ 
+  RASSF9 
+    run                        tag                   cells     %pos  mean_cpm   det %pos_dp  cpm_deep dp_ok 
+    GSM7226899_19145X1         SampleTag04_hs         3556     2.1%     0.069    no    3.2%     0.082   yes 
+    GSM7226899_19145X1         SampleTag02_hs         6952     0.4%     0.011    no    0.6%     0.013   yes 
+    GSM7226899_19145X1         SampleTag01_hs         7674     0.4%     0.037    no    1.2%     0.028    NO 
+    GSM7226899_19145X1         SampleTag03_hs         5138     0.4%     0.063    no    1.0%     0.027    NO 
+    GSM7226900_19145X2         melanocyte_CDKN2A      2899     0.1%     0.001    no    0.1%     0.001   yes 
+    GSM7226900_19145X2         501Mel_mcherry_high    2445     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         1205Lu                 2731     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         501Mel_CDKN2A          1958     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         501Mel_Parental        3616     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         501Mel_mcherry_low     2210     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         501Mel_mcherry_off     3034     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         501Mel_vemurafenib     2514     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         A375                   2962     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         WM793                  2247     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         melanocytes            3159     0.0%     0.000    no    0.0%     0.000   yes 
+ 
+    tags with adequate depth: 13 of 15 
+    -> NOT DETECTED in any tag, including the 13 adequately 
+       sequenced one(s) (floor: >=1% of cells and >= 1 mean CPM). 
+       In those tags this IS evidence of absence, provided the 
+       controls in 5b passed. 
+ 
+  RASSF10 
+    run                        tag                   cells     %pos  mean_cpm   det %pos_dp  cpm_deep dp_ok 
+    GSM7226899_19145X1         SampleTag04_hs         3556     0.3%     0.007    no    0.5%     0.008   yes 
+    GSM7226899_19145X1         SampleTag02_hs         6952     0.2%     0.005    no    0.3%     0.005   yes 
+    GSM7226899_19145X1         SampleTag01_hs         7674     0.2%     0.010    no    0.6%     0.013    NO 
+    GSM7226899_19145X1         SampleTag03_hs         5138     0.2%     0.007    no    0.5%     0.012    NO 
+    GSM7226900_19145X2         WM793                  2247     0.2%     0.002    no    0.2%     0.002   yes 
+    GSM7226900_19145X2         melanocyte_CDKN2A      2899     0.1%     0.001    no    0.1%     0.001   yes 
+    GSM7226900_19145X2         A375                   2962     0.1%     0.000    no    0.1%     0.000   yes 
+    GSM7226900_19145X2         melanocytes            3159     0.1%     0.001    no    0.1%     0.001   yes 
+    GSM7226900_19145X2         501Mel_CDKN2A          1958     0.1%     0.000    no    0.1%     0.000   yes 
+    GSM7226900_19145X2         501Mel_vemurafenib     2514     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         1205Lu                 2731     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         501Mel_Parental        3616     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         501Mel_mcherry_high    2445     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         501Mel_mcherry_low     2210     0.0%     0.000    no    0.0%     0.000   yes 
+    GSM7226900_19145X2         501Mel_mcherry_off     3034     0.0%     0.000    no    0.0%     0.000   yes 
+ 
+    tags with adequate depth: 13 of 15 
+    -> NOT DETECTED in any tag, including the 13 adequately 
+       sequenced one(s) (floor: >=1% of cells and >= 1 mean CPM). 
+       In those tags this IS evidence of absence, provided the 
+       controls in 5b passed. 
+ 
+  wrote: results/geo/gse230574_tag_summary.csv 
+ 
+  NO group test is run. Cells from one culture are not independent 
+  replicates of their lesion type, and two runs cannot support a 
+  melanocyte-vs-melanoma p value. Detection fraction per tag is the 
+  honest readout, and its value is that a gene expressed in a small 
+  subset of cells is invisible to bulk RNA-seq -- which is exactly 
+  the scenario GSE109245 could not rule out. 
+
+== 6. Figures ================================================== 
+  wrote: geo_rassf9_singlecell_gse230574.{pdf,png,svg} 
+  wrote: geo_rassf10_singlecell_gse230574.{pdf,png,svg} 
+  no warnings raised 

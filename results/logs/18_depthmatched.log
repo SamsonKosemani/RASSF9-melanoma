@@ -1,0 +1,120 @@
+GSE230574 depth-matched — 2026-10-07 20:23:56 
+
+
+== 1. Input ==================================================== 
+  cells loaded: 53095 per gene 
+ 
+  biological grouping (cells): 
+    Melanocyte (cultured)    NHM              3159 
+    Melanocyte (cultured)    NHM_CDKN2A       2899 
+    Melanoma line            1205Lu           2731 
+    Melanoma line            501Mel          15777 
+    Melanoma line            A375             2962 
+    Melanoma line            WM793            2247 
+    Nevus (primary)          SampleTag01_hs   7674 
+    Nevus (primary)          SampleTag02_hs   6952 
+    Nevus (primary)          SampleTag03_hs   5138 
+    Nevus (primary)          SampleTag04_hs   3556 
+ 
+  independent units: 4 nevus donors, 2 melanocyte cultures, 4 melanoma lines 
+
+== 2. Depth-matching target ==================================== 
+  median library size per unit: 
+    Melanocyte (cultured)    NHM                7448 
+    Melanocyte (cultured)    NHM_CDKN2A         9117 
+    Melanoma line            1205Lu            12468 
+    Melanoma line            501Mel            17580 
+    Melanoma line            A375              18072 
+    Melanoma line            WM793             13285 
+    Nevus (primary)          SampleTag01_hs      271 
+    Nevus (primary)          SampleTag02_hs     4510 
+    Nevus (primary)          SampleTag03_hs      254 
+    Nevus (primary)          SampleTag04_hs     3046 
+ 
+  thinning target = 254 molecules per cell (the shallowest unit's median) 
+ 
+  cells retained at the target depth: 
+    Melanocyte (cultured)    NHM              3159 of   3159 (100.0%) 
+    Melanocyte (cultured)    NHM_CDKN2A       2899 of   2899 (100.0%) 
+    Melanoma line            1205Lu           2731 of   2731 (100.0%) 
+    Melanoma line            501Mel          15777 of  15777 (100.0%) 
+    Melanoma line            A375             2962 of   2962 (100.0%) 
+    Melanoma line            WM793            2247 of   2247 (100.0%) 
+    Nevus (primary)          SampleTag01_hs   4034 of   7674 ( 52.6%) 
+    Nevus (primary)          SampleTag02_hs   6626 of   6952 ( 95.3%) 
+    Nevus (primary)          SampleTag03_hs   2575 of   5138 ( 50.1%) 
+    Nevus (primary)          SampleTag04_hs   3208 of   3556 ( 90.2%) 
+
+== 3. Binomial thinning ======================================== 
+  each retained cell re-drawn as Binomial(count, 254/lib_size), 
+  averaged over 20 independent draws 
+
+== 4. Depth-matched detection per unit ========================= 
+ 
+  RASSF9 
+    class                    unit             cells  %pos_raw  %pos_thin  molecules 
+    Melanocyte (cultured)    NHM               3159     0.00%      0.00%          0 
+    Melanocyte (cultured)    NHM_CDKN2A        2899     0.07%      0.00%          2 
+    Melanoma line            1205Lu            2731     0.04%      0.00%          1 
+    Melanoma line            501Mel           15777     0.01%      0.00%          1 
+    Melanoma line            A375              2962     0.00%      0.00%          0 
+    Melanoma line            WM793             2247     0.00%      0.00%          0 
+    Nevus (primary)          SampleTag04_hs    3208     2.37%      0.18%         96 
+    Nevus (primary)          SampleTag01_hs    4034     0.74%      0.07%         36 
+    Nevus (primary)          SampleTag03_hs    2575     0.58%      0.04%         18 
+    Nevus (primary)          SampleTag02_hs    6626     0.45%      0.04%         33 
+ 
+    collapsed by class, AFTER depth matching: 
+      Melanocyte (cultured)    2 unit(s)    0.00% of cells positive  (2 molecules in 53229696) 
+      Melanoma line            4 unit(s)    0.00% of cells positive  (2 molecules in 397312439) 
+      Nevus (primary)          4 unit(s)    0.08% of cells positive  (183 molecules in 73888809) 
+ 
+  RASSF10 
+    class                    unit             cells  %pos_raw  %pos_thin  molecules 
+    Melanocyte (cultured)    NHM               3159     0.06%      0.00%          2 
+    Melanocyte (cultured)    NHM_CDKN2A        2899     0.07%      0.00%          2 
+    Melanoma line            1205Lu            2731     0.00%      0.00%          0 
+    Melanoma line            501Mel           15777     0.01%      0.00%          2 
+    Melanoma line            A375              2962     0.07%      0.00%          2 
+    Melanoma line            WM793             2247     0.18%      0.00%          4 
+    Nevus (primary)          SampleTag03_hs    2575     0.31%      0.03%          8 
+    Nevus (primary)          SampleTag01_hs    4034     0.35%      0.03%         14 
+    Nevus (primary)          SampleTag04_hs    3208     0.34%      0.02%         12 
+    Nevus (primary)          SampleTag02_hs    6626     0.24%      0.01%         16 
+ 
+    collapsed by class, AFTER depth matching: 
+      Melanocyte (cultured)    2 unit(s)    0.00% of cells positive  (4 molecules in 53229696) 
+      Melanoma line            4 unit(s)    0.00% of cells positive  (8 molecules in 397312439) 
+      Nevus (primary)          4 unit(s)    0.02% of cells positive  (50 molecules in 73888809) 
+ 
+  wrote: results/geo/gse230574_depthmatched.csv 
+
+== 5. Upper bounds on abundance ================================ 
+  gene       class                        hits    molecules    est_TPM    upper_TPM 
+  RASSF10    Melanocyte (cultured)           4     53229696      0.075        0.192 
+  RASSF10    Melanoma line                   8    397312439      0.020        0.040 
+  RASSF10    Nevus (primary)                50     73888809      0.677        0.892 
+  RASSF9     Melanocyte (cultured)           2     53229696      0.038        0.136 
+  RASSF9     Melanoma line                   2    397312439      0.005        0.018 
+  RASSF9     Nevus (primary)               183     73888809      2.477        2.863 
+ 
+  wrote: results/geo/gse230574_upper_bounds.csv 
+  Read these as: 'in <class>, abundance is at most <upper_TPM> TPM 
+  (95% binomial upper bound on <total> molecules sequenced)'. 
+
+== 6. Line-level comparison ==================================== 
+ 
+  RASSF9: nevus donors n = 4 vs cultured units n = 6 
+    nevus mean 0.084% | cultured mean 0.000% | W = 24.0, p = 0.010 
+    UNDERPOWERED. With 4 vs 6 units this p value is a description, 
+    not evidence. The upper bounds in section 5 are the result. 
+ 
+  RASSF10: nevus donors n = 4 vs cultured units n = 6 
+    nevus mean 0.021% | cultured mean 0.000% | W = 24.0, p = 0.010 
+    UNDERPOWERED. With 4 vs 6 units this p value is a description, 
+    not evidence. The upper bounds in section 5 are the result. 
+
+== 7. Figures ================================================== 
+  wrote: geo_rassf9_depthmatched_gse230574.{pdf,png,svg} 
+  wrote: geo_rassf10_depthmatched_gse230574.{pdf,png,svg} 
+  no warnings raised 

@@ -1,0 +1,56 @@
+Exploratory mediation — 2026-10-07 17:52:18 
+
+*** EXPLORATORY -- not pre-specified. See header for limits. *** 
+
+== 1. Data ===================================================== 
+Cohort: n = 320 
+
+== 2. Path models ============================================== 
+
+  RASSF9 (n = 320, standardised units): 
+    a  UV -> methylation        +0.0920  (p = 0.082) 
+    b  methylation -> expression -0.3109  (p = 1.30e-07) 
+    c  UV -> expression, total   -0.1066  (p = 0.059) 
+    c' UV -> expression, direct  -0.0780  (p = 0.151) 
+    ab indirect effect           -0.0286  [-0.0688, +0.0067]  CI includes zero 
+    proportion of total effect via methylation: 26.8% 
+
+  RASSF10 (n = 320, standardised units): 
+    a  UV -> methylation        -0.0369  (p = 0.501) 
+    b  methylation -> expression -0.1702  (p = 0.002) 
+    c  UV -> expression, total   -0.1770  (p = 0.001) 
+    c' UV -> expression, direct  -0.1833  (p = 7.38e-04) 
+    ab indirect effect           +0.0063  [-0.0105, +0.0253]  CI includes zero 
+    proportion mediated: not interpretable (indirect and total effects differ in sign, or the total effect is ~0) 
+
+== 3. How to read this ========================================= 
+  Specificity check: the indirect path should be present for RASSF9 
+  and absent for RASSF10, whose promoter methylation does not track 
+  UV burden (script 08: rho = -0.001). 
+    RASSF9  indirect effect CI excludes zero: FALSE 
+    RASSF10 indirect effect CI excludes zero: FALSE 
+
+  No indirect effect for RASSF9. The pattern noticed in script 08 
+  does not survive formal estimation. Report nothing, or report it 
+  as a negative exploratory result. 
+
+  Whatever the numbers, the wording in the manuscript should be: 
+  'statistically consistent with an indirect path' -- never 
+  'mediated by', 'drives', 'leads to' or 'causes'. 
+
+== 4. Figure =================================================== 
+
+== 5. Results table ============================================ 
+    gene   n       a    a_p      b      b_p c_total     c_p c_direct     cp_p
+  RASSF9 320  0.0920 0.0822 -0.311 1.30e-07  -0.107 0.05935   -0.078 0.151364
+ RASSF10 320 -0.0369 0.5009 -0.170 2.23e-03  -0.177 0.00128   -0.183 0.000738
+       ab ab_ci_low ab_ci_high ab_significant prop_mediated
+ -0.02859   -0.0688    0.00666          FALSE         0.268
+  0.00628   -0.0105    0.02526          FALSE            NA
+
+== 6. Warnings ================================================= 
+  no warnings raised 
+
+== DONE ======================================================== 
+Files are named 'exploratory' and 'figureE' deliberately, so that this analysis cannot be mistaken for a pre-specified result when the manuscript is assembled. 
+Full log: E:/RASSF9 Project/results/logs/10_mediation.log 

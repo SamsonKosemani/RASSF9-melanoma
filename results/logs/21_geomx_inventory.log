@@ -1,0 +1,80 @@
+GSE168013 inventory — 2026-10-13 12:01:59 
+
+
+== 1. Download ================================================= 
+  fetching supplementary files (about 12 MB) 
+ 
+    GSE168013_200825_CTA_Dev_platform_file.xlsx                    320.2 KB 
+    GSE168013_MK006_dedup.txt.gz                                   349.9 KB 
+    GSE168013_MK006_rep1_summarized_counts.txt.gz                   98.9 KB 
+    GSE168013_MK006_rep2_summarized_counts.txt.gz                   99.0 KB 
+    GSE168013_MK008_20190821_summarized_counts.txt.gz             1480.4 KB 
+    GSE168013_MK008_dedup.txt.gz                                   919.7 KB 
+    GSE168013_MK008_finalData.txt.gz                              1028.3 KB 
+    GSE168013_RAW.tar                                             9650.0 KB 
+
+  extracted 325 files from the archive 
+
+== 2. Panel membership -- the decisive check =================== 
+  installing readxl 
+  platform file: GSE168013_200825_CTA_Dev_platform_file.xlsx 
+  sheets: Platform Details 
+    sheet Platform Details              5050 rows,  7 cols,  14510 distinct strings 
+  distinct strings across the platform file: 14510 
+ 
+  RASSF9: NOT on the panel (checked RASSF9, PAMCI, P-CIP1, PCIP1, C12ORF2) 
+  RASSF10: NOT on the panel (checked RASSF10, FLJ33790, A1BG-AS, KIAA1098) 
+ 
+  parser sanity check -- sentinel genes found: 5 of 7 (PMEL, S100A8, CD3E, PTPRC, COL1A1) 
+
+== 3. Count files and ROI annotation =========================== 
+  GSE168013_MK006_dedup.txt.gz 
+    columns: 4 | header starts: Sample_ID	Gene	RNA_ID	Tile_Count 
+  GSE168013_MK006_rep1_summarized_counts.txt.gz 
+    columns: 8 | header starts: Sample_ID	case	dsp_repnum	dsp_roi	pcr_rep	Gene	Count_Val	Discordant_byRNAID 
+  GSE168013_MK006_rep2_summarized_counts.txt.gz 
+    columns: 8 | header starts: Sample_ID	case	dsp_repnum	dsp_roi	pcr_rep	Gene	Count_Val	Discordant_byRNAID 
+  GSE168013_MK008_20190821_summarized_counts.txt.gz 
+    columns: 5 | header starts: Sample_ID	Gene	Count_Val	LOD_2pt5GeoSD	Discordant_byRNAID 
+  GSE168013_MK008_finalData.txt.gz 
+    columns: 8 | header starts: Sample_ID	tissue	dsp_roi	case_type	Gene	Q3_Normalized_post	LOD_Q3	above_LOD 
+ 
+  series matrix: 191 samples (ROIs), 77 metadata columns 
+    title                              191 distinct: Phase I benign nevus ROI1 rep1.1 [NS1-A-1-1] | Phase I benign nevus ROI1 rep1.2 [NS1-A-1-2 
+    source_name_ch1                      1 distinct: FFPE skin biopsy 
+    characteristics_ch1                  4 distinct: patient: NS1 | patient: NS2 | patient: NS3 | patient: NS4 
+    characteristics_ch1.1                4 distinct: case class: benign nevus | case class: dysplastic nevus | case class: melanoma in situ | c 
+    characteristics_ch1.2                2 distinct: dsp replicate: 1 | dsp replicate: 2 
+    characteristics_ch1.3               17 distinct: roi number: 1 | roi number: 2 | roi number: 3 | roi number: 4 
+    characteristics_ch1.4                2 distinct: sequencing replicate: 1 | sequencing replicate: 2 
+    characteristics_ch1.5                1 distinct: roi diameter (um): 200 
+    characteristics_ch1.6                7 distinct: roi type: immune | roi type: melanocyte | roi type: mixed | roi type: control (keratinocyt 
+    characteristics_ch1.7                1 distinct: % keratinocyte: ND 
+    characteristics_ch1.8                1 distinct: % melanocyte: ND 
+    characteristics_ch1.9                1 distinct: % immune cells: ND 
+  wrote: results/geo/gse168013_roi_metadata.csv 
+
+== 4. Verdict ================================================== 
+  NOT USABLE. Neither gene is a target on this panel, so the 
+  dataset cannot speak to RASSF9 or RASSF10 however good its 
+  design is. This is a property of the 1,412-gene Cancer 
+  Transcriptome Atlas panel, not of the analysis. 
+ 
+  What would still work, in order of preference: 
+    1. a GeoMx WHOLE TRANSCRIPTOME (~18,000 gene) study of 
+       melanocytic progression -- none found in a search of the 
+       public literature as of October 2026 
+    2. single-cell RNA-seq of nevus AND melanoma TISSUE from the 
+       same or matched patients -- GSE230574 has nevus tissue but 
+       melanoma only as cell lines 
+    3. nevus-associated melanoma specimens, where benign and 
+       malignant melanocytes sit in ONE section and share a 
+       patient, removing between-patient variation entirely 
+    4. laser-capture microdissection of melanocytic nests, which 
+       is what GSE112509 already did -- and is why GSE112509 is 
+       the more trustworthy of the two bulk cohorts 
+ 
+  Option 3 is the one to put to Gustavo: a within-patient 
+  comparison in nevus-associated melanoma would settle this, and 
+  such specimens exist in any dermatopathology archive. 
+  no warnings raised 

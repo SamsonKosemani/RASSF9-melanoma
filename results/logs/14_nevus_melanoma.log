@@ -1,0 +1,70 @@
+Nevus vs melanoma — 2026-10-07 17:25:05 
+
+
+== 1. GSE112509 (23 nevi vs 57 primary melanomas) ============== 
+  matrix: 57820 genes x 80 samples 
+  value range: 0 to 11093197.5 -> DESeq2 normalised counts, log2(x+1) applied 
+    [ ok ] RASSF9 extracted from GSE112509 
+    [ ok ] RASSF10 extracted from GSE112509 
+
+  group assignment: 
+    matched to series matrix: 76 of 80 
+    from _N/_M suffix:        80 
+    the two agree on 76 of 76 samples where both exist 
+    group  n
+ Melanoma 57
+    Nevus 23
+
+== 2. GSE98394 (27 nevi vs 51 primary melanomas) =============== 
+  expression file: 12840 genes x 78 samples, range -8.31 to 15.34 (log scale) 
+  counts file:     24505 genes x 78 samples, max 56775328 
+    [ ok ] RASSF9 from expression file (log scale, as provided) 
+    [FLAG] RASSF10 not found in either GSE98394 matrix 
+
+  best metadata column for sample ids: title (matches 78 of 78 headers) 
+  example value: common acquired nevus (JC050) 
+  matched to metadata: 78 of 78 
+    group  n
+ Melanoma 51
+    Nevus 27
+
+== 3. Nevus vs melanoma ======================================== 
+
+  GSE112509: 
+    RASSF9   n=23 nevi / 57 melanoma  median 7.31 vs 6.37  W=342  p=8.77e-04  d=-0.886 [-1.39, -0.38]  (lower in melanoma) 
+    RASSF10  n=23 nevi / 57 melanoma  median 8.53 vs 7.62  W=414  p=0.010  d=-0.713 [-1.21, -0.22]  (lower in melanoma) 
+
+  GSE98394: 
+    RASSF9   n=27 nevi / 51 melanoma  median 2.07 vs 0.78  W=280  p=1.83e-05  d=-1.000 [-1.49, -0.51]  (lower in melanoma) 
+
+== 3b. Expression sources used ================================= 
+  GSE112509: DESeq2-normalised counts, log2(x+1) 
+  GSE98394 RASSF9: expression file (log scale, as provided) 
+  The two cohorts are on different scales, so effect sizes are 
+  comparable in direction but not in absolute magnitude. 
+
+== 4. Does it replicate? ======================================= 
+  RASSF9   same direction in both cohorts | significant in both 
+
+  A finding that reproduces across two independent cohorts is 
+  worth more than one that is significant in a single one. Where the 
+  two disagree, report both and say so rather than choosing. 
+
+== 5. Figure =================================================== 
+  Wrote: figures/geo/nevus_vs_melanoma.{pdf,png} 
+
+== 6. Output =================================================== 
+   dataset    gene n_nevus n_melanoma median_nevus median_melanoma   W  p_value
+ GSE112509  RASSF9      23         57         7.31            6.37 342 8.77e-04
+ GSE112509 RASSF10      23         57         8.53            7.62 414 1.04e-02
+  GSE98394  RASSF9      27         51         2.07            0.78 280 1.83e-05
+ cohens_d d_lower d_upper         direction
+   -0.886   -1.39  -0.383 lower in melanoma
+   -0.713   -1.21  -0.217 lower in melanoma
+   -1.000   -1.49  -0.508 lower in melanoma
+
+  Wrote: results/geo/nevus_vs_melanoma_values.csv 
+  Wrote: results/geo/nevus_vs_melanoma_tests.csv 
+  no warnings raised 
+
+Full log: E:/RASSF9 Project/results/logs/14_nevus_melanoma.log 

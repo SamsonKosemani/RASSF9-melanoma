@@ -1,0 +1,178 @@
+
+================================================================
+ Figure 6 source inventory
+ project root: E:/RASSF9 Project
+================================================================
+
+----------------------------------------------------------------
+ PANEL A/B -- GSE112509 and GSE98394, per-sample RASSF9 expression
+----------------------------------------------------------------
+  needs: one row per sample: sample id, group (nevus / melanoma), cohort, log2 expression
+  STATUS: 5 candidate file(s)
+    results/geo/nevus_vs_melanoma_tests.csv  (0.6 KB)
+      rows: 3 | columns: 12
+      names: dataset, gene, n_nevus, n_melanoma, median_nevus, median_melanoma, W, p_value, cohens_d, d_lower, d_upper, direction
+      row 1: GSE112509 | RASSF9 | 23 | 57 | 7.30683039287045 | 6.37019079780109 | 342 | 0.0008769397237... | -0.886040280727249 | -1.3892924423471 | -0.3827881191074 | lower in melanoma
+      row 2: GSE112509 | RASSF10 | 23 | 57 | 8.53454886732273 | 7.6182655383718 | 414 | 0.0104098393997856 | -0.713315196069603 | -1.20993401165932 | -0.216696380479882 | lower in melanoma
+      row 3: GSE98394 | RASSF9 | 27 | 51 | 2.06818214859164 | 0.780268659672679 | 280 | 1.8258155927918... | -1.00003852150967 | -1.49220272969972 | -0.507874313319615 | lower in melanoma
+    results/geo/nevus_vs_melanoma_values.csv  (8.4 KB)
+      rows: 158 | columns: 5
+      names: dataset, sample, group, RASSF9, RASSF10
+      row 1: GSE112509 | 010_N | Nevus | 5.36655565354451 | 8.30535021768774
+      row 2: GSE112509 | 018_N | Nevus | 7.03509967299604 | 7.26563703069261
+      row 3: GSE112509 | 031_N | Nevus | 7.31721115738132 | 9.48210772134224
+    results/geo/table_geo_rassf10_nevus_vs_melanoma.csv  (0.3 KB)
+      rows: 1 | columns: 13
+      names: dataset, gene, n_nevus, n_melanoma, median_nevus, median_melanoma, W, p_value, cohens_d, d_lower, d_upper, direction, label
+      row 1: GSE112509 | RASSF10 | 23 | 57 | 8.53454886732273 | 7.6182655383718 | 414 | 0.0104098393997856 | -0.713315196069603 | -1.20993401165932 | -0.216696380479882 | lower in melanoma | GSE112509
+(n = ...
+    results/geo/table_geo_rassf9_nevus_vs_melanoma.csv  (0.5 KB)
+      rows: 2 | columns: 13
+      names: dataset, gene, n_nevus, n_melanoma, median_nevus, median_melanoma, W, p_value, cohens_d, d_lower, d_upper, direction, label
+      row 1: GSE112509 | RASSF9 | 23 | 57 | 7.30683039287045 | 6.37019079780109 | 342 | 0.0008769397237... | -0.886040280727249 | -1.3892924423471 | -0.3827881191074 | lower in melanoma | GSE112509
+(n = ...
+      row 2: GSE98394 | RASSF9 | 27 | 51 | 2.06818214859164 | 0.780268659672679 | 280 | 1.8258155927918... | -1.00003852150967 | -1.49220272969972 | -0.507874313319615 | lower in melanoma | GSE98394
+(n = 2...
+    results/geo/bulk_vs_visium_comparison.csv  (0.8 KB)
+      rows: 5 | columns: 11
+      names: gene, source, kind, n_nevus, n_melanoma, log2fc, ci_lo, ci_hi, p, hl_shift, cohens_d
+      row 1: RASSF9 | GSE112509 | bulk, unadjusted | 23 | 57 | -1.15755462100695 | -1.6868822651099 | -0.628226976904003 | 4.6122608728813... | -1.01085970643695 | -0.886040280727249
+      row 2: RASSF10 | GSE112509 | bulk, unadjusted | 23 | 57 | -1.19004681811815 | -1.81994475370225 | -0.560148882534054 | 0.0003312685715... | -0.977911667455443 | -0.713315196069603
+      row 3: RASSF9 | GSE98394 | bulk, unadjusted | 27 | 51 | -1.15674099830834 | -1.61208263233261 | -0.701399364284069 | 2.8429880087540... | -1.07075941243735 | -1.00003852150967
+
+----------------------------------------------------------------
+ PANEL B -- Cohen's d and 95% CI per cohort
+----------------------------------------------------------------
+  needs: cohort, d, lo, hi, p, n_nevus, n_melanoma
+  STATUS: 1 candidate file(s)
+    results/geo/bulk_vs_visium_comparison.csv  (0.8 KB)
+      rows: 5 | columns: 11
+      names: gene, source, kind, n_nevus, n_melanoma, log2fc, ci_lo, ci_hi, p, hl_shift, cohens_d
+      row 1: RASSF9 | GSE112509 | bulk, unadjusted | 23 | 57 | -1.15755462100695 | -1.6868822651099 | -0.628226976904003 | 4.6122608728813... | -1.01085970643695 | -0.886040280727249
+      row 2: RASSF10 | GSE112509 | bulk, unadjusted | 23 | 57 | -1.19004681811815 | -1.81994475370225 | -0.560148882534054 | 0.0003312685715... | -0.977911667455443 | -0.713315196069603
+      row 3: RASSF9 | GSE98394 | bulk, unadjusted | 27 | 51 | -1.15674099830834 | -1.61208263233261 | -0.701399364284069 | 2.8429880087540... | -1.07075941243735 | -1.00003852150967
+
+----------------------------------------------------------------
+ PANEL C -- GSE72056 depth-matched detection by cell type
+----------------------------------------------------------------
+  needs: cell type, n cells, n RASSF9-positive, percent  (malignant 1/494 = 0.20%; endothelial 26.83%)
+  STATUS: 5 candidate file(s)
+    results/geo/tirosh_detection_by_class.csv  (1.8 KB)
+      rows: 32 | columns: 7
+      names: class, gene, scale, n_cells, n_det, pct_det, mean_log
+      row 1: B cell | RASSF9 | all cells | 512 | 1 | 0.1953125 | 0.003105859375
+      row 2: CAF | RASSF9 | all cells | 56 | 5 | 8.92857142857143 | 0.168089642857143
+      row 3: Endothelial | RASSF9 | all cells | 62 | 23 | 37.0967741935484 | 1.21404532258065
+    results/geo/tirosh_donor_level.csv  (2.5 KB)
+      rows: 108 | columns: 5
+      names: tumour, class, n, pct9, pct10
+      row 1: 53 | CAF | 4 | 25 | 0
+      row 2: 53 | Endothelial | 10 | 20 | 0
+      row 3: 53 | Macrophage | 12 | 0 | 0
+    results/geo/tirosh_vs_belote.csv  (0.2 KB)
+      rows: 2 | columns: 10
+      names: gene, belote_det, belote_n, belote_pct, tirosh_det, tirosh_n, tirosh_pct, band_lo, band_hi, fisher_p
+      row 1: RASSF9 | 0 | 2233 | 0 | 0 | 353 | 0 | 3543.6 | 5038.3 | 1
+      row 2: RASSF10 | 4 | 2233 | 0.179131213613972 | 1 | 353 | 0.28328611898017 | 3543.6 | 5038.3 | 0.520227673820605
+    results/geo/table_geo_rassf10_singlecell_gse230574.csv  (2572.4 KB)
+      rows: 53095 | columns: 6
+      names: run, tag, cell, lib_size, RASSF10, RASSF10_cpm
+      row 1: GSM7226899_19145X1 | SampleTag02_hs | 218099 | 45009 | 0 | 0
+      row 2: GSM7226899_19145X1 | SampleTag04_hs | 52986 | 43494 | 0 | 0
+      row 3: GSM7226899_19145X1 | SampleTag02_hs | 813714 | 43386 | 0 | 0
+    results/geo/table_geo_rassf9_singlecell_gse230574.csv  (2574.0 KB)
+      rows: 53095 | columns: 6
+      names: run, tag, cell, lib_size, RASSF9, RASSF9_cpm
+      row 1: GSM7226899_19145X1 | SampleTag02_hs | 218099 | 45009 | 0 | 0
+      row 2: GSM7226899_19145X1 | SampleTag04_hs | 52986 | 43494 | 0 | 0
+      row 3: GSM7226899_19145X1 | SampleTag02_hs | 813714 | 43386 | 0 | 0
+
+  NOTE for panel C: the figure should carry the endothelial comparator
+  alongside the malignant count. 0.20% on its own invites the question
+  of whether detection was sensitive enough; 26.83% in the same
+  depth-matched analysis answers it. If no table exists, the numbers can
+  be read from results/logs/38b_tirosh_detection.log.
+
+----------------------------------------------------------------
+ PANEL D -- TCGA-SKCM per-patient promoter methylation and RASSF9 expression
+----------------------------------------------------------------
+  needs: patient, RASSF9 log2(TPM+1), mean promoter beta, sample type, cohort flag
+  STATUS: 1 candidate file(s)
+    results/tcga/methylation_full_addedsamples.csv  (3.5 KB)
+      rows: 58 | columns: 4
+      names: patient, sample_type, RASSF9_log2tpm, RASSF10_log2tpm
+      row 1: TCGA-EE-A2A0 | Metastatic | 1.91975957585504 | 0
+      row 2: TCGA-EE-A2M6 | Metastatic | 0.119156941873632 | 0.465817783231713
+      row 3: TCGA-EE-A29B | Metastatic | 0.0187765851791836 | 0.523160454616757
+
+  NOTE for panel D: if no per-patient table exists, it has to be
+  regenerated from skcm_hm450.rds and skcm_star_counts.rds, which is a
+  couple of minutes of loading. Say so and I will write that script
+  rather than have you hunt for a file that was never written.
+
+----------------------------------------------------------------
+ PANEL E/F -- cell-line methylation and expression
+----------------------------------------------------------------
+  needs: model_id, name, lineage, disease, subtype, RASSF9, RASSF9_core/shore/distal, RASSF9_cn
+  STATUS: 1 candidate file(s)
+    results/ccle/46_line_level_data.csv  (180.6 KB)
+      rows: 741 | columns: 17
+      names: model_id, name, geo_name, lineage, disease, subtype, group, RASSF9, RASSF9_core, RASSF9_shore, RASSF9_distal, RASSF9_cn, RASSF10, RASSF10_core, RASSF10_shore, RASSF10_distal, RASSF10_cn
+      row 1: ACH-000002 | HL60 | HL-60 | Myeloid | Acute Myeloid L... | AML with Myelod... | Other | 0.0063281883 | 0.248884409562556 | 0.137304914824946 | 0.612091120314941 | NA | 0.01019405 | 0.353631409559521 | 0.501405386920025 | 0.58060666066118 | NA
+      row 2: ACH-000004 | HEL | HEL | Myeloid | Acute Myeloid L... | AML, NOS | Other | 0 | 0.479106540180856 | 0.161380551492047 | 0.700376346548518 | 1.08671000499256 | 0.008702008 | 0.517040775581789 | 0.416361713060544 | 0.354808257206525 | 0.738998837490006
+      row 3: ACH-000006 | MONOMAC6 | MONO-MAC-6 | Myeloid | Acute Myeloid L... | Acute Myeloid L... | Other | 0.015327713 | 0.134203796333559 | 0.211204303476524 | 0.219378595893972 | NA | 0.008640343 | 0.303762529674513 | 0.457002751106271 | 0.475007702233335 | NA
+
+----------------------------------------------------------------
+ SUPPLEMENTARY -- GSE298774 spatial panels
+----------------------------------------------------------------
+  Moving to supplementary per the decision of 3 Nov. Existing artwork
+  and outputs that may be reusable:
+    visium: 19 file(s)
+      results/geo/bulk_vs_visium_comparison.csv  (0.8 KB)
+      figures/geo/fig_visium_main_B4.pdf  (595.8 KB)
+      figures/geo/fig_visium_main_B4.png  (271.8 KB)
+      figures/geo/fig_visium_supp_rassf10.pdf  (541.0 KB)
+      figures/geo/fig_visium_supp_rassf10.png  (279.1 KB)
+      figures/geo/fig_visium_supp_rassf9.pdf  (539.7 KB)
+      figures/geo/fig_visium_supp_rassf9.png  (265.7 KB)
+      figures/geo/geo_rassf10_bulk_vs_visium.pdf  (29.0 KB)
+      figures/geo/geo_rassf10_bulk_vs_visium.png  (44.0 KB)
+      figures/geo/geo_rassf10_visium_lineage.pdf  (36.1 KB)
+      figures/geo/geo_rassf10_visium_lineage.png  (72.2 KB)
+      figures/geo/geo_rassf10_visium_paired.pdf  (43.5 KB)
+      ... and 7 more
+    gse298774: 21 file(s)
+      results/geo/gse298774_A7_spot_qc.csv  (1.2 KB)
+      results/geo/gse298774_authorlabels_lineage.csv  (6.2 KB)
+      results/geo/gse298774_authorlabels_perpatient.csv  (6.8 KB)
+      results/geo/gse298774_authorlabels_tests.csv  (1.2 KB)
+      results/geo/gse298774_classifier_validation.csv  (6.7 KB)
+      results/geo/gse298774_clinical_tableS1.csv  (1.1 KB)
+      results/geo/gse298774_file_inventory.csv  (0.2 KB)
+      results/geo/gse298774_join_crosscheck.csv  (1616.5 KB)
+      results/geo/gse298774_kreuger_coverage.csv  (0.7 KB)
+      results/geo/gse298774_kreuger_label_counts.csv  (0.6 KB)
+      results/geo/gse298774_lda_corpus_stats.csv  (0.1 KB)
+      results/geo/gse298774_qc_markers.csv  (23.7 KB)
+      ... and 9 more
+    bulk_vs_visium: 5 file(s)
+      results/geo/bulk_vs_visium_comparison.csv  (0.8 KB)
+      figures/geo/geo_rassf10_bulk_vs_visium.pdf  (29.0 KB)
+      figures/geo/geo_rassf10_bulk_vs_visium.png  (44.0 KB)
+      figures/geo/geo_rassf9_bulk_vs_visium.pdf  (29.1 KB)
+      figures/geo/geo_rassf9_bulk_vs_visium.png  (50.2 KB)
+
+----------------------------------------------------------------
+ Environment
+----------------------------------------------------------------
+  R: R version 4.6.1 (2026-06-24 ucrt)
+  ggplot2      4.0.3
+  patchwork    1.3.2
+  data.table   1.18.6.1
+  scales       1.4.0
+  ggrepel      0.9.8
+
+================================================================
+ Send this log back. With it I can write the figure script once,
+ against the real column names, instead of guessing and iterating.
+================================================================

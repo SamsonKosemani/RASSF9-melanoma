@@ -1,0 +1,157 @@
+
+== 1. Parse plan and probe table ===============================
+  file            : GSE68379_Matrix.processed.txt.gz
+  field offset    : 1
+  probe in field  : 2
+  beta data fields: 3-1030
+  pval data fields: 1031-2058
+  probes wanted   : 48
+  beta columns    : 1028
+
+== 2. Extracting 48 probe rows ===========================
+  one pass over the gzip; only the probe ID is parsed for most rows
+     100000 rows | 10/48 probes found | 0.4 min
+     200000 rows | 21/48 probes found | 0.8 min
+     300000 rows | 27/48 probes found | 1.2 min
+     400000 rows | 36/48 probes found | 1.7 min
+    all probes found after 476000 rows -- stopping early
+  rows scanned: 476000 | probes found: 48 of 48 | 2.1 min
+
+== 3. Parsing the extracted rows ===============================
+  matrix: 48 probes x 1028 cell lines
+  beta range across all extracted values: 0.0000 to 1.0000
+  betas masked for detection p > 0.01: 1 of 49344 (0.002%)
+  wrote data/processed/44b_locus_betas.rds (re-usable; no second 3.8 GB pass needed)
+
+== 4. Cell-line groups =========================================
+  melanoma lines (non-uveal) with methylation: 56
+  other cancer lines (pan-cancer baseline)   : 972
+
+  by subtype:
+    Cutaneous Melanoma                        15
+    Melanoma                                  38
+    Mucosal Melanoma of the Vulva/Vagina       3
+
+== 5. Per-probe: melanoma cell lines vs TCGA tumours ===========
+
+  RASSF9:
+    probe         TSSdist set               n  lineMed     IQR panCancer   TCGAmed    delta
+    cg11846905    -112093 distal           56    0.851   0.216     0.872     0.833   +0.018
+    cg04916911     -37967 distal           56    0.185   0.223     0.153     0.201   -0.016
+    cg18877737     -37694 distal           56    0.175   0.251     0.232     0.165   +0.010
+    cg08888956     -37652 distal           56    0.436   0.370     0.462     0.479   -0.043
+    cg03707749     -10274 distal           56    0.617   0.320     0.583     0.864   -0.248
+    cg18827107       -770 shore            56    0.624   0.289     0.715     0.846   -0.222
+    cg19622623       -638 shore            56    0.304   0.307     0.430     0.617   -0.312
+    cg27035734       -370 tss_proximal     56    0.822   0.210     0.386     0.632   +0.190
+    cg25456477       -180 tss_proximal     56    0.823   0.266     0.148     0.463   +0.361
+    cg00310523        +11 tss_proximal     56    0.640   0.485     0.116     0.385   +0.255
+    cg02569458        +94 tss_proximal     56    0.305   0.318     0.078     0.201   +0.104
+    cg06740227       +383 tss_proximal     56    0.348   0.422     0.075     0.191   +0.158
+    tss_proximal  mean of probe medians: lines 0.588 | pan-cancer 0.161 | TCGA 0.374
+    shore         mean of probe medians: lines 0.464 | pan-cancer 0.573 | TCGA 0.731
+    distal        mean of probe medians: lines 0.453 | pan-cancer 0.461 | TCGA 0.508
+
+  RASSF10:
+    probe         TSSdist set               n  lineMed     IQR panCancer   TCGAmed    delta
+    cg12399536    -145979 distal           56    0.895   0.185     0.887     0.680   +0.214
+    cg14665901    -145732 distal           56    0.835   0.237     0.847     0.574   +0.261
+    cg20445806    -138015 distal           56    0.911   0.026     0.911     0.880   +0.032
+    cg13845161    -129145 distal           56    0.954   0.029     0.955     0.945   +0.009
+    cg20233228    -127253 distal           56    0.901   0.023     0.896     0.912   -0.010
+    cg26770464    -119934 distal           56    0.824   0.194     0.892     0.775   +0.049
+    cg01482376    -117257 distal           56    0.921   0.026     0.919     0.933   -0.012
+    cg24517989    -115361 distal           56    0.701   0.205     0.695     0.648   +0.053
+    cg24506086    -108745 distal           56    0.545   0.543     0.893     0.807   -0.262
+    cg09711214    -106038 distal           56    0.898   0.120     0.922     0.812   +0.086
+    cg15805337     -94966 distal           56    0.915   0.029     0.918     0.887   +0.027
+    cg18525873     -86319 distal           56    0.908   0.020     0.910     0.912   -0.004
+    cg24442572     -69274 distal           56    0.905   0.027     0.903     0.908   -0.003
+    cg05059451     -19707 distal           56    0.561   0.234     0.473     0.700   -0.139
+    cg04755604     -19679 distal           56    0.483   0.261     0.466     0.604   -0.120
+    cg27075800     -19265 distal           56    0.645   0.215     0.855     0.878   -0.233
+    cg23548136      -3157 distal           56    0.886   0.045     0.898     0.934   -0.049
+    cg11518550      -1141 shore            56    0.869   0.073     0.571     0.893   -0.025
+    cg08148891       -554 shore            56    0.554   0.243     0.414     0.402   +0.152
+    cg19665644       -389 tss_proximal     56    0.352   0.428     0.135     0.042   +0.310
+    cg20918243       -351 tss_proximal     56    0.360   0.244     0.261     0.200   +0.160
+    cg09596429       -346 tss_proximal     56    0.455   0.310     0.302     0.246   +0.209
+    cg05817758       -296 tss_proximal     56    0.701   0.302     0.473     0.337   +0.364
+    cg08876434       -226 tss_proximal     56    0.343   0.385     0.215     0.086   +0.257
+    cg25344734       -220 tss_proximal     56    0.209   0.247     0.160     0.102   +0.107
+    cg26005578       -187 tss_proximal     56    0.054   0.372     0.027     0.017   +0.037
+    cg05095158        +10 tss_proximal     56    0.168   0.388     0.097     0.022   +0.147
+    cg22740547        +13 tss_proximal     56    0.165   0.429     0.085     0.018   +0.147
+    cg07600636       +940 distal           56    0.535   0.371     0.374     0.259   +0.276
+    cg00326127      +1541 distal           56    0.824   0.218     0.478     0.519   +0.305
+    cg20098471      +1750 distal           56    0.979   0.017     0.883     0.686   +0.294
+    cg08161666      +4034 distal           56    0.821   0.254     0.593     0.574   +0.247
+    cg04844534     +43041 distal           56    0.775   0.151     0.388     0.792   -0.017
+    cg25068253     +93431 distal           56    0.072   0.108     0.818     0.389   -0.317
+    cg04137004    +109216 distal           56    0.335   0.444     0.538     0.601   -0.266
+    cg02452500    +131064 distal           56    0.267   0.467     0.321     0.479   -0.212
+    tss_proximal  mean of probe medians: lines 0.312 | pan-cancer 0.195 | TCGA 0.119
+    shore         mean of probe medians: lines 0.711 | pan-cancer 0.492 | TCGA 0.648
+    distal        mean of probe medians: lines 0.732 | pan-cancer 0.745 | TCGA 0.724
+
+== 6. Per-line promoter-core score =============================
+
+  RASSF9 promoter core across 56 melanoma lines:
+    median 0.588 | IQR 0.287 | range 0.120 - 0.904
+    lines >= 0.60 (hypermethylated): 28 (50.0%)
+    lines <= 0.30 (unmethylated)   : 7 (12.5%)
+    TCGA bulk-tumour core mean for reference: 0.374
+    VERDICT: INTERMEDIATE
+    shore  median 0.457 | distal median 0.464
+    Melanoma                                 n = 38 | median core 0.608
+    Cutaneous Melanoma                       n = 15 | median core 0.572
+    Mucosal Melanoma of the Vulva/Vagina     n =  3 | median core 0.374
+
+  RASSF10 promoter core across 56 melanoma lines:
+    median 0.325 | IQR 0.297 | range 0.072 - 0.733
+    lines >= 0.60 (hypermethylated): 8 (14.3%)
+    lines <= 0.30 (unmethylated)   : 27 (48.2%)
+    TCGA bulk-tumour core mean for reference: 0.119
+    VERDICT: INTERMEDIATE
+    shore  median 0.700 | distal median 0.717
+    Melanoma                                 n = 38 | median core 0.325
+    Cutaneous Melanoma                       n = 15 | median core 0.374
+    Mucosal Melanoma of the Vulva/Vagina     n =  3 | median core 0.224
+
+== 7. The handful of RASSF9-expressing lines ===================
+  lines with BOTH expression and methylation: 39
+  of those at TPM >= 1: 0
+
+  NO TEST IS PERFORMED HERE. With this few expressing lines the
+  comparison is anecdote, reported for completeness only. It must not
+  be described as evidence in either direction.
+
+== 8. Figures ==================================================
+  wrote: 44b_rassf9_promoter.png
+  wrote: 44b_rassf10_promoter.png
+
+== 9. How to read this =========================================
+  RASSF9 verdict: INTERMEDIATE
+
+  If INTERMEDIATE or UNMETHYLATED: the RASSF9 promoter is not uniformly
+  silenced by methylation in melanoma cells, yet the gene is off. Promoter
+  methylation is therefore not sufficient to explain its absence from the
+  malignant compartment, and the TCGA correlation is more plausibly driven
+  by the compartments that express RASSF9 at all. That is a result, not a
+  failure, and it is the honest answer to whether the relationship holds
+  'within melanoma cells'.
+
+  If HYPERMETHYLATED: consistent with the TCGA direction. Note it still
+  does not demonstrate a methylation-expression relationship in lines,
+  because there is no expression variance to relate it to.
+
+  LIMITATIONS to carry into the write-up:
+   1. Cell lines are not tumours. Cultured lines drift epigenetically,
+      and global hypermethylation is common in long-passage lines.
+   2. 56 of 154 DepMap melanoma models matched a GDSC sample by name.
+      Most of the rest are absent from the GDSC panel, but some may be
+      name-spelling losses.
+   3. Methylation (GDSC/Sanger) and expression (DepMap) come from
+      different laboratories and different cell stocks.
+   4. No correlation is reported, by design, because expression has no
+      usable variance in these lines.

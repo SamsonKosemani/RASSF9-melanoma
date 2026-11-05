@@ -1,0 +1,105 @@
+
+== 1. Probe table ==============================================
+  RASSF9 :  12 probes  (5 core, 2 shore, 5 distal)
+  RASSF10:  36 probes  (9 core, 2 shore, 25 distal)
+  total  :  48
+
+  NOTE: script 35 retrieved 51 probes at these two loci but the
+  correlation table holds 48. Three RASSF10 probes are absent, presumably
+  dropped as all-NA. All 11 RASSF10 promoter-window probes are present,
+  so the promoter question is unaffected. State this in the methods.
+
+  TCGA complete-cohort medians, promoter core (what cell lines must beat
+  to be called hypermethylated):
+    RASSF9   median beta across core probes: 0.385  (range 0.191 - 0.632)
+    RASSF10  median beta across core probes: 0.086  (range 0.017 - 0.337)
+    RASSF9's core is INTERMEDIATE in tumours, not high. RASSF10's is
+    nearly unmethylated. Neither locus is a silenced-by-hypermethylation
+    picture in bulk tumour to begin with.
+
+== 2. The methylation matrix ===================================
+  GSE68379_Matrix.processed.txt.gz                 3.82 GB
+
+== 3. File layout ==============================================
+  delimiter inferred: TAB
+  header fields: 2057
+  first 8 fields:
+    [1] 'Row.names'
+    [2] '697_AVG.Beta'
+    [3] '5637_AVG.Beta'
+    [4] '201T_AVG.Beta'
+    [5] '22RV1_AVG.Beta'
+    [6] '23132-87_AVG.Beta'
+    [7] '42-MG-BA_AVG.Beta'
+    [8] '451LU_AVG.Beta'
+  last 3 fields:
+    [2055] 'YMB-1-E_Detection.PVal'
+    [2056] 'YT_Detection.PVal'
+    [2057] 'ZR-75-30_Detection.PVal'
+
+  fields mentioning Beta      : 1028
+  fields mentioning Detection : 1028
+  fields starting 'CellLine'  : 0
+  layout: paired_beta_pval
+  -> 44b must select only the beta columns and ignore the p-value ones.
+
+  first 3 data rows, first field and first 3 values:
+    '1'  ->  cg00000029, 0.932624056501139, 0.0838432381857697
+    '2'  ->  cg00000108, 0.957445024112058, 0.951068973748659
+    '3'  ->  cg00000109, 0.940920500349326, 0.896189154464211
+
+  header fields: 2057 | data-row fields: 2058 | offset: 1
+  probe IDs are in DATA field 2 ('cg00000029')
+  -> the leading data field is an unnamed row index ('1').
+     44b must read data rows positionally, mapping header field j to
+     data field j + 1, and take the probe ID from field 2.
+
+  beta columns  : header 2-1029  -> data 3-1030
+  pval columns  : header 1030-2057  -> data 1031-2058
+  row 1 BETA values: n = 1028, range 0.0237 to 0.9769, median 0.5139
+  row 1 PVAL values: n = 1028, range 0.00e+00 to 4.56e-07, median 0.00e+00
+
+== 4. Mapping GEO samples to melanoma lines ====================
+  sample columns detected: 1028
+  examples: 697, 5637, 201T, 22RV1, 23132-87, 42-MG-BA
+
+  melanoma lines in Model.csv            : 154
+  of those matched to a GEO sample       : 56
+  non-uveal melanoma matched             : 56
+  melanoma lines with NO methylation     : 98
+
+  Model.csv carries SangerModelID: yes
+  (the GEO titles are plain names, not Sanger IDs, so the join is on the
+   stripped name; SangerModelID is kept in the output for verification)
+
+  matched non-uveal lines by subtype:
+    Melanoma                                   38
+    Cutaneous Melanoma                         15
+    Mucosal Melanoma of the Vulva/Vagina        3
+
+  wrote 44a_probe_table.csv, 44a_parse_plan.csv, 44a_sample_map.csv
+
+== 5. What step 2 can answer ===================================
+  The expression gate (42, 43) returned STOP: RASSF9 is at the detection
+  floor in melanoma lines, so no methylation-expression CORRELATION is
+  computable. 44b therefore does not attempt one.
+
+  It answers the one question that survives zero expression variance:
+  is the RASSF9 promoter core METHYLATED in melanoma cells?
+
+    high in lines  -> silencing consistent with the TCGA direction; the
+                      correlation is untestable in lines only because the
+                      gene is uniformly off
+    low in lines   -> methylation is not what holds RASSF9 off in
+                      melanoma cells, and the TCGA association is more
+                      likely driven by the non-malignant compartments
+                      where the gene is actually expressed
+
+  The shore and distal probes are carried through as internal controls,
+  and the TCGA median for each probe travels in the probe table so the
+  two can be put side by side per probe rather than as pooled averages.
+
+  WHAT NEITHER SCRIPT CAN SAY: cell lines are not tumours. Cultured lines
+  drift epigenetically, and a difference from TCGA may reflect culture
+  rather than malignant-cell biology in vivo. This is a supporting
+  observation, not a test of the TCGA finding.

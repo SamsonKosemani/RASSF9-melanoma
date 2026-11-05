@@ -1,0 +1,120 @@
+TCGA-SKCM methylation, broader cohort — 2026-10-16 14:17:34 
+
+
+== 1. Inputs =================================================== 
+  probes:          23 
+  methylation rows: 470 
+  analysis cohort:  320 
+  full cohort:      411 
+  RASSF9   7 probes, 7 promoter (TSS -770 to +383 bp) 
+  RASSF10  16 probes, 11 promoter (TSS -1141 to +13 bp) 
+  non-promoter probes available as a specificity control: 5 
+  probes present in the beta table: 23 of 23 
+
+== 2. Cohort tiers ============================================= 
+  joining methylation on: patient 
+  T1: 320 samples 
+  T2: 411 samples 
+  T3: 411 samples 
+  methylation samples with no expression match: 59 
+  samples in T2 but not T1 (no UV signature): 91 
+
+== 3. Promoter methylation and expression, by tier ============= 
+  RASSF9   T1 UV-positive cutaneous (original)  n = 320 | rho = -0.351, p = 1.10e-10   | adj beta = -1.227 [-1.661, -0.793], p = 5.77e-08 
+  RASSF9   T2 all cutaneous                     n = 411 | rho = -0.374, p = 4.35e-15   | adj beta = -1.244 [-1.656, -0.832], p = 6.45e-09 
+  RASSF9   T3 all with both                     n = 411 | rho = -0.374, p = 4.35e-15   | adj beta = -1.244 [-1.656, -0.832], p = 6.45e-09 
+  RASSF9   Excluded from T1 only                n =  91 | rho = -0.409, p = 5.61e-05   | adj beta = -1.253 [-2.317, -0.188], p = 0.022 
+  RASSF10  T1 UV-positive cutaneous (original)  n = 320 | rho = -0.129, p = 0.021      | adj beta = -0.736 [-1.233, -0.238], p = 0.004 
+  RASSF10  T2 all cutaneous                     n = 411 | rho = -0.128, p = 0.009      | adj beta = -1.065 [-1.582, -0.548], p = 6.16e-05 
+  RASSF10  T3 all with both                     n = 411 | rho = -0.128, p = 0.009      | adj beta = -1.065 [-1.582, -0.548], p = 6.16e-05 
+  RASSF10  Excluded from T1 only                n =  91 | rho = -0.065, p = 0.538      | adj beta = -2.095 [-3.873, -0.317], p = 0.021 
+
+== 4. Verdict ================================================== 
+  CRITERION (fixed before the numbers): 
+    VALIDATED     = T2 same direction, p < 0.05, adjusted sign kept 
+    WEAKENED      = same direction, no longer significant 
+    NOT SUPPORTED = direction reverses or effect vanishes 
+  Note that a larger n lowers p almost automatically, so the 
+  informative comparison is the EFFECT SIZE across tiers, not 
+  whether p stayed below 0.05. 
+ 
+  RASSF9   T1 rho -0.351 (n = 320)  ->  T2 rho -0.374 (n = 411)   VALIDATED 
+           effect size change: -0.023 (107% of the original) 
+ 
+  RASSF10  T1 rho -0.129 (n = 320)  ->  T2 rho -0.128 (n = 411)   VALIDATED 
+           effect size change: +0.001 (100% of the original) 
+
+== 5. Specificity: promoter against non-promoter probes ======== 
+ 
+  RASSF9 per probe (T2): 
+    probe         TSS dist region       med beta      rho       BH p 
+    cg18827107        -770 Promoter        0.844   +0.135      0.006 
+    cg19622623        -638 Promoter        0.620   +0.158      0.002 
+    cg27035734        -370 Promoter        0.630   -0.366   3.33e-14 
+    cg25456477        -180 Promoter        0.483   -0.482  < 2.2e-16 
+    cg00310523         +11 Promoter        0.387   -0.429  < 2.2e-16 
+    cg02569458         +94 Promoter        0.208   -0.389   6.68e-16 
+    cg06740227        +383 Promoter        0.199   -0.285   7.15e-09 
+    no non-promoter probes for this gene, so there is no 
+    external specificity control. The internal one is the 
+    island-shore pattern: probes near the TSS should correlate 
+    negatively while distal shore probes need not. 
+ 
+  RASSF10 per probe (T2): 
+    probe         TSS dist region       med beta      rho       BH p 
+    cg23548136       -3157 Upstream        0.935   +0.164      0.002 
+    cg11518550       -1141 Promoter        0.894   -0.017      0.841 
+    cg08148891        -554 Promoter        0.403   +0.006      0.958 
+    cg19665644        -389 Promoter        0.044   -0.092      0.102 
+    cg20918243        -351 Promoter        0.205   -0.062      0.277 
+    cg09596429        -346 Promoter        0.250   -0.002      0.962 
+    cg05817758        -296 Promoter        0.337   -0.227   2.80e-05 
+    cg08876434        -226 Promoter        0.086   -0.259   1.52e-06 
+    cg25344734        -220 Promoter        0.102   -0.176      0.001 
+    cg26005578        -187 Promoter        0.017   -0.174      0.001 
+    cg05095158         +10 Promoter        0.022   -0.200   1.74e-04 
+    cg22740547         +13 Promoter        0.018   -0.208   1.13e-04 
+    cg07600636        +940 Gene body       0.255   +0.128      0.017 
+    cg00326127       +1541 Gene body       0.508   +0.144      0.007 
+    cg20098471       +1750 Gene body       0.683   +0.088      0.109 
+    cg08161666       +4034 Downstream      0.577   -0.027      0.723 
+    promoter probes: mean rho -0.128 (6 of 11 significant) 
+    non-promoter:    mean rho +0.099 (3 of 5 significant) 
+    -> OPPOSITE SIGNS. Promoter and non-promoter methylation 
+       relate to expression in opposite directions, which is 
+       the textbook promoter-versus-gene-body pattern and is 
+       evidence that the signal is promoter-specific. 
+
+== 6. Within-stratum consistency =============================== 
+  RASSF9 promoter methylation and expression both differ by tumour 
+  site, so an association driven entirely by that split would be a 
+  between-group artefact rather than a within-tumour relationship. 
+  RASSF9   T2 / Metastatic                      n = 311 | rho = -0.341, p = 6.74e-10   | adj beta = -1.322 [-1.835, -0.809], p = 6.96e-07 
+  RASSF9   T2 / Primary Tumor                   n = 100 | rho = -0.418, p = 1.54e-05   | adj beta = -1.051 [-1.682, -0.420], p = 0.001 
+  RASSF10  T2 / Metastatic                      n = 311 | rho = -0.144, p = 0.011      | adj beta = -0.991 [-1.475, -0.507], p = 7.04e-05 
+  RASSF10  T2 / Primary Tumor                   n = 100 | rho = -0.147, p = 0.145      | adj beta = -1.441 [-3.088, 0.207], p = 0.086 
+ 
+  -> the association must hold INSIDE each stratum, not only 
+     across them, for the silencing interpretation to stand 
+
+== 7. Figure =================================================== 
+  wrote: tcga_rassf9_methylation_broader 
+  wrote: tcga_rassf10_methylation_broader 
+
+== 8. Reading this ============================================= 
+  WHAT WOULD MAKE THIS A STRONG VALIDATION: 
+    - the effect size holds across tiers, not just the p value 
+    - promoter probes behave differently from non-promoter probes 
+    - the association survives within primary and within metastatic 
+    - it is present in the samples the original filter excluded 
+ 
+  WHAT WOULD UNDERCUT IT: 
+    - every probe on the locus correlates equally, which would point 
+      at a sample-level property (purity, cell composition) rather 
+      than promoter silencing 
+    - the association disappears within strata 
+ 
+  NOT TESTED HERE: uveal melanoma, which would be the ideal non-UV 
+  control, is a separate GDC project (TCGA-UVM) and is not in these 
+  cohort files. It needs its own download and script. 
+  no warnings raised 

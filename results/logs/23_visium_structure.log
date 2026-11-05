@@ -1,0 +1,156 @@
+GSE298774 structure — 2026-10-13 14:56:54 
+
+
+== 1. Download ================================================= 
+  fetching GSE298774_RAW.tar (1.3 GB) -- this takes a while 
+
+== 2. Archive contents ========================================= 
+  files in the archive: 150 
+ 
+    image            38 
+    matrix           19 
+    other            19 
+    positions        19 
+    scalefactors     19 
+    barcodes         18 
+    features         18 
+ 
+  first 20 names as deposited: 
+    GSM9022963_A17_aligned_fiducials.jpg.gz 
+    GSM9022963_A17_barcodes.tsv.gz 
+    GSM9022963_A17_features.tsv.gz 
+    GSM9022963_A17_matrix.mtx.gz 
+    GSM9022963_A17_scalefactors_json.json.gz 
+    GSM9022963_A17_tissue_hires_image.png.gz 
+    GSM9022963_A17_tissue_lowres_image.png.gz 
+    GSM9022963_A17_tissue_positions.csv.gz 
+    GSM9022963_A2_aligned_fiducials.jpg.gz 
+    GSM9022963_A2_matrix.mtx.gz 
+    GSM9022963_A2_scalefactors_json.json.gz 
+    GSM9022963_A2_tissue_hires_image.png.gz 
+    GSM9022963_A2_tissue_lowres_image.png.gz 
+    GSM9022963_A2_tissue_positions.csv.gz 
+    GSM9022964_A7_aligned_fiducials.jpg.gz 
+    GSM9022964_A7_barcodes.tsv.gz 
+    GSM9022964_A7_features.tsv.gz 
+    GSM9022964_A7_matrix.mtx.gz 
+    GSM9022964_A7_scalefactors_json.json.gz 
+    GSM9022964_A7_tissue_hires_image.png.gz 
+ 
+  NO per-spot annotation in the archive. Only spaceranger output, 
+  so spot labels must be derived and then validated against the 
+  paper's published findings before use. 
+ 
+  WORTH DOING IN PARALLEL: email the corresponding author 
+  (r.c.slieker@lumc.nl) for the per-spot topic assignments from 
+  Semla_Data_Deconvoluted.RData. Authors commonly share these, it 
+  costs one email, and it would remove the single largest source 
+  of error in this analysis. 
+ 
+  files whose name carries a Visium ID: 150 of 150 
+ 
+  per-section file counts: 
+    visium         barcodes     features        image       matrix        other    positions scalefactors 
+    A16                   1            1            2            1            1            1            1 
+    A17                   1            1            2            1            1            1            1 
+    A2                    0            0            2            1            1            1            1 
+    A21                   1            1            2            1            1            1            1 
+    A22                   1            1            2            1            1            1            1 
+    A23                   1            1            2            1            1            1            1 
+    A24                   1            1            2            1            1            1            1 
+    A34                   1            1            2            1            1            1            1 
+    A7                    1            1            2            1            1            1            1 
+    B1                    1            1            2            1            1            1            1 
+    B13                   1            1            2            1            1            1            1 
+    B14                   1            1            2            1            1            1            1 
+    B15                   1            1            2            1            1            1            1 
+    B38                   2            2            4            2            2            2            2 
+    B4                    1            1            2            1            1            1            1 
+    B8                    1            1            2            1            1            1            1 
+    D20                   1            1            2            1            1            1            1 
+    D3                    1            1            2            1            1            1            1 
+ 
+  -> matrices are keyed by VISIUM ID, so each section is already 
+     attributable to one patient and no geometric separation of 
+     multi-patient slides is needed. 
+
+== 3. Extract ================================================== 
+  extracted into data/raw/geo/GSE298774/extracted/ 
+  files on disk: 150 
+
+== 4. Gene presence ============================================ 
+  reading GSE298774_A2_features.tsv.gz 
+  features: 37082 rows, 3 columns 
+ 
+  RASSF9: PRESENT 
+  RASSF10: PRESENT 
+ 
+    melanocytic   7 of 7 present 
+    melanoma_up   3 of 3 present 
+    fibroblast    5 of 5 present 
+    keratinocyte  4 of 4 present 
+    immune        5 of 5 present 
+    endothelial   3 of 3 present 
+    housekeeping  2 of 2 present 
+
+== 5. One section loaded (A7) ================================== 
+  matrix:    GSM9022964_A7_matrix.mtx.gz 
+  barcodes:  GSM9022964_A7_barcodes.tsv.gz 
+  features:  GSM9022964_A7_features.tsv.gz 
+  positions: GSM9022964_A7_tissue_positions.csv.gz 
+  matrix is genes x spots: 37082 x 4985 
+ 
+  spots: 4985 
+  UMIs per spot: median 218, IQR 78-823, range 0-24399 
+  genes detected per spot: median 186 
+ 
+  percent of spots positive: 
+    gene of interest RASSF9                2.5% 
+    gene of interest RASSF10               3.9% 
+    melanocytic   MITF                 13.1% 
+    melanocytic   PMEL                 12.3% 
+    melanocytic   MLANA                15.8% 
+    melanocytic   DCT                  13.2% 
+    melanocytic   TYR                  15.5% 
+    melanocytic   TYRP1                17.5% 
+    melanocytic   SOX10                11.5% 
+    melanoma_up   PRAME                 0.5% 
+    melanoma_up   CDK2                  7.8% 
+    melanoma_up   MKI67                 2.1% 
+    fibroblast    COL1A1               64.1% 
+    fibroblast    COL1A2               60.8% 
+    fibroblast    COL3A1               61.9% 
+    fibroblast    DCN                  63.0% 
+    fibroblast    LUM                  18.6% 
+    keratinocyte  KRT14                33.6% 
+    keratinocyte  KRT5                 28.8% 
+    keratinocyte  KRT1                 28.4% 
+    keratinocyte  KRT10                26.1% 
+    immune        PTPRC                 2.8% 
+    immune        CD3E                  2.6% 
+    immune        CD68                  9.2% 
+    immune        LYZ                  15.1% 
+    immune        CD163                 6.3% 
+    endothelial   PECAM1               13.3% 
+    endothelial   VWF                   8.1% 
+    endothelial   CDH5                  3.9% 
+    housekeeping  ACTB                 39.9% 
+    housekeeping  GAPDH                 0.0% 
+ 
+  wrote: results/geo/gse298774_A7_spot_qc.csv 
+ 
+  RASSF9 is detected in 2.5% of spots in this section. 
+  That is enough to support a spot-level comparison once spots 
+  are classified. 
+
+== 6. Next ===================================================== 
+  Three things decide the next script: 
+    1. whether any per-spot annotation exists (section 2) 
+    2. whether the files are keyed by Visium ID (section 2) 
+    3. how often RASSF9 is detected per spot (section 5) 
+ 
+  If detection is low, the analysis becomes pseudobulk: sum counts 
+  within each compartment within each patient, giving 18 paired 
+  observations and a paired test -- far less powerful per spot but 
+  robust, and the pairing is what makes it work. 
+  no warnings raised 

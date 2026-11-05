@@ -1,0 +1,143 @@
+GSE298774 QC — 2026-10-13 15:07:28 
+
+  sections found: 19 (A16, A17, A2, A21, A22, A23, A24, A34, A7, B1, B13, B14, B15, B38_2, B38ex, B4, B8, D20, D3) 
+
+== 1. Section completeness ===================================== 
+  section      matrix  barcodes  features  positions   usable 
+  A16            TRUE      TRUE      TRUE       TRUE      yes 
+  A17            TRUE      TRUE      TRUE       TRUE      yes 
+  A2             TRUE     FALSE     FALSE       TRUE       NO 
+  A21            TRUE      TRUE      TRUE       TRUE      yes 
+  A22            TRUE      TRUE      TRUE       TRUE      yes 
+  A23            TRUE      TRUE      TRUE       TRUE      yes 
+  A24            TRUE      TRUE      TRUE       TRUE      yes 
+  A34            TRUE      TRUE      TRUE       TRUE      yes 
+  A7             TRUE      TRUE      TRUE       TRUE      yes 
+  B1             TRUE      TRUE      TRUE       TRUE      yes 
+  B13            TRUE      TRUE      TRUE       TRUE      yes 
+  B14            TRUE      TRUE      TRUE       TRUE      yes 
+  B15            TRUE      TRUE      TRUE       TRUE      yes 
+  B38_2          TRUE      TRUE      TRUE       TRUE      yes 
+  B38ex          TRUE      TRUE      TRUE       TRUE      yes 
+  B4             TRUE      TRUE      TRUE       TRUE      yes 
+  B8             TRUE      TRUE      TRUE       TRUE      yes 
+  D20            TRUE      TRUE      TRUE       TRUE      yes 
+  D3             TRUE      TRUE      TRUE       TRUE      yes 
+ 
+  [FLAG] not usable: A2 
+  A matrix whose rows and columns cannot be named cannot be used. 
+  These sections are DROPPED, and that is stated in the report 
+  rather than passed over. 
+
+== 2. Row-alignment diagnosis (A7) ============================= 
+  section: A7 
+  matrix 37082 x 4985 | features 37082 | barcodes 4985 
+  duplicate gene symbols in the features file: 10 
+ 
+  ACTB     row  13112  total counts      13081  spots positive  39.9% 
+  GAPDH    row  21099  total counts          0  spots positive   0.0% 
+  B2M      row  25539  total counts      11990  spots positive  35.4% 
+  TMSB4X   row  35379  total counts      17198  spots positive  47.3% 
+  EEF1A1   row  12197  total counts          0  spots positive   0.0% 
+ 
+  25 most-expressed genes in this section: 
+     1. MT-CO3               114189 
+     2. MT-CO2                84834 
+     3. MT-ATP6               79151 
+     4. MT-ND4                63030 
+     5. MT-CO1                62452 
+     6. KRT1                  61371 
+     7. MT-ND4L               57550 
+     8. MT-CYB                56146 
+     9. VIM                   50184 
+    10. MT-ND2                46427 
+    11. FLG                   43704 
+    12. KRT14                 40255 
+    13. MT-ND1                32137 
+    14. MT-ND3                29525 
+    15. COL1A1                26917 
+    16. KRT10                 26580 
+    17. KRTDAP                24381 
+    18. KRT5                  24265 
+    19. COL3A1                22424 
+    20. MT-ND5                21180 
+    21. DSP                   17562 
+    22. TMSB4X                17198 
+    23. COL1A2                17054 
+    24. CD44                  16887 
+    25. CD74                  15607 
+ 
+  of the top 25, 20 are mitochondrial, ribosomal, keratin, collagen or housekeeping 
+  ROW ALIGNMENT LOOKS CORRECT. The matrix's abundant genes are the 
+  ones skin should express, so GAPDH reading low is a property of 
+  this assay rather than a join error. Visium 3' capture on FFPE 
+  does vary by gene and probe set, and GAPDH is not a reliable 
+  reference here -- which is itself worth knowing, since it means 
+  ACTB and B2M should carry the quantification control. 
+
+== 3. In-tissue spots ========================================== 
+  section       spots  in tissue med UMI all med UMI in med genes in 
+  A16            5195       5195        1246       1246         554 
+  A17           13887       2274         120        410         244 
+  A21            2260       2260        5914       5914        2129 
+  A22           14336       4326        4522       4010        1546 
+  A23            2782       2782        2812       2812        1099 
+  A24           14335       6165        4522      11291        3400 
+  A34           14203       4151          45        507         300 
+  A7             4985       2892         218        460         378 
+  B1            14328       3952        3220      19684        5075 
+  B13           14210       3614         123        752         402 
+  B14           14145       2206         107        265         147 
+  B15           14145       3171         107        288         151 
+  B38_2         14145       2100         107       1084         533 
+  B38ex         14328       1861        3220      11309        3469 
+  B4            14331       6415        1454       3374        1199 
+  B8            14210       5780         123        128          70 
+  D20            4991       1089        1461      21899        5637 
+  D3             4991       1501        1461       3846        1622 
+ 
+  total in-tissue spots across usable sections: 61734 
+
+== 4. Detection, in-tissue spots only ========================== 
+  panel             gene              median       min       max 
+  gene of interest  RASSF10             9.1%      1.0%     26.2% 
+  gene of interest  RASSF9              5.7%      0.6%     21.8% 
+  melanocytic       TYRP1              38.6%     10.5%     77.9% 
+  melanocytic       MLANA              31.8%      8.5%     72.7% 
+  melanocytic       DCT                31.3%     10.5%     74.9% 
+  melanocytic       MITF               27.8%      4.5%     69.6% 
+  melanocytic       SOX10              27.2%      5.7%     63.5% 
+  melanocytic       PMEL               27.2%      6.0%     65.5% 
+  melanocytic       TYR                26.1%      5.7%     67.7% 
+  melanoma_up       CDK2               19.5%      2.4%     45.5% 
+  melanoma_up       PRAME              11.7%      0.8%     43.0% 
+  melanoma_up       MKI67               8.5%      0.7%     35.4% 
+  fibroblast        COL3A1             90.3%     46.1%     99.9% 
+  fibroblast        COL1A1             90.2%     45.0%    100.0% 
+  fibroblast        COL1A2             88.3%     47.6%     99.9% 
+  fibroblast        DCN                85.2%     41.1%     99.6% 
+  fibroblast        LUM                28.6%      4.9%     87.0% 
+  keratinocyte      KRT14              63.3%     21.8%     97.2% 
+  keratinocyte      KRT5               58.8%     18.3%     93.3% 
+  keratinocyte      KRT10              45.4%     13.7%     77.1% 
+  keratinocyte      KRT1               39.8%     14.5%     67.9% 
+  immune            LYZ                28.7%      5.7%     88.1% 
+  immune            CD68               26.2%      3.4%     82.2% 
+  immune            CD163              17.4%      1.8%     59.8% 
+  immune            CD3E                5.1%      0.4%     31.7% 
+  immune            PTPRC               4.8%      0.3%     28.6% 
+  endothelial       PECAM1             29.1%      2.6%     68.5% 
+  endothelial       VWF                19.4%      1.6%     49.8% 
+  endothelial       CDH5               11.7%      1.1%     39.8% 
+  housekeeping      TMSB4X             91.5%     32.4%     99.8% 
+  housekeeping      ACTB               70.5%     21.8%     98.8% 
+  housekeeping      B2M                57.4%     20.2%     98.5% 
+  housekeeping      EEF1A1              0.0%      0.0%      0.0% 
+  housekeeping      GAPDH               0.0%      0.0%      0.0% 
+ 
+  RASSF9 median detection across sections: 5.7% of in-tissue spots 
+ 
+  DESIGN: spot-level modelling is viable. A zero-inflated negative 
+  binomial with patient as a random effect, as Kreuger et al. used, 
+  is the right model once spots are classified. 
+  no warnings raised 

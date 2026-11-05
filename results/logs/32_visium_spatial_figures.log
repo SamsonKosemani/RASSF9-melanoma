@@ -1,0 +1,152 @@
+GSE298774 spatial figures — 2026-10-14 12:48:36 
+
+
+== 1. Packages ================================================= 
+  Seurat: TRUE 
+    version 5.5.1 
+  semla: TRUE 
+    version 1.4.2 
+
+== 2. The file ================================================= 
+  file: Semla_Data_Deconvoluted.RData  (1.64 GB) 
+  loading -- a 1.6 GB RData takes a minute or two 
+  loaded in 16s 
+  objects in the file: se 
+    se                   Seurat                         4740.4 MB 
+  using object: se 
+
+== 3. Inventory ================================================ 
+  full print written to: results/geo/gse298774_object_inventory.txt 
+  spots: 39481 | features: 18072 
+  assays: Spatial, SCT 
+  default assay: SCT 
+    Spatial: counts 
+    SCT: counts, data, scale.data 
+  -> whether RAW COUNTS are retained alongside SCT matters for the 
+     deviation recorded in script 26 (we fitted LDA on raw integers, 
+     they used SCT counts) 
+ 
+  meta.data: 34 columns 
+  key columns present: library_id, sample, MaxTopicsName, MaxTopics, nCount_Spatial, nFeature_Spatial 
+  sections (19): A16, A17, A2, A21, A22, A23, A24, A34, A7, B1, B13, B14, B15, B38.2, B38ex, B4, B8, D20, D3 
+ 
+  spot identities in the object: 
+    Fibroblasts 2              7811 
+    Fibroblasts 1              7209 
+    Nevus                      3404 
+    Tumor 1                    3009 
+    Keratinocytes 2            2751 
+    Keratinocytes 1            2227 
+    Endothelial cells          2160 
+    Eccrine gland              2138 
+    Immune cells 1             1771 
+    Sebaceous gland            1692 
+    Eccrine gland duct         1416 
+    Tumor 2                    1264 
+    Keratinocytes 3            1020 
+    Immune cells 2              821 
+    Hair follicle               788 
+  -> compare with script 29's counts from the text file; they 
+     should agree, since both come from this same fit 
+
+== 4. Cross-check: their object against our GEO-derived values = 
+  reading from assay: Spatial 
+  our key example:   A16|AACAATGTGCTCCGAG 
+  their key example: A16|AACAATGTGCTCCGAG 
+  spots matched between their object and our label table: 39264 of 39481 
+ 
+  RASSF9 mean raw count per spot, by their label: 
+    Eccrine gland duct          0.777 
+    Immune cells 2              0.610 
+    Keratinocytes 2             0.597 
+    Keratinocytes 3             0.585 
+    Hair follicle               0.497 
+    Keratinocytes 1             0.447 
+    Immune cells 1              0.380 
+    Tumor 1                     0.303 
+    Sebaceous gland             0.224 
+    Endothelial cells           0.215 
+    Nevus                       0.209 
+    Tumor 2                     0.183 
+    Fibroblasts 1               0.169 
+    Eccrine gland               0.144 
+    Fibroblasts 2               0.093 
+ 
+  PRAME mean raw count per spot, by their label: 
+    Tumor 1                    71.312 
+    Tumor 2                     8.631 
+    Keratinocytes 3             8.162 
+    Immune cells 1              5.862 
+    Nevus                       4.625 
+    Eccrine gland duct          3.472 
+    Keratinocytes 1             1.735 
+    Keratinocytes 2             1.675 
+    Immune cells 2              1.440 
+    Hair follicle               0.444 
+    Fibroblasts 1               0.369 
+    Endothelial cells           0.158 
+    Fibroblasts 2               0.132 
+    Sebaceous gland             0.057 
+    Eccrine gland               0.047 
+ 
+  If this ordering matches script 30 section 4 -- RASSF9 highest in 
+  endothelial and adnexal spots, lowest in Tumor 1 -- then the 
+  barcode join is confirmed from a completely independent route. 
+
+== 5. Spatial panels =========================================== 
+  section index -> name: 
+     1  A16 
+     2  A17 
+     3  A2 
+     4  A21 
+     5  A22 
+     6  A23 
+     7  A24 
+     8  A34 
+     9  A7 
+    10  B1 
+    11  B13 
+    12  B14 
+    13  B15 
+    14  B38.2 
+    15  B38ex 
+    16  B4 
+    17  B8 
+    18  D20 
+    19  D3 
+  figure sets: 
+    main: RASSF9, PRAME 
+    extra: RASSF10, MLANA 
+  wrote: geo_spatial_A16.{png,pdf}    8.4 x 4.6 in, 2 panel(s) 
+  wrote: geo_spatial_A16_extra.{png,pdf} 8.4 x 4.6 in, 2 panel(s) 
+  wrote: geo_spatial_A21.{png,pdf}    8.4 x 4.6 in, 2 panel(s) 
+  wrote: geo_spatial_A21_extra.{png,pdf} 8.4 x 4.6 in, 2 panel(s) 
+  wrote: geo_spatial_B1.{png,pdf}     8.4 x 4.6 in, 2 panel(s) 
+  wrote: geo_spatial_B1_extra.{png,pdf} 8.4 x 4.6 in, 2 panel(s) 
+  wrote: geo_spatial_B4.{png,pdf}     8.4 x 4.6 in, 2 panel(s) 
+  wrote: geo_spatial_B4_extra.{png,pdf} 8.4 x 4.6 in, 2 panel(s) 
+ 
+  These come out with semla's own titles and colour bars. They are 
+  the SCIENTIFIC draft, not the final figure: the journal-mode 
+  pass (no titles in the image, legend in the text) happens once 
+  the panel selection is settled, so that cosmetics are not redone 
+  for sections that get dropped. 
+
+== 6. Reading the panels ======================================= 
+  THE POINT OF THE FIGURE: PRAME marks the melanoma compartment and 
+  should fill it densely. RASSF9 should NOT follow it -- if script 
+  30's lineage result is right, RASSF9 appears scattered across the 
+  whole section, including dermis and adnexal structures, with no 
+  enrichment in the tumour. 
+ 
+  WHAT WOULD CONTRADICT IT: RASSF9 tracking PRAME, or RASSF9 
+  concentrated in the nevus region specifically. Either would mean 
+  the pseudobulk summary is hiding spatial structure, and would need 
+  explaining before the figure is used. 
+ 
+  CAUTION ON READING SPARSE GENES SPATIALLY: RASSF9 is detected in 
+  11% of spots. A scattered appearance is partly sparsity and not 
+  only biology, so the figure ILLUSTRATES the quantified result in 
+  script 30 section 4 -- it does not independently establish it, and 
+  the legend must say so. 
+  no warnings raised 

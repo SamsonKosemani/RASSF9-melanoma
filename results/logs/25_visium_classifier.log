@@ -1,0 +1,87 @@
+GSE298774 spot classifier — 2026-10-13 15:24:44 
+
+
+== 1. Sections ================================================= 
+  sections to classify: 18 
+  patients represented: 17 
+  dropped: A2 (incomplete deposit) 
+
+== 2. Classification =========================================== 
+  A16     1566n/ 267m | CDK2 ok PRAME ok | mel 2.00! depth 1.55! stroma 0.75  | FAIL 
+  A17      748n/  57m | CDK2 ok PRAME ok | mel 1.08  depth 0.91  stroma 1.01  | PASS 
+  A21     1360n/ 330m | CDK2 ok PRAME ok | mel 1.45  depth 2.17! stroma 0.77  | FAIL 
+  A22     2122n/ 306m | CDK2 ok PRAME ok | mel 1.69  depth 0.35! stroma 1.37  | FAIL 
+  A23     1213n/  85m | CDK2 ok PRAME ok | mel 1.01  depth 0.23! stroma 1.56! | FAIL 
+  A24     1806n/2105m | CDK2 ok PRAME ok | mel 2.38! depth 3.68! stroma 0.70  | FAIL 
+  A34      635n/ 147m | CDK2 ok PRAME ok | mel 1.11  depth 1.08  stroma 0.91  | PASS 
+  A7       793n/  13m | CDK2 ok PRAME ok | mel 0.61  depth 0.21! stroma 2.52! | FAIL 
+  B1      2190n/ 685m | CDK2 ok PRAME ok | mel 1.59  depth 2.88! stroma 0.87  | FAIL 
+  B13      603n/ 125m | CDK2 ok PRAME ok | mel 1.69  depth 1.56! stroma 1.36  | FAIL 
+  B14      641n/  89m | CDK2 ok PRAME ok | mel 0.74  depth 1.69! stroma 0.76  | FAIL 
+  B15      973n/ 116m | CDK2 ok PRAME ok | mel 1.28  depth 1.20  stroma 1.10  | PASS 
+  B38_2    287n/ 100m | CDK2 ok PRAME ok | mel 2.07! depth 1.78! stroma 0.85  | FAIL 
+  B38ex    634n/ 312m | CDK2 ok PRAME ok | mel 3.86! depth 2.60! stroma 0.88  | FAIL 
+  B4      1651n/ 484m | CDK2 ok PRAME ok | mel 1.94  depth 1.69! stroma 0.93  | FAIL 
+  B8       531n/  49m | CDK2 ok PRAME ok | mel 1.70  depth 1.16  stroma 0.81  | PASS 
+  D20      516n/ 342m | CDK2 ok PRAME ok | mel 1.60  depth 1.59! stroma 0.85  | FAIL 
+  D3       547n/ 136m | CDK2 ok PRAME ok | mel 0.89  depth 1.49  stroma 0.73  | PASS 
+
+== 3. Validation =============================================== 
+  sections split: 18 
+  V1 CDK2 higher in melanoma-like:  18 of 18 
+  V2 PRAME higher in melanoma-like: 18 of 18 
+  V3 MKI67 higher in melanoma-like: 18 of 18 
+  V4 melanocytic content comparable: 14 of 18 
+  V5 sequencing DEPTH comparable:   5 of 18 
+  V6 STROMAL content comparable:    16 of 18 
+  passing V1, V2, V5 and V6:        5 of 18 
+ 
+  depth ratio across sections: median 1.56 (range 0.21-3.68) 
+  stroma ratio across sections: median 0.88 (range 0.70-2.52) 
+    V1_CDK2_up: 18/18, sign test p = 7.63e-06 
+    V2_PRAME_up: 18/18, sign test p = 7.63e-06 
+    V3_MKI67_up: 18/18, sign test p = 7.63e-06 
+ 
+  wrote: results/geo/gse298774_classifier_validation.csv 
+ 
+  sections FAILING: A16, A21, A22, A23, A24, A7, B1, B13, B14, B38_2, B38ex, B4, D20 
+    A16     depth ratio 1.55, stroma ratio 0.75, mel ratio 2.00 
+    A21     depth ratio 2.17, stroma ratio 0.77, mel ratio 1.45 
+    A22     depth ratio 0.35, stroma ratio 1.37, mel ratio 1.69 
+    A23     depth ratio 0.23, stroma ratio 1.56, mel ratio 1.01 
+    A24     depth ratio 3.68, stroma ratio 0.70, mel ratio 2.38 
+    A7      depth ratio 0.21, stroma ratio 2.52, mel ratio 0.61 
+    B1      depth ratio 2.88, stroma ratio 0.87, mel ratio 1.59 
+    B13     depth ratio 1.56, stroma ratio 1.36, mel ratio 1.69 
+    B14     depth ratio 1.69, stroma ratio 0.76, mel ratio 0.74 
+    B38_2   depth ratio 1.78, stroma ratio 0.85, mel ratio 2.07 
+    B38ex   depth ratio 2.60, stroma ratio 0.88, mel ratio 3.86 
+    B4      depth ratio 1.69, stroma ratio 0.93, mel ratio 1.94 
+    D20     depth ratio 1.59, stroma ratio 0.85, mel ratio 1.60 
+ 
+  [STOP] CLASSIFIER FAILS: only 28% of sections 
+  reproduce both published markers. These labels do not identify 
+  nevus and melanoma reliably, so no RASSF9 comparison should be 
+  built on them. The right move then is to ask the authors for 
+  their per-spot topic assignments rather than to retune this 
+  classifier until it passes -- retuning against a validation 
+  target is how a classifier gets fitted to noise. 
+
+== 4. Composition ============================================== 
+  class                        n    med UMI   melano    fibro    kerat   immune     endo 
+  Melanoma-like             5748      39665    103.2    160.3    127.9      8.2      2.0 
+  Nevus-like               18816      10516     57.8    170.5    203.0      7.9      3.0 
+  Non-melanocytic          32272       1043      5.4    407.5     84.4      6.4      4.8 
+ 
+  Read the stromal columns: if nevus-like and melanoma-like spots 
+  carry similar fibroblast and endothelial content, then a 
+  difference between them cannot be the composition effect that 
+  confounded the bulk cohorts -- which is the whole reason for 
+  using this dataset. 
+ 
+  wrote: results/geo/gse298774_spot_labels.csv.gz  (56836 spots) 
+ 
+  NOTE: neither RASSF9 nor RASSF10 was loaded, scored or mentioned 
+  anywhere in this script. They are read once, in script 26, now 
+  that the labels are fixed. 
+  no warnings raised 

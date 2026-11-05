@@ -1,0 +1,108 @@
+
+== 1. Inputs ===================================================
+  OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv      376.7 MB
+  Model.csv                                                 0.8 MB
+
+== 2. Melanoma lines in the annotation =========================
+  model ID column   : ModelID
+  disease column    : OncotreePrimaryDisease
+  lineage column    : OncotreeLineage
+  name column       : StrippedCellLineName
+  subtype column    : OncotreeSubtype
+
+  total models in annotation: 2554
+  models with 'melanoma' in primary disease: 154
+
+  breakdown of those by primary disease:
+    Melanoma                                              135
+    Ocular Melanoma                                        16
+    Mucosal Melanoma of the Vulva/Vagina                    3
+
+  by subtype (acral / mucosal / uveal are biologically distinct):
+    Melanoma                                              109
+    Cutaneous Melanoma                                     20
+    Uveal Melanoma                                         16
+    Acral Melanoma                                          6
+    Mucosal Melanoma of the Vulva/Vagina                    3
+
+  cutaneous/other melanoma (primary set): 138
+  uveal melanoma (reported separately)  : 16
+
+== 3. Locating gene columns in the expression matrix ============
+  columns in file: 19224
+  first four columns: 'V1', 'SequencingID', 'ModelConditionID', 'ModelID'
+  model ID column   : 'ModelID'
+  default-row flag  : absent (one row per model assumed)
+  RASSF9    -> RASSF9 (9182)
+  RASSF10   -> RASSF10 (644943)
+  ACTB      -> ACTB (60)
+  GAPDH     -> GAPDH (2597)
+  MITF      -> MITF (4286)
+  SOX10     -> SOX10 (6663)
+  MYOD1     -> MYOD1 (4654)
+
+== 4. Reading the selected columns =============================
+  rows read: 2314
+  dropped 184 further duplicate model rows (kept the first)
+  distinct models retained: 2130
+  units: log2(TPM + 1), per the DepMap file description
+  ACTB across all models: median 11.28  range 7.77 to 14.32
+
+== 5. Matching annotation to expression ========================
+  melanoma models in annotation      : 154
+  of those, present in expression    : 129
+  of those, missing from expression  : 25
+
+  PRIMARY SET (non-uveal melanoma) n = 113
+  uveal set                        n = 16
+
+== 6. Detection and dynamic range ==============================
+  non-uveal melanoma lines, n = 113
+
+  gene          n  %TPM>1  %floor  median     IQR      SD     min     max    %tied
+  RASSF9      113    3.5%   27.4%    0.02    0.11    0.31    0.00    1.89    26.5%
+  RASSF10     113    1.8%   19.5%    0.04    0.12    0.21    0.00    1.30    18.6%
+  ACTB        113  100.0%    0.0%   11.19    0.70    0.53    9.85   12.57     0.0%
+  GAPDH       113  100.0%    0.0%   12.44    0.83    0.65    9.78   13.92     0.0%
+  MITF        113   99.1%    0.0%    6.49    3.50    2.14    0.75    8.73     0.0%
+  SOX10       113   87.6%    6.2%    7.72    0.79    2.63    0.00    8.83     5.3%
+  MYOD1       113    0.0%   78.8%    0.00    0.00    0.06    0.00    0.54    77.9%
+
+  Read ACTB/GAPDH as a file-integrity check, MITF/SOX10 as evidence the
+  lines are melanocytic, MYOD1 as a near-zero reference. They are not a
+  biological comparison for RASSF9.
+
+  uveal melanoma, n = 16 (reported, not pooled):
+    RASSF9    %TPM>1  12.5%  median  0.00  SD  0.67
+    RASSF10   %TPM>1   0.0%  median  0.00  SD  0.03
+
+== 7. Verdict against the pre-set gate =========================
+  PROCEED  : >= 70% of lines at TPM >= 1, SD >= 0.5, tied < 40%
+  MARGINAL : 40-70% detected, or SD 0.3-0.5
+  STOP     : < 40% detected, or SD < 0.3
+
+  RASSF9: STOP
+    detected 3.5% of 113 lines | SD 0.31 | tied 26.5% | median 0.02 (log2 TPM+1)
+    -> a methylation-expression correlation in these lines would be
+       computed largely on the detection floor. Report as inadequate.
+
+  RASSF10: STOP
+    detected 1.8% of 113 lines | SD 0.21 | tied 18.6% | median 0.04 (log2 TPM+1)
+    -> a methylation-expression correlation in these lines would be
+       computed largely on the detection floor. Report as inadequate.
+
+  WHAT THIS CANNOT SAY: this is a feasibility check on expression only.
+  A PROCEED verdict does not mean the methylation data covers the RASSF9
+  promoter, which is a separate question answered in step 2. A STOP
+  verdict is informative in its own right: it is consistent with the
+  bulk-tumour RASSF9 signal in TCGA being substantially non-malignant in
+  origin, which is what our Tirosh analysis already indicated.
+
+== 8. Output ===================================================
+  wrote 42_rassf9_melanoma_lines.csv
+  wrote 42_rassf10_melanoma_lines.csv
+  wrote 42_gate_summary.csv
+
+== 9. Figures ==================================================
+  wrote: 42_rassf9_detection.png
+  wrote: 42_rassf10_detection.png

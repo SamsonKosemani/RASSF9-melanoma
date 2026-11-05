@@ -1,0 +1,208 @@
+
+== 1. Inputs ===================================================
+  beta matrix: 48 probes x 1028 cell lines
+  probes: RASSF9 12 | RASSF10 36
+
+== 2. Assigning a lineage to all 1028 lines ================
+  lines matched to a DepMap lineage: 996 of 1028 (96.9%)
+  melanoma (non-uveal)            : 56
+  other lines WITH a lineage      : 940
+  unmatched (excluded from tests) : 32
+
+  NOTE: 44b used all 972 non-melanoma columns as the baseline. Here the
+  baseline is restricted to lines with a known lineage, so the pooled
+  numbers may differ slightly from 44b. That is intentional -- the
+  lineage test requires the annotation.
+
+== 3. Per-line scores ==========================================
+  RASSF9: scored 996 lines
+  RASSF10: scored 996 lines
+
+== 4. Melanoma vs other lineages, by probe set =================
+  core is the test; shore and distal are pre-specified negative controls
+  core_minus_distal normalises each line against itself
+
+  RASSF9:
+    measure              melMed   othMed     shift          p   n mel / n oth
+    core                  0.588    0.183    +0.327   0.00e+00   56 / 940
+    shore                 0.457    0.575    -0.067   8.91e-02   56 / 940
+    distal                0.464    0.449    +0.007   8.22e-01   56 / 940
+    core_minus_distal     0.140   -0.125    +0.262   0.00e+00   56 / 940
+
+  RASSF10:
+    measure              melMed   othMed     shift          p   n mel / n oth
+    core                  0.325    0.223    +0.063   3.87e-02   56 / 940
+    shore                 0.700    0.495    +0.206   4.14e-11   56 / 940
+    distal                0.717    0.700    +0.016   1.35e-01   56 / 940
+    core_minus_distal    -0.390   -0.438    +0.047   1.87e-01   56 / 940
+
+  'shift' is the Hodges-Lehmann estimate of the median difference
+  (melanoma minus other), with a 95% CI in the output CSV.
+
+== 5. Per-probe tests (BH within each gene's probe family) =====
+
+  RASSF9  (family of 12 probes):
+    probe         TSSdist set             melMed   othMed    shift          p       BH p
+    cg11846905    -112093 distal           0.851    0.873   -0.010   4.29e-01   4.68e-01
+    cg04916911     -37967 distal           0.185    0.154   +0.013   3.60e-01   4.33e-01
+    cg18877737     -37694 distal           0.175    0.230   -0.033   1.69e-01   2.53e-01
+    cg08888956     -37652 distal           0.436    0.463   -0.007   8.30e-01   8.30e-01
+    cg03707749     -10274 distal           0.617    0.581   +0.063   8.88e-02   1.52e-01
+    cg18827107       -770 shore            0.624    0.718   -0.034   2.64e-01   3.52e-01
+    cg19622623       -638 shore            0.304    0.432   -0.081   4.63e-02   9.26e-02
+    cg27035734       -370 tss_proximal     0.822    0.388   +0.345   4.44e-16   2.66e-15
+    cg25456477       -180 tss_proximal     0.823    0.152   +0.533   0.00e+00   0.00e+00
+    cg00310523        +11 tss_proximal     0.640    0.119   +0.363   3.33e-15   1.33e-14
+    cg02569458        +94 tss_proximal     0.305    0.079   +0.180   2.32e-11   6.95e-11
+    cg06740227       +383 tss_proximal     0.348    0.076   +0.177   6.85e-10   1.64e-09
+    tss_proximal  5 of 5 probes at BH p < 0.05 | mean shift +0.320
+    shore         0 of 2 probes at BH p < 0.05 | mean shift -0.058
+    distal        0 of 5 probes at BH p < 0.05 | mean shift +0.005
+
+  RASSF10  (family of 36 probes):
+    probe         TSSdist set             melMed   othMed    shift          p       BH p
+    cg12399536    -145979 distal           0.895    0.889   +0.004   6.91e-01   8.02e-01
+    cg14665901    -145732 distal           0.835    0.849   -0.006   5.62e-01   6.75e-01
+    cg20445806    -138015 distal           0.911    0.912   +0.003   4.15e-01   5.33e-01
+    cg13845161    -129145 distal           0.954    0.955   +0.000   9.05e-01   9.05e-01
+    cg20233228    -127253 distal           0.901    0.896   +0.003   1.64e-01   2.68e-01
+    cg26770464    -119934 distal           0.824    0.892   -0.043   2.74e-04   8.95e-04
+    cg01482376    -117257 distal           0.921    0.919   +0.002   4.43e-01   5.50e-01
+    cg24517989    -115361 distal           0.701    0.690   -0.007   7.55e-01   8.24e-01
+    cg24506086    -108745 distal           0.545    0.893   -0.223   6.55e-14   1.05e-12
+    cg09711214    -106038 distal           0.898    0.922   -0.021   3.96e-03   1.10e-02
+    cg15805337     -94966 distal           0.915    0.919   -0.003   4.13e-01   5.33e-01
+    cg18525873     -86319 distal           0.908    0.910   +0.001   8.20e-01   8.68e-01
+    cg24442572     -69274 distal           0.905    0.903   +0.005   1.60e-01   2.68e-01
+    cg05059451     -19707 distal           0.561    0.475   +0.088   5.58e-03   1.29e-02
+    cg04755604     -19679 distal           0.483    0.466   +0.027   3.64e-01   5.04e-01
+    cg27075800     -19265 distal           0.645    0.856   -0.156   2.62e-07   1.35e-06
+    cg23548136      -3157 distal           0.886    0.898   -0.010   1.51e-02   3.02e-02
+    cg11518550      -1141 shore            0.869    0.562   +0.272   8.77e-14   1.05e-12
+    cg08148891       -554 shore            0.554    0.411   +0.136   6.57e-04   1.97e-03
+    cg19665644       -389 tss_proximal     0.352    0.133   +0.076   1.79e-02   3.39e-02
+    cg20918243       -351 tss_proximal     0.360    0.260   +0.067   1.14e-02   2.41e-02
+    cg09596429       -346 tss_proximal     0.455    0.302   +0.088   5.72e-03   1.29e-02
+    cg05817758       -296 tss_proximal     0.701    0.475   +0.165   1.87e-05   8.41e-05
+    cg08876434       -226 tss_proximal     0.343    0.222   +0.052   9.94e-02   1.79e-01
+    cg25344734       -220 tss_proximal     0.209    0.161   +0.022   2.48e-01   3.71e-01
+    cg26005578       -187 tss_proximal     0.054    0.027   +0.001   8.77e-01   9.02e-01
+    cg05095158        +10 tss_proximal     0.168    0.097   +0.013   2.39e-01   3.71e-01
+    cg22740547        +13 tss_proximal     0.165    0.087   +0.011   2.58e-01   3.71e-01
+    cg07600636       +940 distal           0.535    0.371   +0.144   1.79e-04   6.45e-04
+    cg00326127      +1541 distal           0.824    0.477   +0.265   7.47e-10   5.38e-09
+    cg20098471      +1750 distal           0.979    0.877   +0.080   1.37e-09   8.21e-09
+    cg08161666      +4034 distal           0.821    0.597   +0.145   7.71e-05   3.08e-04
+    cg04844534     +43041 distal           0.775    0.381   +0.305   1.29e-10   1.16e-09
+    cg25068253     +93431 distal           0.072    0.818   -0.664   1.16e-26   4.18e-25
+    cg04137004    +109216 distal           0.335    0.540   -0.114   4.76e-03   1.22e-02
+    cg02452500    +131064 distal           0.267    0.321   -0.007   7.39e-01   8.24e-01
+    tss_proximal  4 of 9 probes at BH p < 0.05 | mean shift +0.055
+    shore         2 of 2 probes at BH p < 0.05 | mean shift +0.204
+    distal        13 of 25 probes at BH p < 0.05 | mean shift -0.007
+
+== 6. Core score by lineage ====================================
+  A pooled baseline cannot distinguish melanoma-specific from
+  neural-crest-wide or skin-wide. If melanoma does not rank near the top
+  here, the pooled result is a lineage effect rather than a melanoma one.
+
+  RASSF9 promoter-core score by lineage (n >= 10 ranked):
+    lineage                                n   medianCore      IQR
+    Melanoma (non-uveal)                  56        0.588    0.287  <<<
+    Peripheral Nervous System             36        0.579    0.292
+    Testis                                 2        0.482    0.023   (not ranked)
+    Fibroblast                             1        0.480    0.000   (not ranked)
+    Other                                  1        0.419    0.000   (not ranked)
+    Myeloid                               44        0.336    0.317
+    Bone                                  43        0.327    0.381
+    Soft Tissue                           16        0.310    0.263
+    Lymphoid                             129        0.304    0.369
+    Eye                                    1        0.261    0.000   (not ranked)
+    Thyroid                               15        0.229    0.262
+    Prostate                               8        0.227    0.305   (not ranked)
+    Lung                                 175        0.217    0.412
+    Kidney                                32        0.212    0.245
+    Adrenal Gland                          1        0.198    0.000   (not ranked)
+    Bladder/Urinary Tract                 20        0.187    0.139
+    Head and Neck                         43        0.173    0.092
+    Cervix                                16        0.170    0.115
+    Pleura                                21        0.166    0.145
+    Pancreas                              30        0.163    0.148
+    Breast                                51        0.156    0.172
+    Vulva/Vagina                           2        0.146    0.029   (not ranked)
+    Uterus                                16        0.142    0.182
+    Biliary Tract                          5        0.140    0.092   (not ranked)
+    Skin                                   3        0.131    0.027   (not ranked)
+    Esophagus/Stomach                     58        0.119    0.103
+    CNS/Brain                             58        0.106    0.072
+    Ovary/Fallopian Tube                  40        0.105    0.213
+    Bowel                                 54        0.103    0.095
+    Liver                                 19        0.091    0.062
+    melanoma rank: 1 of 21 lineages with n >= 10
+
+  RASSF10 promoter-core score by lineage (n >= 10 ranked):
+    lineage                                n   medianCore      IQR
+    Liver                                 19        0.734    0.477
+    Uterus                                16        0.724    0.633
+    Lymphoid                             129        0.681    0.452
+    Breast                                51        0.525    0.578
+    Myeloid                               44        0.407    0.438
+    Thyroid                               15        0.386    0.443
+    CNS/Brain                             58        0.383    0.348
+    Adrenal Gland                          1        0.359    0.000   (not ranked)
+    Ovary/Fallopian Tube                  40        0.343    0.539
+    Melanoma (non-uveal)                  56        0.325    0.297  <<<
+    Prostate                               8        0.317    0.274   (not ranked)
+    Soft Tissue                           16        0.271    0.323
+    Pleura                                21        0.263    0.204
+    Fibroblast                             1        0.206    0.000   (not ranked)
+    Kidney                                32        0.168    0.247
+    Bladder/Urinary Tract                 20        0.164    0.252
+    Lung                                 175        0.156    0.243
+    Pancreas                              30        0.156    0.456
+    Bowel                                 54        0.150    0.547
+    Cervix                                16        0.114    0.233
+    Bone                                  43        0.109    0.105
+    Esophagus/Stomach                     58        0.105    0.275
+    Biliary Tract                          5        0.099    0.012   (not ranked)
+    Eye                                    1        0.077    0.000   (not ranked)
+    Peripheral Nervous System             36        0.076    0.036
+    Vulva/Vagina                           2        0.075    0.012   (not ranked)
+    Skin                                   3        0.073    0.010   (not ranked)
+    Other                                  1        0.067    0.000   (not ranked)
+    Head and Neck                         43        0.066    0.055
+    Testis                                 2        0.059    0.009   (not ranked)
+    melanoma rank: 9 of 21 lineages with n >= 10
+
+== 7. Verdict against the pre-set criterion ====================
+
+  RASSF9: MELANOMA-SPECIFIC
+    core probes raised at BH p < 0.05 : 5 of 5
+    core-minus-distal shift           : +0.262, p = 0.00e+00
+    melanoma rank among lineages      : 1 of 21
+    control sets also significant     : shore 0, distal 0
+
+  RASSF10: LINEAGE-SHARED
+    core probes raised at BH p < 0.05 : 4 of 9
+    core-minus-distal shift           : +0.047, p = 1.87e-01
+    melanoma rank among lineages      : 9 of 21
+    control sets also significant     : shore 2, distal 13
+  [WARN] RASSF10: more than half the distal probes also differ -- part of this may be global methylation difference rather than promoter-specific
+
+== 8. Figures ==================================================
+  wrote: 45_rassf9_lineage.png
+  wrote: 45_rassf10_lineage.png
+
+== 9. What this still cannot say ===============================
+  1. Nothing here is a methylation-expression relationship. It is a
+     comparison of methylation levels between groups of cell lines.
+     The expression side remains at the floor in melanoma (0 of 39 lines
+     with both measurements reached TPM >= 1).
+  2. Cell lines are not tumours. The core-minus-distal statistic removes
+     per-line global differences, which is the main culture objection, but
+     it does not make a cultured line a melanoma in a patient.
+  3. Lineage is an observational grouping. Melanoma lines differ from
+     other lineages in many ways besides being melanoma.
+  4. A melanoma-specific methylated-and-silent promoter is consistent
+     with methylation-associated silencing. It does not establish that
+     methylation CAUSED the silencing; that needs demethylation in vitro.

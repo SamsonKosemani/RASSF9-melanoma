@@ -1,0 +1,16 @@
+class,lineage,n_cells,pct
+Melanocyte (cultured),Melanocytic,6058,100
+Melanoma line,Melanocytic,23505,99.10612640721845
+Melanoma line,Ambiguous,188,0.7926803558628832
+Melanoma line,Keratinocyte,21,0.08854408230383269
+Melanoma line,Fibroblast,1,0.00421638487161108
+Melanoma line,Immune,1,0.00421638487161108
+Melanoma line,Undetermined (no markers),1,0.00421638487161108
+Nevus (primary),Undetermined (shallow),12771,54.764150943396224
+Nevus (primary),Melanocytic,4636,19.879931389365353
+Nevus (primary),Immune,2872,12.315608919382504
+Nevus (primary),Fibroblast,1421,6.093481989708405
+Nevus (primary),Ambiguous,954,4.090909090909091
+Nevus (primary),Endothelial,308,1.320754716981132
+Nevus (primary),Keratinocyte,203,0.8704974271012007
+Nevus (primary),Undetermined (no markers),155,0.6646655231560892

@@ -1,0 +1,89 @@
+
+== 1. Inputs ===================================================
+  OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv      376.7 MB
+  Model.csv                                                 0.8 MB
+
+== 2. Gene and ID columns ======================================
+  model ID column: 'ModelID'
+  profile column : 'SequencingID'
+  RASSF9   -> RASSF9 (9182)
+  RASSF10  -> RASSF10 (644943)
+  rows (profiles) read: 2314
+  distinct models      : 2130
+
+== 3. Profile collapse: first vs max vs mean ===================
+  models with a single profile : 1958
+  models with >1 profile       : 172
+  largest number of profiles for one model: 4
+
+== 4. Melanoma lines by subtype ================================
+  melanoma models in annotation: 154
+    Melanoma NOS      109
+    Cutaneous          20
+    Uveal              16
+    Acral               6
+    Mucosal             3
+
+  'Melanoma NOS' is skin melanoma of unstated subtype. It is NOT verified
+  to exclude acral or mucosal cases, so it is reported as its own group
+  rather than counted as cutaneous.
+
+== 5. Gate under each collapse rule ============================
+  The MAX column is the decisive one: it is >= whichever profile DepMap
+  would have designated, so it is the most generous possible reading.
+
+  RASSF9  (non-uveal melanoma lines with expression, n = 113)
+    rule        n   %TPM>1   %floor   median      SD     max    %tied   verdict
+    first     113     3.5%    27.4%    0.022   0.315    1.89    26.5%   STOP
+    max       113     3.5%    26.5%    0.022   0.315    1.89    25.7%   STOP
+    mean      113     3.5%    26.5%    0.022   0.315    1.89    25.7%   STOP
+    lines whose value rose > 0.5 log2 units under max: 0
+    lines crossing the TPM >= 1 threshold under max  : 0
+
+  RASSF10  (non-uveal melanoma lines with expression, n = 113)
+    rule        n   %TPM>1   %floor   median      SD     max    %tied   verdict
+    first     113     1.8%    19.5%    0.040   0.212    1.30    18.6%   STOP
+    max       113     1.8%    19.5%    0.040   0.212    1.30    18.6%   STOP
+    mean      113     1.8%    19.5%    0.040   0.208    1.30    18.6%   STOP
+    lines whose value rose > 0.5 log2 units under max: 0
+    lines crossing the TPM >= 1 threshold under max  : 0
+
+
+== 6. Detection by subtype (max rule) ==========================
+  RASSF9:
+    group                n    det     %det   median     max
+    Melanoma NOS        91      3     3.3%    0.023    1.89
+    Uveal               16      2    12.5%    0.003    1.99
+    Cutaneous           15      0     0.0%    0.009    0.15
+    Acral                6      1    16.7%    0.000    1.62
+    Mucosal              1      0     0.0%    0.000    0.00
+    NOTE: Acral, Mucosal have fewer than 10 lines -- percentages there are indicative only.
+
+  RASSF10:
+    group                n    det     %det   median     max
+    Melanoma NOS        91      2     2.2%    0.053    1.30
+    Uveal               16      0     0.0%    0.000    0.12
+    Cutaneous           15      0     0.0%    0.043    0.47
+    Acral                6      0     0.0%    0.011    0.04
+    Mucosal              1      0     0.0%    0.000    0.00
+    NOTE: Acral, Mucosal have fewer than 10 lines -- percentages there are indicative only.
+
+
+== 7. Figures ==================================================
+  wrote: 43_rassf9_by_subtype.png
+  wrote: 43_rassf10_by_subtype.png
+
+== 8. What this settles ========================================
+  If the max rule returns STOP for RASSF9, then no choice of sequencing
+  profile could have produced a testable correlation, and the arbitrary
+  duplicate handling in script 42 is no longer a caveat worth stating.
+
+  If the max rule returns MARGINAL or PROCEED, script 42's verdict was an
+  artefact of keeping the first profile. In that case do NOT defend it --
+  download OmicsProfiles.csv, use IsDefaultEntryForModel, and redo the
+  gate properly before anything goes to Gustavo.
+
+  WHAT THIS CANNOT SAY: nothing here addresses whether the RASSF9
+  promoter is methylated in these lines. Low expression with uniform
+  hypermethylation and low expression with an unmethylated promoter look
+  identical in this script and mean opposite things. That is step 2.

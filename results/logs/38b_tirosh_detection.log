@@ -1,0 +1,214 @@
+Tirosh GSE72056 RASSF9 detection — 2026-10-16 17:23:13 
+
+
+== 1. Load ===================================================== 
+  reading GSE72056_melanoma_single_cell_revised_v2.txt.gz (71.6 MB gz) 
+  23689 data rows x 4645 cells 
+  annotation rows: tumor | malignant(1=no,2=yes,0=unresolved) | non-malignant cell type (1=T,2=B,3=Macro.4=Endo.,5=CAF;6=NK) 
+  verified: the first 3 rows are annotation, not genes 
+  duplicated gene labels (2): MARCH2, MARCH1 
+  collapsing on the LINEAR scale; summing log2 values would be 
+  meaningless 
+  genes after collapsing: 23684 
+
+== 2. Cell classes ============================================= 
+    T cell                        2040 cells 
+    Malignant                     1257 cells 
+    B cell                         512 cells 
+    Non-malignant, unassigned      416 cells 
+    Unresolved                     132 cells 
+    Macrophage                     119 cells 
+    Endothelial                     62 cells 
+    CAF                             56 cells 
+    NK                              51 cells 
+  tumours: 19 
+  Unresolved cells are reported but excluded from every test 
+
+== 3. Donor coverage by class -- checked first, not after ====== 
+    T cell                        2040 cells | 18 tumours | 17 with >= 15 cells 
+    Malignant                     1257 cells | 15 tumours | 10 with >= 15 cells 
+    B cell                         512 cells | 15 tumours |  9 with >= 15 cells 
+    Non-malignant, unassigned      416 cells | 18 tumours | 10 with >= 15 cells 
+    Macrophage                     119 cells | 13 tumours |  3 with >= 15 cells 
+    Endothelial                     62 cells |  7 tumours |  2 with >= 15 cells 
+    CAF                             56 cells |  9 tumours |  2 with >= 15 cells 
+    NK                              51 cells | 13 tumours |  0 with >= 15 cells 
+ 
+    tumours with >= 15 cells in BOTH Malignant and Endothelial   1 
+    tumours with >= 15 cells in BOTH Malignant and CAF           1 
+    tumours with >= 15 cells in BOTH Malignant and T cell        8 
+    tumours with >= 15 cells in BOTH Malignant and Macrophage    2 
+
+== 4. Marker gate ============================================== 
+    MLANA   malignant   5.230 vs T cell   1.324  ok 
+    PMEL    malignant   7.577 vs T cell   0.884  ok 
+    TYR     malignant   6.039 vs T cell   0.207  ok 
+    DCT     malignant   2.559 vs T cell   0.123  ok 
+    TYRP1   malignant   1.204 vs T cell   0.140  ok 
+    PTPRC   T cell         5.930 vs malignant   0.213  ok 
+    PECAM1  Endothelial    4.977 vs malignant   0.217  ok 
+    COL1A1  CAF            7.987 vs malignant   0.056  ok 
+  gate: 100% passed 
+
+== 5. Depth control without thinning =========================== 
+  Values are log2(TPM/10+1), so counts are unavailable and binomial 
+  thinning is impossible. Detected-gene count is the depth proxy, 
+  and comparisons are restricted to a band covered by every class. 
+    T cell                       n =  2040 | genes detected p10  2532 med  3618 p90  5494 
+    Malignant                    n =  1257 | genes detected p10  3544 med  5523 p90  7963 
+    B cell                       n =   512 | genes detected p10  2393 med  3340 p90  4708 
+    Non-malignant, unassigned    n =   416 | genes detected p10  2330 med  3626 p90  6998 
+    Macrophage                   n =   119 | genes detected p10  2776 med  4716 p90  6817 
+    Endothelial                  n =    62 | genes detected p10  3439 med  4684 p90  5826 
+    CAF                          n =    56 | genes detected p10  2380 med  5097 p90  8659 
+    NK                           n =    51 | genes detected p10  2366 med  3382 p90  5014 
+  common band: 3544-5494 detected genes 
+    Malignant                     494 of 1257 cells in band 
+    Endothelial                    41 of   62 cells in band 
+    CAF                            16 of   56 cells in band 
+    T cell                        864 of 2040 cells in band 
+
+== 6. Detection by class ======================================= 
+
+  RASSF9 (all cells): 
+    class                          cells     det    % det   mean log 
+    T cell                          2040       8    0.39%     0.0060 
+    Malignant                       1257      12    0.95%     0.0174 
+    B cell                           512       1    0.20%     0.0031 
+    Non-malignant, unassigned        416       5    1.20%     0.0322 
+    Macrophage                       119       0    0.00%     0.0000 
+    Endothelial                       62      23   37.10%     1.2140 
+    CAF                               56       5    8.93%     0.1681 
+    NK                                51       0    0.00%     0.0000 
+
+  RASSF10 (all cells): 
+    class                          cells     det    % det   mean log 
+    T cell                          2040       1    0.05%     0.0013 
+    Malignant                       1257       3    0.24%     0.0014 
+    B cell                           512       1    0.20%     0.0012 
+    Non-malignant, unassigned        416       3    0.72%     0.0176 
+    Macrophage                       119       0    0.00%     0.0000 
+    Endothelial                       62       0    0.00%     0.0000 
+    CAF                               56       0    0.00%     0.0000 
+    NK                                51       1    1.96%     0.0090 
+
+  RASSF9 (depth band): 
+    class                          cells     det    % det   mean log 
+    T cell                           864       4    0.46%     0.0055 
+    Malignant                        494       1    0.20%     0.0054 
+    B cell                           200       1    0.50%     0.0080 
+    Non-malignant, unassigned        120       0    0.00%     0.0000 
+    Macrophage                        53       0    0.00%     0.0000 
+    Endothelial                       41      11   26.83%     0.7783 
+    NK                                19       0    0.00%     0.0000 
+    CAF                               16       0    0.00%     0.0000 
+
+  RASSF10 (depth band): 
+    class                          cells     det    % det   mean log 
+    T cell                           864       0    0.00%     0.0000 
+    Malignant                        494       2    0.40%     0.0026 
+    B cell                           200       0    0.00%     0.0000 
+    Non-malignant, unassigned        120       0    0.00%     0.0000 
+    Macrophage                        53       0    0.00%     0.0000 
+    Endothelial                       41       0    0.00%     0.0000 
+    NK                                19       1    5.26%     0.0243 
+    CAF                               16       0    0.00%     0.0000 
+
+== 7. Pre-registered prediction: endothelial and CAF > malignant  
+
+  RASSF9 within the depth band: 
+    malignant 0.20% | endothelial 26.83% | CAF 0.00% | endo+CAF 19.30% | T cell 0.46% 
+    (endo+CAF) / malignant = 95.33x 
+    immune negative control, T cell = 0.46% 
+    cells behind those: endothelial 41, CAF 16 -- a CAF rate 
+    from so few cells carries a wide interval and the all-cells 
+    figure is the more informative one for that class 
+
+  RASSF10 within the depth band: 
+    malignant 0.40% | endothelial 0.00% | CAF 0.00% | endo+CAF 0.00% | T cell 0.00% 
+    (endo+CAF) / malignant = 0.00x 
+    immune negative control, T cell = 0.00% 
+    cells behind those: endothelial 41, CAF 16 -- a CAF rate 
+    from so few cells carries a wide interval and the all-cells 
+    figure is the more informative one for that class 
+
+  RASSF9 vs Malignant, reference = Endothelial 
+    tumour 80    n mal  125  n ref   27 | mal   0.80% | ref  48.15% 
+    reference higher in 1 of 1 tumours 
+    fewer than 4 tumours; no paired test attempted 
+
+  RASSF9 vs Malignant, reference = CAF 
+    tumour 80    n mal  125  n ref   20 | mal   0.80% | ref  20.00% 
+    reference higher in 1 of 1 tumours 
+    fewer than 4 tumours; no paired test attempted 
+
+  RASSF9 vs Malignant, reference = T cell 
+    tumour 53    n mal   16  n ref   72 | mal   0.00% | ref   0.00% 
+    tumour 71    n mal   54  n ref   23 | mal   0.00% | ref   0.00% 
+    tumour 79    n mal  468  n ref  295 | mal   0.21% | ref   0.34% 
+    tumour 80    n mal  125  n ref  212 | mal   0.80% | ref   0.00% 
+    tumour 81    n mal  133  n ref   43 | mal   6.77% | ref   0.00% 
+    tumour 82    n mal   32  n ref   24 | mal   0.00% | ref   0.00% 
+    tumour 88    n mal  117  n ref  109 | mal   0.00% | ref   0.00% 
+    tumour 89    n mal   98  n ref  201 | mal   1.02% | ref   0.00% 
+    reference higher in 1 of 8 tumours 
+    paired Wilcoxon p = 0.250 
+
+  RASSF10 vs Malignant, reference = Endothelial 
+    tumour 80    n mal  125  n ref   27 | mal   0.80% | ref   0.00% 
+    reference higher in 0 of 1 tumours 
+    fewer than 4 tumours; no paired test attempted 
+
+  RASSF10 vs Malignant, reference = CAF 
+    tumour 80    n mal  125  n ref   20 | mal   0.80% | ref   0.00% 
+    reference higher in 0 of 1 tumours 
+    fewer than 4 tumours; no paired test attempted 
+
+  RASSF10 vs Malignant, reference = T cell 
+    tumour 53    n mal   16  n ref   72 | mal   0.00% | ref   0.00% 
+    tumour 71    n mal   54  n ref   23 | mal   0.00% | ref   0.00% 
+    tumour 79    n mal  468  n ref  295 | mal   0.43% | ref   0.00% 
+    tumour 80    n mal  125  n ref  212 | mal   0.80% | ref   0.00% 
+    tumour 81    n mal  133  n ref   43 | mal   0.00% | ref   0.00% 
+    tumour 82    n mal   32  n ref   24 | mal   0.00% | ref   0.00% 
+    tumour 88    n mal  117  n ref  109 | mal   0.00% | ref   0.00% 
+    tumour 89    n mal   98  n ref  201 | mal   0.00% | ref   0.00% 
+    reference higher in 0 of 8 tumours 
+    paired Wilcoxon p = 0.500 
+
+== 8. Tirosh malignant vs Belote normal melanocytes ============ 
+  CONFOUNDED BY DESIGN: different studies, labs and processing. 
+  Shared Smart-seq2 chemistry removes the largest source of 
+  difference but not batch, and Belote is counts while Tirosh is 
+  log TPM, so only DETECTION can be compared, never level. Depth is 
+  matched on detected-gene count using the authors' own n_genes for 
+  Belote. Suggestive only. 
+  Belote melanocytes: n_genes p10 1647 med 3170 p90 5038 
+  Tirosh malignant:   n_genes p10 3544 med 5523 p90 7963 
+  common band: 3544-5038 detected genes 
+
+  RASSF9: Belote normal melanocytes 0/2233 = 0.000% [0.000, 0.165] 
+     Tirosh malignant melanoma  0/353 = 0.000% [0.000, 1.040] 
+     Fisher p = 1.000 (batch-confounded, pseudo-replicated) 
+
+  RASSF10: Belote normal melanocytes 4/2233 = 0.179% [0.049, 0.458] 
+     Tirosh malignant melanoma  1/353 = 0.283% [0.007, 1.568] 
+     Fisher p = 0.520 (batch-confounded, pseudo-replicated) 
+
+== 9. Verdict against the pre-set criterion ==================== 
+  SUPPORTED     = endo+CAF >= 3x malignant in the depth band AND 
+                  the donor-level test agrees where available 
+  SUGGESTIVE    = ratio holds but donor coverage cannot support a test 
+  NOT SUPPORTED = the ratio does not hold 
+ 
+  RASSF9: SUGGESTIVE (no donor-level test available) 
+    malignant 0.20% | endo+CAF 19.30% | ratio 95.33x | immune 0.46% 
+  RASSF10: NOT SUPPORTED 
+    malignant 0.40% | endo+CAF 0.00% | ratio 0.00x | immune 0.00% 
+ 
+  If the immune classes are NOT low, the positive-control logic is 
+  unreliable and none of this should be trusted. 
+
+== 10. Figure ================================================== 
+  wrote: geo_rassf9_tirosh 
+  no warnings raised 

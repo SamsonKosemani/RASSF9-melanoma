@@ -1,0 +1,5 @@
+value,what,n,where
+0.588054838045919,Melanoma lines with methylation (median of per-line core score),56,"Tables 5, 6; Summary"
+0.571683282988882,Melanoma lines with methylation AND expression (median),39,Table 10 context; Figure 5
+0.182545102095578,Other lineages with a lineage annotation (median),940,Table 6
+0.37422,"TCGA-SKCM, mean of the five core probe medians",469,"Tables 4, 5"

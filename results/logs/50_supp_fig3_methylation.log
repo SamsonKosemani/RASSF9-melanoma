@@ -1,0 +1,78 @@
+
+== 1. Inputs ===================================================
+  methylation_full_probes.csv          E:/RASSF9 Project/results/tcga/methylation_full_probes.csv
+  methylation_specificity.csv          E:/RASSF9 Project/results/tcga/methylation_specificity.csv
+  methylation_null_distribution.csv    E:/RASSF9 Project/results/tcga/methylation_null_distribution.csv
+
+== 2. Verifying values against the manuscript ==================
+  cg18827107   dist  -770  rho +0.135   ok
+  cg19622623   dist  -638  rho +0.136   ok
+  cg27035734   dist  -370  rho -0.368   ok
+  cg25456477   dist  -180  rho -0.485   ok
+  cg00310523   dist   +11  rho -0.429   ok
+  cg02569458   dist   +94  rho -0.395   ok
+  cg06740227   dist  +383  rho -0.294   ok
+  all 7 promoter probes match the manuscript
+
+== 3. Panel A ==================================================
+  core probes: 5 | shore probes: 2
+
+== 4. Panel B ==================================================
+  model                              n     beta  [95% CI]
+  M0 unadjusted                    469   -1.352  [-1.716, -0.988]
+  M1 + sample type                 469   -1.291  [-1.658, -0.924]
+  M2 + global methylation          469   -1.757  [-2.173, -1.341]
+  M3 + global + sample type        469   -1.684  [-2.104, -1.264]
+  M4 + global + type + purity      411   -1.826  [-2.334, -1.318]
+
+== 5. Panel C ==================================================
+  classified: 5 core, 2 shore, 5 distal
+  distinct set labels in the file: distal, promoter, TSS-proximal
+  probes plotted: 12 | null reference: 1729 probes
+  probe        class                rho percentile
+  cg00310523   Promoter core     -0.429      0.00%
+  cg25456477   Promoter core     -0.485      0.00%
+  cg02569458   Promoter core     -0.395      0.12%
+  cg27035734   Promoter core     -0.368      0.29%
+  cg06740227   Promoter core     -0.294      0.81%
+  cg11846905   Distal            -0.214      3.88%
+  cg04916911   Distal            -0.155     10.01%
+  cg08888956   Distal            -0.152     10.29%
+  cg18877737   Distal            -0.118     16.08%
+  cg03707749   Distal            -0.080     25.27%
+  cg18827107   Promoter shore    +0.135     91.09%
+  cg19622623   Promoter shore    +0.136     91.32%
+
+== 6. Assembling at final size =================================
+  180 x 165 mm; type sizes as written, no rescaling
+  wrote SupplementaryFigure3.pdf (vector, for submission)
+  wrote SupplementaryFigure3.png (600 dpi)
+
+== 7. Draft legend =============================================
+
+Supplementary Figure 3. Robustness and positional specificity of the
+RASSF9 promoter methylation-expression association in TCGA-SKCM.
+(A) Spearman correlation between methylation beta and RASSF9 expression
+for each of the seven probes in the promoter window, plotted against
+strand-aware distance to the transcription start site. RASSF9 lies on the
+minus strand of chromosome 12, so negative values are upstream. The five
+TSS-proximal probes that constitute the promoter core correlate
+negatively, whereas the two upstream shore probes correlate positively,
+the island-shore inversion. (B) Regression coefficient for mean
+promoter-region methylation under successive adjustment: M0 unadjusted;
+M1 plus sample type; M2 plus global methylation; M3 plus global
+methylation and sample type; M4 plus tumour purity. Points are point
+estimates, bars 95% confidence intervals, and n is given for each model;
+purity estimates are available for a subset, hence the smaller n for M4.
+The coefficient does not attenuate under adjustment (-1.352 at M0 to -1.826 at M4).
+(C) Each probe at the locus placed against an empirical null built from
+1729 probes outside the RASSF9 and RASSF10 loci; the dashed line marks
+the fifth percentile. All five promoter-core probes fall in the extreme
+lower tail (below the 0.8 percentile), the distal probes lie within the
+body of the null, and the two shore probes sit near the 91 percentile
+in the opposite tail. Correlations are two-sided Spearman; n = 469 tumours
+with paired RNA-seq and HM450 methylation.
+
+  NOTE: the figure is drawn at 180 mm, the final printed width, so
+  the smallest type is 5.5 pt as printed. Do not rescale it on the slide;
+  place it at 100%.

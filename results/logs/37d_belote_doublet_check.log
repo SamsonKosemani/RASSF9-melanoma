@@ -1,0 +1,75 @@
+Belote doublet check — 2026-10-16 16:29:28 
+
+
+== 1. Load ===================================================== 
+  keratin genes used: KRT14, KRT1, KRT5, KRT10, KRT2, KRTDAP, DSP 
+  melanocyte genes used: MLANA, PMEL, TYR, DCT, TYRP1, MITF, SOX10 
+  melanocyte keratin score: median 1.21, 95%ile 18.35 
+  melanocyte detected genes: median 3170, 90%ile 5038 
+  keratinocyte keratin score for contrast: median 987.17 
+
+== 2. Each positive melanocyte against its own population ====== 
+  positive melanocytes (usable depth): 17 
+
+  cell                       donor          R9    R10   genes krt score krt %ile gene %ile flag 
+  12WKM01_H7_B001564         12WKM01         0     11    3965      0.00    11.9%    68.6% - 
+  A1011L_J20_B003520         A1011L          0     49    3015      6.54    84.0%    46.8% - 
+  A1011L_C5_B003580          A1011L         99      0    3021    350.15    99.9%    46.9% KERATIN-HIGH 
+  A1011L_H16_B003580         A1011L          0    208    2657      5.27    81.1%    38.6% - 
+  A1033M_N14_B000771         A1033M          0      1    2416      1.54    55.4%    32.3% - 
+  12WKM01_L16_B001561        12WKM01         0     17    5422      1.73    58.4%    94.9% - cplx 
+  A1038LM_D12_B001438        A1038LM         1      0    1380     63.84    99.2%     3.1% KERATIN-HIGH 
+  FS043_LM_N21_B003198       FS043_LM        1      0    2895      0.00    11.9%    43.8% - 
+  A1038LM_A20_B001429        A1038LM         0      1    3526      0.49    29.5%    58.1% - 
+  12WK05_A5_B003590          12WK05          0      5    3620      2.78    68.9%    60.2% - 
+  12WK05_C22_B003829         12WK05          2      2    1354      4.04    76.7%     2.4% - 
+  12WK05_D12_B003590         12WK05         39      0    5895    125.88    99.7%    97.6% KERATIN-HIGH cplx 
+  18WKM06_E7_B002530         18WKM06       141      0    7298      0.37    24.9%    99.9% - cplx 
+  18WKM06_G4_B002530         18WKM06         0     24    3985      0.00    11.9%    69.1% - 
+  18WKM06_N12_B002530        18WKM06        33      0    6861      3.04    70.8%    99.5% - cplx 
+  16WKM04_P15_B003595        16WKM04         0     64    1427     10.53    89.9%     4.1% - 
+  A1046M_O13_B002550         A1046M          6      0    2814      1.21    50.1%    41.9% - 
+ 
+  flagged: 3 of 17 
+
+  cells with >= 10 counts of either gene (the ones that matter): 
+    12WKM01_H7_B001564         R9    0 R10   11 | krt %ile  11.9 | gene %ile  68.6 | keratin-negative -> real 
+    A1011L_J20_B003520         R9    0 R10   49 | krt %ile  84.0 | gene %ile  46.8 | keratin-negative -> real 
+    A1011L_C5_B003580          R9   99 R10    0 | krt %ile  99.9 | gene %ile  46.9 | KERATIN-HIGH -> doublet 
+    A1011L_H16_B003580         R9    0 R10  208 | krt %ile  81.1 | gene %ile  38.6 | keratin-negative -> real 
+    12WKM01_L16_B001561        R9    0 R10   17 | krt %ile  58.4 | gene %ile  94.9 | keratin-negative -> real, high complexity 
+    12WK05_D12_B003590         R9   39 R10    0 | krt %ile  99.7 | gene %ile  97.6 | KERATIN-HIGH -> doublet, high complexity 
+    18WKM06_E7_B002530         R9  141 R10    0 | krt %ile  24.9 | gene %ile  99.9 | keratin-negative -> real, high complexity 
+    18WKM06_G4_B002530         R9    0 R10   24 | krt %ile  11.9 | gene %ile  69.1 | keratin-negative -> real 
+    18WKM06_N12_B002530        R9   33 R10    0 | krt %ile  70.8 | gene %ile  99.5 | keratin-negative -> real, high complexity 
+    16WKM04_P15_B003595        R9    0 R10   64 | krt %ile  89.9 | gene %ile   4.1 | keratin-negative -> real 
+    flagged among these: 2 of 10 
+
+== 3. Melanocyte detection, flagged cells removed ============== 
+  NOTE: these counts are RAW, not thinned. 37c reported thinned 
+  values, so its figures are lower (RASSF9 5 of 6,379 rather than 8). 
+  Raw is the right basis for a doublet check; the THINNED figure is 
+  the one to quote for any comparison between cell classes. 
+  RASSF9   all melanocytes        8 / 6379 = 0.125% [0.054, 0.247] 
+           flagged removed        5 / 6376 = 0.078% [0.025, 0.183] 
+  RASSF10  all melanocytes       10 / 6379 = 0.157% [0.075, 0.288] 
+           flagged removed       10 / 6376 = 0.157% [0.075, 0.288] 
+
+== 4. Reading this ============================================= 
+  If most substantial-count cells are flagged, the melanocyte rate is 
+  effectively zero and the manuscript can say RASSF9 is not expressed 
+  in normal melanocytes, with doublets named as the source of the few 
+  positives. 
+ 
+  If they are NOT flagged -- keratin-low with ordinary gene counts -- 
+  then a rare population of normal melanocytes does express RASSF9, 
+  at roughly 1 in 1,000. That is worth one honest sentence rather 
+  than a claim of absence, and it would sit comfortably with an 
+  induction model: a gene off at baseline in nearly every cell, with 
+  a few cells already carrying it. 
+ 
+  WHAT THIS CANNOT DO: a count matrix cannot prove a cell is a 
+  singlet. Flagging is evidence of a doublet; absence of a flag is 
+  not proof of a single melanocyte. Neither reading should be stated 
+  more strongly than that. 
+  no warnings raised 

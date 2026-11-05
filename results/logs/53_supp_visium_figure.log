@@ -1,0 +1,148 @@
+
+== 1. Inputs ===================================================
+  gse298774_authorlabels_lineage.csv             ok
+  gse298774_authorlabels_perpatient.csv          ok
+  gse298774_authorlabels_tests.csv               ok
+  bulk_vs_visium_comparison.csv                  ok
+
+== 2. Panel A : RASSF9 by compartment ==========================
+  columns: label, n_spots, total_umi, gene, cpm
+  filtered to RASSF9: 15 rows
+  using: name = 'label', value = 'cpm'
+  compartments: 15 | melanocytic: 3
+    Endothelial cells          35.98 CPM
+    Eccrine gland duct         30.41 CPM
+    Fibroblasts 1              23.81 CPM
+    Immune cells 2             19.96 CPM
+    Fibroblasts 2              18.65 CPM
+    Keratinocytes 2            17.59 CPM
+    Eccrine gland              16.86 CPM
+    Hair follicle              16.13 CPM
+    Keratinocytes 1            13.93 CPM
+    Sebaceous gland            10.72 CPM
+    Keratinocytes 3             9.93 CPM
+    Immune cells 1              7.70 CPM
+    Nevus                       7.57 CPM   <- melanocytic
+    Tumor 2                     5.50 CPM   <- melanocytic
+    Tumor 1                     2.14 CPM   <- melanocytic
+  share of summed CPM in melanocytic compartments: 6.4%
+  share of RASSF9 MOLECULES in melanocytic compartments: 17.1%
+    (estimated as CPM x total_umi / 1e6, summed)
+
+  The manuscript quotes 17.1%. Of the two definitions:
+    summed CPM      6.4%  (sum of rates -- not a share of anything)
+    molecule share  17.1%  (the quantity the wording implies)
+  The molecule share MATCHES the published value. The manuscript
+  sentence is correct as written and panel A can quote it.
+
+== 3. Panel B : paired comparison ==============================
+  columns: patient, grp, n_spots, total_umi, RASSF9_n, RASSF10_n, PRAME_n, CDK2_n, MLANA_n, PMEL_n, PTPRC_n, COL1A1_n, RASSF9_n_cpm, RASSF10_n_cpm, PRAME_n_cpm, CDK2_n_cpm, MLANA_n_cpm, PMEL_n_cpm, PTPRC_n_cpm, COL1A1_n_cpm
+  long format via 'grp'
+  patients in the file: 17
+  excluded by MIN_SPOTS = 10: A24    (9 nevus, 1860 melanoma spots)
+  patients after the spot filter: 16
+  medians: nevus 6.63, melanoma 7.17 | lower in melanoma 10 of 16
+  recomputed:  V = 54, p = 0.5115
+  published:   V = 54, p = 0.5115, n = 16
+
+== 4. Panel C : designs on one scale ===========================
+  rows for RASSF9: 3
+    GSE112509    bulk     fold 0.45 [0.31, 0.65]
+    GSE98394     bulk     fold 0.45 [0.33, 0.61]
+    GSE298774    paired   fold 1.16 [0.56, 2.40]
+
+== 5. Assembling ===============================================
+  wrote SupplementaryFigure_Visium.pdf
+  wrote SupplementaryFigure_Visium.png
+
+== 6. Layout report ============================================
+
+  6.1 Type sizes (pt). Journals require >= 5.5 pt at final size.
+    base          7.0  ok
+    axis          6.0  ok
+    annotation    5.5  ok
+    tag           9.0  ok
+
+  6.2 Axis range against the plotted data
+    A  x  data     0.00 to    35.98 | axis     0.00 to    37.78 | margin  0.0% /  4.8%  ok (hi end only; the other is anchored)
+    B  y  data     0.00 to    18.04 | axis    -0.97 to    23.77 | margin  3.9% / 23.2%  ok
+    C  x  data     0.31 to     2.40 | axis     0.22 to     3.52 | margin 12.4% / 13.8%  ok
+
+  6.3 Longest labels, rendered at final size
+    panel A  widest 'Eccrine gland duct' = 17.4 mm, of 96 mm column  ok
+    panel C  widest 'paired, n = 16 pairs' = 18.2 mm, of 84 mm column  ok
+
+  6.4 Overlap and crowding
+    panel B  annotation sits at 19.49, highest point 18.04, axis top 23.77
+    panel B  Nevus     16 points, 5 adjacent pairs closer than 1.2% of the axis
+    panel B  Melanoma  16 points, 4 adjacent pairs closer than 1.2% of the axis
+    panel A  15 bars; shortest 2.14 CPM is 6.0% of the longest
+
+  6.4b Vertical room per row (panel heights from the layout weights)
+    A  150.0 mm gross, 15 rows ->  8.8 mm per row  ok
+    C   60.0 mm gross,  3 rows -> 15.6 mm per row  ok
+    B  90.0 mm gross for 16 paired lines
+
+  6.5 Colour roles, by panel
+    A fill    #9A9A9A grey   'Other tissue'
+    A fill    #C0392B red    'Melanocytic'
+    B point   #1F6FB2 blue   'Nevus'
+    B point   #C0392B red    'Melanoma'
+    C point   #2A2A2A black  'bulk design'
+    C point   #7D4F9E purple 'paired design'
+    -> red means melanocytic tissue in A and the melanoma group in B,
+       which agree. No colour appears with two unrelated meanings.
+
+  6.6 Low-resolution view of the rendered figure
+    104 x 42 characters, darkest-pixel reduction of the 708 x 590 px render
+    |--------------------------------------------------------------------------------------------------------|
+    |                                                                                                        |
+    | @@         @                                        @@            @                                    |
+    |            @-------------------------------------                 @                                    |
+    |   ########*@-------------------------------------                 @                                    |
+    |            @-------------------------------------                 @                                    |
+    |  ##***%###*@-------------------------------                     ##@           *+########*              |
+    |  ###+#%####@-------------------------------                       @           +%####:###  **           |
+    |            @------------------------                  @@          @                      --            |
+    |     #######@------------------------                  @@          @                    --              |
+    |            @------------------------                  @@        ##@        *-------- ---               |
+    |    ###****#@--------------------                      @@          @        *       -------**           |
+    |    ++####**@--------------------                      @@          @         ----  --      **           |
+    |            @-------------------                       @@          @        *-  ----      --            |
+    |     #######@-------------------                       @@        ##@        *--------------**           |
+    |            @-------------------                       @%          @        *-------   ----**           |
+    |    %#####*#@------------------                        %%          @        ---------------**           |
+    |        :=  @------------------                        @@          @        *--------------**           |
+    |            @-----------------                          :         #@        *-------- -----**           |
+    |     ##*#%##@-----------------                                     @        *--------------**           |
+    |            @-----------------                                     @        *- ---  -------**           |
+    |      *#####@-----------------                                     @          --          -**           |
+    |            @-----------------                                    #@        *--------------**           |
+    |            @--------------                                       #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  |
+    |    %#####*#@--------------                                               :@##*          ######         |
+    |            @-----------                             @@                                                 |
+    |   ######%##@-----------                             @@            @                 +                  |
+    |            @-----------                                           @                 +                  |
+    |    * -  . *@----------                                     -######@                 +                  |
+    |    %#####*#@----------                                    ####+##*@   %%%%%%%%%%    +                  |
+    |            @--------                                              @                 +                  |
+    |    ######*#@--------                                              @                 +                  |
+    |            @--------                                        ###**-@                 +                  |
+    |        @*++@********                    --                ########@    %%%%%%%%     +                  |
+    |        -%##@********                    **####*##           -     @                 +                  |
+    |            @*****                       **#######                 @                 +                  |
+    |       #####@*****                                                 @                 +                  |
+    |            @*****                                       .-.+####*#@          *******************       |
+    |       ###*#@**                                          ####*+###*@                 +                  |
+    |       *#+#+@**                                                    @                 +                  |
+    |            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@               @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  |
+    |            #         @@@@@@*@@@@@@@@@%@@%##                       +##    @@@@@@@@+@@%@%@@@@@@#         |
+    |                      +*@@+@*@@@@@@@*%%@@*                                @@@@@*@@+*@@@%@@@@@@*         |
+    |--------------------------------------------------------------------------------------------------------|
+    ink coverage 31.7% of the canvas
+
+  Drawn at 180 mm, the final width. Place at 100%.
+
+  fig_visium_main_B4 is deliberately NOT part of this figure. Keep it as
+  its own supplementary item -- shrinking a spot map with 1 mm scale bars
+  into a quarter panel makes both unreadable.

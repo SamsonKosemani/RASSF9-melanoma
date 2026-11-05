@@ -1,0 +1,62 @@
+Table assembly — 2026-10-02 17:38:24 
+
+Scheme: collapsed 
+Output: E:/RASSF9 Project/FINAL_TABLES 
+
+== 1. Source files ============================================= 
+  [ ok ] table_main_04_rassf9_groups.csv              3 rows 
+  [ ok ] table_main_05_rassf9_correlation.csv         7 rows 
+  [ ok ] table_main_06_rassf9_adjusted.csv            6 rows 
+  [ ok ] table_main_08_rassf9_methylation.csv         8 rows 
+  [ ok ] table_main_09_rassf9_aggressiveness.csv      3 rows 
+  [ ok ] table_supp_04_rassf10_groups.csv             3 rows 
+  [ ok ] table_supp_05_rassf10_correlation.csv        7 rows 
+  [ ok ] table_supp_06_rassf10_adjusted.csv           6 rows 
+  [ ok ] table_supp_08_rassf10_methylation.csv        12 rows 
+  [ ok ] table_supp_09_rassf10_aggressiveness.csv     3 rows 
+  [ ok ] table_exploratory_10_mediation.csv           2 rows 
+
+== 2. Merged UV table ========================================== 
+  RASSF9 merged table:  16 rows 
+  RASSF10 merged table: 16 rows 
+
+== 3. Table numbering ========================================== 
+
+== 4. Writing tables =========================================== 
+  Table 2   Table_2_RASSF9_expression_and_UV_mutational_burden.csv     16 rows 
+  Table 3   Table_3_RASSF9_promoter_methylation_and_expression.csv     8 rows 
+  Table S1  Table_S1_RASSF9_expression_and_markers_of_aggressive_disease.csv 3 rows 
+  Table S2  Table_S2_RASSF10_expression_and_UV_mutational_burden.csv   16 rows 
+  Table S3  Table_S3_RASSF10_promoter_methylation_and_expression.csv   12 rows 
+  Table S4  Table_S4_RASSF10_expression_and_markers_of_aggressive_disease.csv 3 rows 
+  Table S5  Table_S5_Exploratory_mediation_analysis.csv                2 rows 
+
+== 5. Legends ================================================== 
+  Wrote: TABLE_LEGENDS.txt (7 legends) 
+  Wrote: README.txt 
+
+== 6. Summary ================================================== 
+    table                                                title
+  Table 2           RASSF9 expression and UV mutational burden
+  Table 3           RASSF9 promoter methylation and expression
+ Table S1  RASSF9 expression and markers of aggressive disease
+ Table S2          RASSF10 expression and UV mutational burden
+ Table S3          RASSF10 promoter methylation and expression
+ Table S4 RASSF10 expression and markers of aggressive disease
+ Table S5                       Exploratory mediation analysis
+                                                              file
+            Table_2_RASSF9_expression_and_UV_mutational_burden.csv
+            Table_3_RASSF9_promoter_methylation_and_expression.csv
+  Table_S1_RASSF9_expression_and_markers_of_aggressive_disease.csv
+          Table_S2_RASSF10_expression_and_UV_mutational_burden.csv
+          Table_S3_RASSF10_promoter_methylation_and_expression.csv
+ Table_S4_RASSF10_expression_and_markers_of_aggressive_disease.csv
+                       Table_S5_Exploratory_mediation_analysis.csv
+
+  7 tables written to results/manuscript_tables/ 
+  Original analysis CSVs are untouched in results/. 
+  To switch numbering, set SCHEME at the top of this script and 
+  re-run; the output folder is rebuilt from scratch each time. 
+  no warnings raised 
+
+Full log: E:/RASSF9 Project/results/logs/11_assemble.log 

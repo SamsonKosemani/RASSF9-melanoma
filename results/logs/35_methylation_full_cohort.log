@@ -1,0 +1,136 @@
+TCGA-SKCM methylation, complete cohort — 2026-10-16 14:41:46 
+
+
+== 1. Expression =============================================== 
+  loading skcm_star_counts.rds (268 MB) 
+  class: RangedSummarizedExperiment 
+  dim: 60660 x 473 
+  assays: unstranded, stranded_first, stranded_second, tpm_unstrand, fpkm_unstrand, fpkm_uq_unstrand 
+  using assay: tpm_unstrand 
+  gene symbols from rowData$gene_name 
+  RASSF9   chr12:85836409 (- strand), median log2(TPM+1) = 0.318 
+  RASSF10  chr11:13009316 (+ strand), median log2(TPM+1) = 0.280 
+  expression samples: 473 | patients: 469 
+
+== 2. Methylation and the full probe set ======================= 
+  loading skcm_hm450.rds (1.4 GB) -- this takes a minute or two 
+  class: RangedSummarizedExperiment 
+  dim: 485577 x 475 
+  RASSF9   12 probes within 150000 bp of the TSS, 7 in the promoter window 
+  RASSF10  39 probes within 150000 bp of the TSS, 11 in the promoter window 
+ 
+  RASSF9: 5 non-promoter probes on the array within 150000 bp 
+    -> an external specificity control exists for RASSF9: these probes 
+       should NOT reproduce the promoter correlation if the 
+       signal is promoter-specific. Section 6 tests that. 
+  RASSF10: 28 non-promoter probes on the array within 150000 bp 
+    -> an external specificity control exists for RASSF10: these probes 
+       should NOT reproduce the promoter correlation if the 
+       signal is promoter-specific. Section 6 tests that. 
+ 
+  probes retrievable from the beta matrix: 51 of 51 
+  methylation samples: 475 | patients: 470 
+
+== 3. Matching ================================================= 
+  patients with BOTH expression and methylation: 469 
+  T1 reference (analysis cohort): 320 
+  T2 reference (full cohort): 411 
+  patients in the complete set but not in the cohort files: 58 
+
+== 4. Promoter methylation and expression ====================== 
+           dropped covariate: CPE (missing in 58) -- would have silently removed those rows 
+  RASSF9   T4 COMPLETE (no filters)           n = 469 | rho = -0.379, p = < 2.2e-16  | adj beta = -1.291 [-1.658, -0.924], p = 1.57e-11   (model n = 469) 
+  RASSF9   T2 all cutaneous                   n = 411 | rho = -0.381, p = 1.21e-15   | adj beta = -1.262 [-1.674, -0.849], p = 4.12e-09   (model n = 411) 
+  RASSF9   T1 UV-positive (original)          n = 320 | rho = -0.355, p = 5.79e-11   | adj beta = -1.239 [-1.674, -0.805], p = 4.45e-08   (model n = 320) 
+  RASSF9   Added samples only                 n =  58 | rho = -0.334, p = 0.011      | adj beta = -1.525 [-2.844, -0.207], p = 0.024      (model n = 58) 
+           dropped covariate: CPE (missing in 58) -- would have silently removed those rows 
+  RASSF10  T4 COMPLETE (no filters)           n = 469 | rho = -0.138, p = 0.003      | adj beta = -1.012 [-1.476, -0.547], p = 2.31e-05   (model n = 469) 
+  RASSF10  T2 all cutaneous                   n = 411 | rho = -0.119, p = 0.016      | adj beta = -1.062 [-1.576, -0.549], p = 5.78e-05   (model n = 411) 
+  RASSF10  T1 UV-positive (original)          n = 320 | rho = -0.121, p = 0.031      | adj beta = -0.730 [-1.228, -0.232], p = 0.004      (model n = 320) 
+  RASSF10  Added samples only                 n =  58 | rho = -0.268, p = 0.042      | adj beta = -1.600 [-3.051, -0.149], p = 0.031      (model n = 58) 
+ 
+  PRE-SPECIFIED EXPECTATION: the complete-cohort rho for RASSF9 lands 
+  near -0.37, between the 411-sample -0.374 and the no-UV-signature 
+  subset's -0.409. A materially different value means the added 
+  samples differ systematically -- see the next section. 
+
+== 5. Characterising the added samples ========================= 
+  RASSF9 log2(TPM+1), median         in cohort    0.301 | added    0.470 
+  RASSF9 promoter beta, median       in cohort    0.470 | added    0.448 
+  RASSF10 log2(TPM+1), median        in cohort    0.283 | added    0.215 
+  RASSF10 promoter beta, median      in cohort    0.216 | added    0.218 
+ 
+  sample type, in cohort: Additional Metastatic=1, Metastatic=310, Primary Tumor=100 
+  sample type, added:     Metastatic=56, Primary Tumor=2 
+ 
+  These samples were absent from the cohort files because those 
+  were built by joining to the mutational signature table, not 
+  because anything was wrong with them. 
+
+== 6. Specificity across the whole locus ======================= 
+ 
+  RASSF9, every probe within 150000 bp: 
+    probe         TSS dist region       med beta      rho       BH p 
+    cg11846905     -112093 Upstream        0.833   -0.214   6.80e-06 
+    cg04916911      -37967 Upstream        0.201   -0.155      0.001 
+    cg18877737      -37694 Upstream        0.165   -0.118      0.096 
+    cg08888956      -37652 Upstream        0.479   -0.152      0.001 
+    cg03707749      -10274 Upstream        0.864   -0.080      0.096 
+    cg18827107        -770 Promoter        0.846   +0.135      0.004 
+    cg19622623        -638 Promoter        0.617   +0.136      0.004 
+    cg27035734        -370 Promoter        0.632   -0.368   6.15e-16 
+    cg25456477        -180 Promoter        0.463   -0.485  < 2.2e-16 
+    cg00310523         +11 Promoter        0.385   -0.429  < 2.2e-16 
+    cg02569458         +94 Promoter        0.201   -0.395  < 2.2e-16 
+    cg06740227        +383 Promoter        0.191   -0.294   2.28e-10 
+    promoter:     mean rho -0.243 (7/7 significant) 
+    non-promoter: mean rho -0.144 (3/5 significant) 
+    -> promoter probes correlate substantially more strongly 
+ 
+  RASSF10, every probe within 150000 bp: 
+    probe         TSS dist region       med beta      rho       BH p 
+    cg12399536     -145979 Upstream        0.680   -0.213   2.05e-05 
+    cg14665901     -145732 Upstream        0.574   -0.157      0.002 
+    cg20445806     -138015 Upstream        0.880   +0.059      0.274 
+    cg13845161     -129145 Upstream        0.945   +0.065      0.231 
+    cg20233228     -127253 Upstream        0.912   -0.004      0.955 
+    cg26770464     -119934 Upstream        0.775   -0.009      0.914 
+    cg01482376     -117257 Upstream        0.933   +0.010      0.914 
+    cg24517989     -115361 Upstream        0.648   -0.100      0.060 
+    cg24506086     -108745 Upstream        0.807   +0.033      0.614 
+    cg09711214     -106038 Upstream        0.812   +0.119      0.021 
+    cg15805337      -94966 Upstream        0.887   -0.169   6.40e-04 
+    cg18525873      -86319 Upstream        0.912   +0.096      0.071 
+    cg24442572      -69274 Upstream        0.908   +0.068      0.209 
+    cg05059451      -19707 Upstream        0.700   +0.181   2.55e-04 
+    cg04755604      -19679 Upstream        0.603   +0.088      0.096 
+    cg27075800      -19265 Upstream        0.878   +0.229   4.70e-06 
+    cg23548136       -3157 Upstream        0.935   +0.196   7.46e-05 
+    cg11518550       -1141 Promoter        0.893   +0.022      0.795 
+    cg08148891        -554 Promoter        0.402   -0.003      0.955 
+    cg19665644        -389 Promoter        0.042   -0.093      0.079 
+    cg20918243        -351 Promoter        0.200   -0.077      0.147 
+    cg09596429        -346 Promoter        0.246   -0.019      0.795 
+    cg05817758        -296 Promoter        0.337   -0.243   1.68e-06 
+    cg08876434        -226 Promoter        0.086   -0.287   9.05e-09 
+    cg25344734        -220 Promoter        0.102   -0.205   3.44e-05 
+    cg26005578        -187 Promoter        0.017   -0.189   1.29e-04 
+    cg05095158         +10 Promoter        0.022   -0.233   4.13e-06 
+    cg22740547         +13 Promoter        0.018   -0.221   9.19e-06 
+    cg07600636        +940 Gene body       0.258   +0.145      0.004 
+    cg00326127       +1541 Gene body       0.519   +0.190   1.21e-04 
+    cg20098471       +1750 Gene body       0.686   +0.133      0.009 
+    cg08161666       +4034 Downstream      0.574   -0.005      0.955 
+    cg04844534      +43041 Downstream      0.792   -0.020      0.795 
+    cg25068253      +93431 Downstream      0.389   -0.089      0.097 
+    cg04137004     +109216 Downstream      0.601   +0.207   3.25e-05 
+    cg02452500     +131064 Downstream      0.479   -0.063      0.237 
+    promoter:     mean rho -0.141 (6/11 significant) 
+    non-promoter: mean rho +0.040 (11/25 significant) 
+    -> OPPOSITE SIGNS: promoter-specific, the expected 
+       promoter-versus-gene-body contrast 
+
+== 7. Figure =================================================== 
+  wrote: tcga_rassf9_methylation_full 
+  wrote: tcga_rassf10_methylation_full 
+  no warnings raised 

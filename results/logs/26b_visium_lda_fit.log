@@ -1,0 +1,45 @@
+GSE298774 LDA fit (recovery) — 2026-10-13 19:42:57 
+
+
+== 1. Inputs =================================================== 
+  STdeconvolve 1.3.2 
+  corpus: 1000 genes x 56523 spots 
+  loaded from the file script 26 wrote, so this is the same matrix 
+  that was fitted before -- not a rebuild 
+  checked: no empty spots, no empty genes 
+
+== 2. LDA, K = 15 ============================================== 
+  fitting -- roughly 200 minutes, based on the first run 
+  started: 2026-10-13 19:42:57 
+  finished in 193.7 minutes 
+  SAVED: data/processed/gse298774_lda_raw.rds 
+  the fit is now on disk; everything below is cheap and rerunnable 
+
+== 3. Theta and beta =========================================== 
+  model class: LDA_VEM 
+  theta: 56523 spots x 15 topics 
+  beta:  15 topics x 1000 genes 
+  theta row sums range [1.0000, 1.0000] 
+ 
+  mean proportion of tissue per topic: 
+    topic 9     0.253 
+    topic 10    0.114 
+    topic 6     0.084 
+    topic 13    0.077 
+    topic 7     0.069 
+    topic 15    0.065 
+    topic 8     0.063 
+    topic 1     0.047 
+    topic 5     0.046 
+    topic 3     0.044 
+    topic 12    0.034 
+    topic 2     0.030 
+    topic 14    0.028 
+    topic 11    0.026 
+    topic 4     0.022 
+
+== 4. Save ===================================================== 
+  saved: data/processed/gse298774_lda_K15.rds 
+  this is the file R/27_visium_topics.R reads 
+  2 warning(s), 1 unique: 
+    - 'echo' not found 

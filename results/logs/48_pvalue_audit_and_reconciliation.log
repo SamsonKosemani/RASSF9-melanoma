@@ -1,0 +1,94 @@
+
+== 1. Rebuilding the script 45 comparison ======================
+  melanoma (non-uveal): 56
+  other lineages      : 940
+
+== 2. Mann-Whitney recomputed from the rank statistic ==========
+  Carrying the normal tail on the log scale so nothing underflows.
+  'floor' is the smallest two-sided p these sample sizes could ever
+  produce, i.e. under complete separation of the two groups.
+
+  comparison                      n1    n2         z   |z|max     log10(p) floor log10(p)
+  RASSF9 tss_proximal             56   940    +8.321    12.59       -16.06         -35.59
+  RASSF9 shore                    56   940    -1.700    12.59        -1.05         -35.59
+  RASSF9 distal                   56   940    +0.225    12.59        -0.08         -35.59
+  RASSF9 core_minus_distal        56   940    +8.299    12.59       -15.98         -35.59
+  RASSF10 tss_proximal            56   940    +2.067    12.59        -1.41         -35.59
+  RASSF10 shore                   56   940    +6.599    12.59       -10.38         -35.59
+  RASSF10 distal                  56   940    +1.495    12.59        -0.87         -35.59
+  RASSF10 core_minus_distal       56   940    +1.321    12.59        -0.73         -35.59
+
+  Reported in a defensible form:
+    RASSF9 tss_proximal          p = 8.73e-17
+                                   NOTE: wilcox.test returned exactly 0 here — underflow
+    RASSF9 shore                 p = 8.91e-02
+    RASSF9 distal                p = 8.22e-01
+    RASSF9 core_minus_distal     p = 1.05e-16
+                                   NOTE: wilcox.test returned exactly 0 here — underflow
+    RASSF10 tss_proximal         p = 3.87e-02
+    RASSF10 shore                p = 4.14e-11
+    RASSF10 distal               p = 1.35e-01
+    RASSF10 core_minus_distal    p = 1.87e-01
+
+  INTERPRETATION OF THE FLOOR: no Mann-Whitney with these group sizes
+  can return a p below the floor column, whatever the separation. Any
+  smaller value quoted anywhere is an artefact and must be corrected.
+
+== 3. Permutation cross-check ==================================
+  Independent of any normal approximation. Resolution is 1/(2e+05+1); where no permutation is as extreme, the result is a BOUND.
+
+    RASSF9 tss_proximal          observed shift +0.406 | 0 of 200000 permutations as extreme | p < 5.00e-06
+    RASSF9 core_minus_distal     observed shift +0.264 | 0 of 200000 permutations as extreme | p < 5.00e-06
+    RASSF9 distal (control)      observed shift +0.015 | 147067 of 200000 permutations as extreme | p = 7.35e-01
+
+  The permutation test agrees in direction and significance but cannot
+  resolve below ~5e-06 at this number of permutations. The normal
+  approximation in section 2 is what supplies the exponent; the
+  permutation result confirms it is not an artefact of that approximation.
+
+== 4. Every sample size, with the filter that produced it ======
+
+       n  what it counts                                           where quoted
+    2554  DepMap models, all                                       Model.csv
+     154  Melanoma models in DepMap (any subtype)                  Table 2; Oncotree primary disease contains 'melanoma'
+     129  Melanoma models with expression                          Table 2
+     113  Melanoma models with expression, non-uveal               Tables 2, 3; the expression-gate denominator
+      16  Uveal melanoma models with expression                    Table 2; excluded from all primary analyses
+      56  Melanoma lines with HM450 methylation, non-uveal         Tables 2, 5, 6, 7; the methylation denominator
+      39  Melanoma lines with BOTH methylation and expression      Tables 2, 10; Figure 5; the only set where both exist
+    1028  Cell lines in GSE68379                                   Table 1
+     996  GSE68379 lines matched to a DepMap lineage               Script 45 section 2
+     940  Non-melanoma lines WITH a lineage (script 45 baseline)   Table 6 comparison group
+     972  Non-melanoma columns, lineage not required (script 44b baseline) Table 5 'other lineages' column
+     741  Lines with methylation AND expression, all lineages      Tables 8, 9; Figure 4
+     736  As above, retained in the lineage-adjusted model         Table 9 rows M0 and M1
+     611  As above, also having copy number                        Table 9 rows M2 and M3
+
+  THE TWO BASELINES THAT DIFFER: 972 (script 44b) counts every non-melanoma
+  column in the matrix; 940 (script 45 onward) requires a DepMap lineage,
+  because the lineage test needs one. The 32 lines without an annotation
+  are the difference. Quote 940 and the script 45 numbers throughout.
+
+== 5. Every RASSF9 core methylation summary ====================
+
+    value      n  what                                                           where
+    0.588     56  Melanoma lines with methylation (median of per-line core score) Tables 5, 6; Summary
+    0.572     39  Melanoma lines with methylation AND expression (median)        Table 10 context; Figure 5
+    0.183    940  Other lineages with a lineage annotation (median)              Table 6
+    0.374    469  TCGA-SKCM, mean of the five core probe medians                 Tables 4, 5
+
+  A further figure, 0.161, appears in Table 5 as the mean of the five
+  core PROBE medians in other lineages. It is not the median of per-line
+  scores (that is the 0.183 above). Both are correct; they summarise the
+  same data in different orders (probe-first vs line-first). The note
+  should state which is which wherever either appears.
+
+== 6. Corrections required in the analysis note ================
+  1. Table 6: replace 'p < 1e-300' for the core and core-minus-distal
+     rows with the values from section 2 above. The figure as written is
+     not attainable for these sample sizes and must not go to a journal.
+  2. State in Methods that p-values below double precision are reported
+     as powers of ten computed on the log scale, and that the Mann-Whitney
+     floor for n1 = 56 vs n2 = 940 is given.
+  3. Add the reconciliation in sections 4 and 5 as a supplementary table.
+  4. Use the 940-line baseline consistently; note where 972 was used.

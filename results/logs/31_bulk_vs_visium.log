@@ -1,0 +1,89 @@
+Bulk versus Visium, on one scale — 2026-10-14 14:34:55 
+
+
+== 1. Bulk cohorts ============================================= 
+  samples: 158 across GSE112509, GSE98394 
+  value range across both genes: -4.57 to 10.81 
+  -> consistent with log2 expression; differences are log2 ratios 
+  RASSF9   GSE112509  log2FC -1.158 [-1.687, -0.628] = 0.45x [0.31, 0.65], p = 4.61e-05, d = -0.89 
+  RASSF10  GSE112509  log2FC -1.190 [-1.820, -0.560] = 0.44x [0.28, 0.68], p = 3.31e-04, d = -0.71 
+  RASSF9   GSE98394   log2FC -1.157 [-1.612, -0.701] = 0.45x [0.33, 0.61], p = 2.84e-06, d = -1.00 
+
+== 2. Bulk after matching on stromal composition =============== 
+  RASSF9   GSE112509  d = -0.395, p = 0.339, n = 18 vs 18, balanced = FALSE 
+  RASSF10  GSE112509  d = +0.209, p = 0.501, n = 18 vs 18, balanced = FALSE 
+  RASSF9   GSE98394   d = -2.750, p = 1.65e-04, n = 9 vs 9, balanced = FALSE 
+ 
+  Reported as Cohen's d, the scale script 20 used. These are not 
+  converted to fold changes: the matched subset's sample identities 
+  were not saved, so a log2 ratio cannot be recomputed from this 
+  summary without re-running the matching. They enter the argument 
+  as a THIRD independent route, not as a point on the figure. 
+
+== 3. Visium, paired within lesion ============================= 
+  RASSF9   log2FC +0.208 [-0.847, 1.263] = 1.16x [0.56, 2.40], 16 paired patients 
+  RASSF10  log2FC -0.014 [-1.123, 1.095] = 0.99x [0.46, 2.14], 16 paired patients 
+
+== 4. Does the paired interval exclude the bulk effect? ======== 
+  CRITERION (fixed before the numbers): 
+    EXCLUDED   = bulk point estimate outside the Visium interval AND 
+                 the two intervals do not overlap 
+    CONSISTENT = the intervals overlap; the Visium data are 
+                 underpowered to adjudicate, and that is the claim 
+ 
+  RASSF9  --  Visium paired interval 0.56x to 2.40x 
+    GSE112509  bulk 0.45x [0.31, 0.65] -> point inside Visium CI: FALSE | intervals overlap: TRUE  | CONSISTENT 
+    GSE98394   bulk 0.45x [0.33, 0.61] -> point inside Visium CI: FALSE | intervals overlap: TRUE  | CONSISTENT 
+ 
+  RASSF10  --  Visium paired interval 0.46x to 2.14x 
+    GSE112509  bulk 0.44x [0.28, 0.68] -> point inside Visium CI: FALSE | intervals overlap: TRUE  | CONSISTENT 
+ 
+  WHAT EACH VERDICT LICENSES: 
+    EXCLUDED   -> the paired within-lesion design rules out a 
+                  melanocyte-intrinsic effect of the size the bulk 
+                  cohort reported. The bulk difference must come 
+                  substantially from something other than the 
+                  melanocytes, which is the composition explanation. 
+    CONSISTENT -> the paired design cannot distinguish the two 
+                  explanations. Report the interval and say so. 
+                  Do NOT report it as evidence of no effect. 
+ 
+  GSE112509 CARRIES THE MOST WEIGHT: both its arms are laser- 
+  microdissected, so it is the bulk cohort least exposed to the 
+  composition confound and the closest analogue to the Visium 
+  design. Its verdicts: 
+    RASSF9: CONSISTENT 
+    RASSF10: CONSISTENT 
+
+== 5. Figure =================================================== 
+  wrote: geo_rassf9_bulk_vs_visium 
+  wrote: geo_rassf10_bulk_vs_visium 
+
+== 6. Summary of evidence ====================================== 
+  Three independent routes bear on whether the nevus-to-melanoma 
+  fall in these genes is melanocyte-intrinsic: 
+    1. BULK, UNADJUSTED -- large and significant in both cohorts, but 
+       cannot separate melanocytes from composition 
+    2. BULK, STROMA-MATCHED (script 20) -- DISCORDANT between cohorts, 
+       and this is not glossed: in GSE112509, the laser- 
+       microdissected cohort, the RASSF9 difference collapses 
+       (d = -0.395, p = 0.339); in GSE98394 it does not 
+       (d = -2.750, p = 1.65e-04). But GSE98394's rests on 9 matched 
+       pairs from a cohort whose pre-matching SMDs were 1.5 to 2.3, 
+       so the matching extrapolates rather than balances, and 
+       NEITHER matched analysis reached balance. The better-balanced 
+       cohort is the null one. 
+    3. VISIUM, PAIRED WITHIN LESION (script 30) -- null, in a design 
+       where composition cannot be the explanation, but with an 
+       interval too wide to exclude route 1's magnitude 
+ 
+  WHERE THAT LEAVES THE QUESTION. The strongest evidence that the 
+  bulk fall is compositional is NOT the paired null, which is 
+  underpowered. It is the lineage result: only 17.1% of RASSF9 
+  molecules sit in melanocytic spots at all (script 30 section 4), 
+  replicating GSE230574 in a second technology. A gene that is 
+  mostly stromal in skin will move with stromal content in bulk 
+  tissue whether or not its melanocytic expression changes. That is 
+  a large, directly measured effect rather than an inference from a 
+  non-significant comparison, and it should carry the argument. 
+  no warnings raised 

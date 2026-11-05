@@ -1,0 +1,110 @@
+GSE230574 lineage attribution — 2026-10-07 20:25:43 
+
+
+== 1. Extraction =============================================== 
+  GSM7226899_19145X1: 32 of 32 genes found 
+  GSM7226900_19145X2: 32 of 32 genes found 
+  cells with tag and counts: 53095 
+
+== 2. Lineage assignment ======================================= 
+  class                    lineage                       cells      pct 
+  Melanocyte (cultured)    Melanocytic                    6058   100.0% 
+  Melanoma line            Melanocytic                   23505    99.1% 
+  Melanoma line            Ambiguous                       188     0.8% 
+  Melanoma line            Keratinocyte                     21     0.1% 
+  Melanoma line            Fibroblast                        1     0.0% 
+  Melanoma line            Immune                            1     0.0% 
+  Melanoma line            Undetermined (no markers)         1     0.0% 
+  Nevus (primary)          Undetermined (shallow)        12771    54.8% 
+  Nevus (primary)          Melanocytic                    4636    19.9% 
+  Nevus (primary)          Immune                         2872    12.3% 
+  Nevus (primary)          Fibroblast                     1421     6.1% 
+  Nevus (primary)          Ambiguous                       954     4.1% 
+  Nevus (primary)          Endothelial                     308     1.3% 
+  Nevus (primary)          Keratinocyte                    203     0.9% 
+  Nevus (primary)          Undetermined (no markers)       155     0.7% 
+ 
+  CLASSIFIER PASSES: 99.3% of cultured cells called 
+  Melanocytic, as they must be. The assignment can be trusted. 
+
+== 3. Gene detection within lineage ============================ 
+ 
+  RASSF9 
+    class                    lineage                      cells    %pos molecules      TPM 
+    Melanocyte (cultured)    Melanocytic                   6058   0.03%         2    0.038 
+    Melanoma line            Melanocytic                  23505   0.01%         2    0.005 
+    Melanoma line            Ambiguous                      188   0.00%         0    0.000 
+    Melanoma line            Fibroblast                       1   0.00%         0    0.000 
+    Melanoma line            Immune                           1   0.00%         0    0.000 
+    Melanoma line            Keratinocyte                    21   0.00%         0    0.000 
+    Melanoma line            Undetermined (no markers)        1   0.00%         0    0.000 
+    Nevus (primary)          Endothelial                    308   9.09%        35   24.891 
+    Nevus (primary)          Fibroblast                    1421   4.86%        84   11.044 
+    Nevus (primary)          Keratinocyte                   203   1.97%         5    5.848 
+    Nevus (primary)          Ambiguous                      954   1.26%        14    3.311 
+    Nevus (primary)          Undetermined (no markers)      155   0.65%         1    2.063 
+    Nevus (primary)          Melanocytic                   4636   0.37%        20    0.572 
+    Nevus (primary)          Immune                        2872   0.21%         8    0.415 
+    Nevus (primary)          Undetermined (shallow)       12771   0.16%        24    3.839 
+ 
+  RASSF10 
+    class                    lineage                      cells    %pos molecules      TPM 
+    Melanocyte (cultured)    Melanocytic                   6058   0.07%         4    0.075 
+    Melanoma line            Melanocytic                  23505   0.03%         8    0.020 
+    Melanoma line            Ambiguous                      188   0.00%         0    0.000 
+    Melanoma line            Fibroblast                       1   0.00%         0    0.000 
+    Melanoma line            Immune                           1   0.00%         0    0.000 
+    Melanoma line            Keratinocyte                    21   0.00%         0    0.000 
+    Melanoma line            Undetermined (no markers)        1   0.00%         0    0.000 
+    Nevus (primary)          Keratinocyte                   203   1.97%         5    5.848 
+    Nevus (primary)          Endothelial                    308   0.97%         3    2.134 
+    Nevus (primary)          Melanocytic                   4636   0.71%        33    0.944 
+    Nevus (primary)          Fibroblast                    1421   0.21%         3    0.394 
+    Nevus (primary)          Ambiguous                      954   0.10%         1    0.236 
+    Nevus (primary)          Undetermined (shallow)       12771   0.04%         5    0.800 
+    Nevus (primary)          Immune                        2872   0.03%         1    0.052 
+    Nevus (primary)          Undetermined (no markers)      155   0.00%         0    0.000 
+
+== 4. Verdict ================================================== 
+ 
+  RASSF9: 191 molecules in the nevus samples, split by lineage: 
+    Fibroblast                  44.0% of molecules   (11.044 TPM within lineage) 
+    Endothelial                 18.3% of molecules   (24.891 TPM within lineage) 
+    Undetermined (shallow)      12.6% of molecules   ( 3.839 TPM within lineage) 
+    Melanocytic                 10.5% of molecules   ( 0.572 TPM within lineage) 
+    Ambiguous                    7.3% of molecules   ( 3.311 TPM within lineage) 
+    Immune                       4.2% of molecules   ( 0.415 TPM within lineage) 
+    Keratinocyte                 2.6% of molecules   ( 5.848 TPM within lineage) 
+    Undetermined (no markers)    0.5% of molecules   ( 2.063 TPM within lineage) 
+ 
+    nevus melanocytic        0.572 TPM 
+    nevus non-melanocytic    4.530 TPM 
+    cultured melanocytic     0.009 TPM 
+    -> FAILS. The molecules are concentrated in NON-melanocytic 
+       cells. This is a tissue-composition effect, and the 
+       nevus-versus-melanoma results in GSE112509 / GSE98394 
+       must be re-read in that light before any claim is made. 
+ 
+  RASSF10: 51 molecules in the nevus samples, split by lineage: 
+    Melanocytic                 64.7% of molecules   ( 0.944 TPM within lineage) 
+    Keratinocyte                 9.8% of molecules   ( 5.848 TPM within lineage) 
+    Undetermined (shallow)       9.8% of molecules   ( 0.800 TPM within lineage) 
+    Endothelial                  5.9% of molecules   ( 2.134 TPM within lineage) 
+    Fibroblast                   5.9% of molecules   ( 0.394 TPM within lineage) 
+    Ambiguous                    2.0% of molecules   ( 0.236 TPM within lineage) 
+    Immune                       2.0% of molecules   ( 0.052 TPM within lineage) 
+    Undetermined (no markers)    0.0% of molecules   ( 0.000 TPM within lineage) 
+ 
+    nevus melanocytic        0.944 TPM 
+    nevus non-melanocytic    0.412 TPM 
+    cultured melanocytic     0.027 TPM 
+    -> SURVIVES. The signal is in melanocytic nevus cells, at a 
+       level well above cultured melanocytes and not lower than 
+       in non-melanocytic cells. Tissue composition does NOT 
+       explain it, and the melanocytic reading stands. 
+
+== 5. Figures ================================================== 
+  wrote: geo_rassf9_lineage_gse230574.{pdf,png,svg} 
+  wrote: geo_rassf10_lineage_gse230574.{pdf,png,svg} 
+  wrote: results/geo/table_geo_lineage_percell_gse230574.csv 
+  no warnings raised 

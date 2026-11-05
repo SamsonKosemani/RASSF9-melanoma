@@ -1,0 +1,105 @@
+Adjusted models — 2026-10-07 17:51:48 
+
+
+== 1. Model data =============================================== 
+Cohort: n = 320 
+Sample type (reference = Primary): 
+ sample_type   n
+     Primary  78
+  Metastatic 242
+  CPE       available 320/320, median 0.769 
+  ESTIMATE  available 320/320, median 0.827 
+  LUMP      available 310/320, median 0.685 
+  IHC       available 320/320, median 0.850 
+
+== 2. Confounding structure ==================================== 
+  log10(SBS7) vs CPE       : rho = +0.062, p = 0.269 
+  log10(SBS7) vs ESTIMATE  : rho = +0.086, p = 0.125 
+  log10(SBS7) vs LUMP      : rho = -0.014, p = 0.806 
+  log10(SBS7) vs IHC       : rho = +0.131, p = 0.019 
+  log10(SBS7) by sample type: p = 0.004 
+  RASSF9   vs CPE purity: rho = -0.123, p = 0.027 
+  RASSF10  vs CPE purity: rho = +0.070, p = 0.209 
+
+  If purity correlates with BOTH the exposure and the outcome, it 
+  is a confounder and the adjusted estimate is the one to believe. 
+
+== 3. Model fitting ============================================ 
+
+RASSF9: 
+  Unadjusted                   n=320  beta=-0.0932 [-0.2204, +0.0340]  p=0.150  adjR2=0.0034 
+  Adjusted (CPE)               n=320  beta=-0.1233 [-0.2514, +0.0049]  p=0.059  adjR2=0.0299  maxVIF=1.08 
+  Adjusted (ESTIMATE)          n=320  beta=-0.1169 [-0.2449, +0.0112]  p=0.074 
+  Adjusted (LUMP)              n=310  beta=-0.1272 [-0.2582, +0.0038]  p=0.057 
+  Adjusted (IHC)               n=320  beta=-0.1117 [-0.2383, +0.0148]  p=0.083 
+  Adjusted, rank-normal outcome n=320  beta=-0.2284 [-0.4405, -0.0162]  p=0.035 
+
+RASSF10: 
+  Unadjusted                   n=320  beta=-0.2745 [-0.4111, -0.1380]  p=9.40e-05  adjR2=0.0439 
+  Adjusted (CPE)               n=320  beta=-0.2244 [-0.3602, -0.0886]  p=0.001  adjR2=0.0932  maxVIF=1.08 
+  Adjusted (ESTIMATE)          n=320  beta=-0.2210 [-0.3572, -0.0848]  p=0.002 
+  Adjusted (LUMP)              n=310  beta=-0.2149 [-0.3528, -0.0771]  p=0.002 
+  Adjusted (IHC)               n=320  beta=-0.2083 [-0.3434, -0.0733]  p=0.003 
+  Adjusted, rank-normal outcome n=320  beta=-0.2866 [-0.4885, -0.0846]  p=0.006 
+
+== 4. Verdict per the analysis plan ============================ 
+  RASSF9   adjusted beta = -0.1233, p = 0.059  ->  does NOT survive adjustment -- report as a negative result in the main text 
+  RASSF10  adjusted beta = -0.2244, p = 0.001  ->  SURVIVES adjustment -- report as a finding 
+
+== 5. Figures ================================================== 
+
+== 6. Results tables =========================================== 
+
+MAIN (RASSF9): 
+   gene                         model purity_used   n uv_beta  uv_se uv_ci_low
+ RASSF9                    Unadjusted        <NA> 320 -0.0932 0.0646    -0.220
+ RASSF9                Adjusted (CPE)         CPE 320 -0.1233 0.0651    -0.251
+ RASSF9           Adjusted (ESTIMATE)    ESTIMATE 320 -0.1169 0.0651    -0.245
+ RASSF9               Adjusted (LUMP)        LUMP 310 -0.1272 0.0666    -0.258
+ RASSF9                Adjusted (IHC)         IHC 320 -0.1117 0.0643    -0.238
+ RASSF9 Adjusted, rank-normal outcome         CPE 320 -0.2284 0.1078    -0.440
+ uv_ci_high uv_beta_std   uv_p purity_beta purity_p type_beta   type_p  adj_r2
+    0.03400     -0.0806 0.1504          NA       NA        NA       NA 0.00337
+    0.00489     -0.1066 0.0594      -0.211  0.29799     0.223 0.005321 0.02989
+    0.01120     -0.1010 0.0735      -0.401  0.08585     0.208 0.009628 0.03562
+    0.00377     -0.1090 0.0569       0.178  0.36460     0.231 0.004750 0.02420
+    0.01478     -0.0966 0.0832      -1.099  0.00262     0.271 0.000526 0.05409
+   -0.01624     -0.1186 0.0349      -0.376  0.26218     0.434 0.001079 0.04190
+ max_vif
+      NA
+    1.08
+    1.10
+    1.04
+    1.05
+    1.08
+
+SUPPLEMENTARY (RASSF10): 
+    gene                         model purity_used   n uv_beta  uv_se uv_ci_low
+ RASSF10                    Unadjusted        <NA> 320  -0.275 0.0694    -0.411
+ RASSF10                Adjusted (CPE)         CPE 320  -0.224 0.0690    -0.360
+ RASSF10           Adjusted (ESTIMATE)    ESTIMATE 320  -0.221 0.0692    -0.357
+ RASSF10               Adjusted (LUMP)        LUMP 310  -0.215 0.0701    -0.353
+ RASSF10                Adjusted (IHC)         IHC 320  -0.208 0.0687    -0.343
+ RASSF10 Adjusted, rank-normal outcome         CPE 320  -0.287 0.1027    -0.489
+ uv_ci_high uv_beta_std     uv_p purity_beta purity_p type_beta   type_p adj_r2
+    -0.1380      -0.217 0.000094          NA       NA        NA       NA 0.0439
+    -0.0886      -0.177 0.001276      0.1329    0.536    -0.347 4.90e-05 0.0932
+    -0.0848      -0.174 0.001548      0.0204    0.934    -0.356 3.48e-05 0.0922
+    -0.0771      -0.169 0.002350      0.3018    0.144    -0.351 5.19e-05 0.0947
+    -0.0733      -0.164 0.002608     -0.7393    0.057    -0.338 5.49e-05 0.1025
+    -0.0846      -0.153 0.005565      0.2561    0.423    -0.488 1.19e-04 0.0794
+ max_vif
+      NA
+    1.08
+    1.10
+    1.04
+    1.05
+    1.08
+
+== 7. Warnings ================================================= 
+  no warnings raised 
+
+== DONE ======================================================== 
+Figure 3 (main) : figures/figure3_rassf9_adjusted.* 
+Figure S3 (supp): figures/figureS3_rassf10_adjusted.* 
+Full log: E:/RASSF9 Project/results/logs/06_adjusted.log 

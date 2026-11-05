@@ -1,0 +1,69 @@
+Tirosh GSE72056 inspection — 2026-10-16 17:13:06 
+
+
+== 1. Files ==================================================== 
+  GSE72056_melanoma_single_cell_revised_v2.txt.gz                     71.56 MB 
+
+== 2. Head of each text file =================================== 
+
+  GSE72056_melanoma_single_cell_revised_v2.txt.gz 
+    delimiter: TAB | header fields: 4646 
+    [1] Cell	Cy72_CD45_H02_S758_comb	CY58_1_CD45_B02_S974_comb	Cy71_CD45_D08_S524_comb	Cy81_FNA_CD45_B01_S301_comb	Cy80_II_CD45_B07_S883_comb	Cy81_Bulk_CD45_B10_S118_comb	Cy72_CD45_D09_S717_comb	Cy74_CD45_A03 ... 
+    [2] tumor	72	58	71	81	80	81	72	74	71	80	74	58	72	71	81	81	74	74	81	80	58	81	71	81	72	72	71	71	71	74	81	80	72	72	80	81	81	58	80	81	81	71	81	71	81	58	80	72	80	72	71	72	74	71	81	81	74	81	81	81	81	58	81	72	80 ... 
+    [3] "malignant(1=no,2=yes,0=unresolved)"	1	1	2	2	2	2	1	1	2	2	1	1	1	1	1	2	1	1	2	2	1	2	2	1	1	1	1	2	1	1	0	2	1	1	2	1	2	1	2	1	1	1	2	2	2	1	2	1	1	1	2	1	1	2	1	0	1	2	1	1	2	1	2	1	2	1	2	1	1	1	1	1	1	2	1	2	1	1	2	1	1	2 ... 
+    [4] "non-malignant cell type (1=T,2=B,3=Macro.4=Endo.,5=CAF;6=NK)"	2	1	0	0	0	0	1	1	0	0	1	1	1	1	0	0	1	1	0	0	0	0	0	1	1	1	1	0	1	1	0	0	0	2	0	0	0	1	0	1	1	1	0	0	0	1	0	1	5	1	0	0	1	0	1	0	1	0	1	1	0	1	0	1	0	1	0	1	1 ... 
+
+== 3. Row labels: genes, and anything that is not a gene ======= 
+  Every row's first field is read. Rows whose label does not look 
+  like a gene symbol are candidate ANNOTATION rows -- their distinct 
+  values are printed so the encoding is learned from the file. 
+
+  GSE72056_melanoma_single_cell_revised_v2.txt.gz: 23689 data rows (entire file) 
+    first 12 row labels: tumor | malignant(1=no,2=yes,0=unresolved) | non-malignant cell type (1=T,2=B,3=Macro.4=Endo.,5=CAF;6=NK) | C9orf152 | RPS11 | ELMO2 | CREB3L1 | PNMA1 | MMP2 | TMEM216 | TRAF3IP2-AS1 | LRRC37A5P 
+    CANDIDATE ANNOTATION ROWS in the first 20 rows: 2, 3, 11 
+      row 2 label "malignant(1=no,2=yes,0=unresolved)" 
+        distinct values (3): 0, 1, 2 
+        counts: 1=3256, 2=1257, 0=132 
+      row 3 label "non-malignant cell type (1=T,2=B,3=Macro.4=Endo.,5=CAF;6=NK)" 
+        distinct values (7): 0, 1, 2, 3, 4, 5, 6 
+        counts: 1=2068, 0=1758, 2=515, 3=126, 4=65, 5=61, 6=52 
+      row 11 label "TRAF3IP2-AS1" 
+        distinct values (2825): 0, 0.0043216, 0.028569, 0.042644, 0.062122, 0.075875, 0.086784, 0.094912, 0.10165, 0.12961, 0.13881, 0.14143, 0.14796, 0.14926, 0.15056, 0.15316, 0.16479, 0.16607, 0.17249, 0.18396, 0.18903, 0.19661, 0.19787, 0.20539, 0.21661, 0.21785, 0.21909, 0.22033, 0.22157, 0.22527 ... 
+    -> 38b must SKIP these rows. Treated as genes they would 
+       corrupt every downstream number silently. 
+    RASSF9: RASSF9 
+    RASSF10: RASSF10 
+    markers present: MLANA, PMEL, TYR, DCT, MITF, SOX10, TYRP1, PTPRC, COL1A1, PECAM1, CD3D, KRT14 
+    [FLAG] 2 duplicated gene labels -- 38b must decide how to collapse them 
+
+== 4. Value scale -- this decides whether thinning is possible = 
+
+  GSE72056_melanoma_single_cell_revised_v2.txt.gz 
+    min 0.0000 | median 0.0000 | max 11.112 | zeros 81.6% | integer-valued 82% 
+    scale: LOG-TRANSFORMED (likely log2(TPM/10+1)) -> THINNING IMPOSSIBLE 
+    CONSEQUENCE: depth cannot be equalised by downsampling. The 
+    substitute is to match cells on DETECTED-GENE COUNT between 
+    datasets and compare only within a common range. That is a 
+    weaker control than thinning and must be stated as such. 
+    The raw counts exist in SRA if the comparison needs to be 
+    airtight, at considerably more work. 
+
+== 5. What 38b needs from this ================================= 
+  1. which file holds the matrix, its delimiter, and how many 
+     annotation rows to skip 
+  2. the encoding of the malignant flag and the cell-type code, 
+     taken from the printed distinct values rather than recalled 
+  3. the exact spelling of RASSF9 and RASSF10, or confirmation that 
+     they are absent -- which would be a fact about this matrix's 
+     gene filtering, NOT about melanoma biology 
+  4. the value scale, which decides whether depth can be equalised 
+     at all and therefore how strong the comparison can be 
+  5. whether gene labels are duplicated, and the patient identifier 
+     so donors remain the unit of analysis 
+ 
+  REMINDER OF THE COMPARISON'S LIMIT: Belote melanocytes and Tirosh 
+  malignant cells come from different studies, different labs and 
+  different processing. Shared chemistry removes the largest source 
+  of difference but not batch. Any contrast is suggestive, not a 
+  controlled experiment, and should be reported that way. 
+  no warnings raised 

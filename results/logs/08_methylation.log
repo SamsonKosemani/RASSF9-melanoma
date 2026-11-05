@@ -1,0 +1,73 @@
+Methylation analysis — 2026-10-07 17:51:54 
+
+
+== 1. Data ===================================================== 
+Patients with expression + methylation: 320 
+  RASSF9: 7 promoter probes available 
+    promoter mean beta: median [IQR] = 0.477 [0.385, 0.603], range [0.103, 0.897] 
+  RASSF10: 11 promoter probes available 
+    promoter mean beta: median [IQR] = 0.228 [0.185, 0.334], range [0.078, 0.781] 
+
+== 2. Per-probe methylation vs expression ====================== 
+
+  RASSF9 (BH-corrected within gene): 
+    cg18827107     -770 bp  median beta=0.841  rho=+0.183  p=0.001  p.adj=0.001 
+    cg19622623     -638 bp  median beta=0.608  rho=+0.212  p=1.55e-04  p.adj=1.81e-04 
+    cg27035734     -370 bp  median beta=0.648  rho=-0.325  p=2.68e-09  p.adj=4.69e-09 
+    cg25456477     -180 bp  median beta=0.510  rho=-0.459  p=< 2.2e-16  p.adj=< 2.2e-16 
+    cg00310523      +11 bp  median beta=0.389  rho=-0.417  p=7.04e-15  p.adj=2.46e-14 
+    cg02569458      +94 bp  median beta=0.213  rho=-0.386  p=7.84e-13  p.adj=1.83e-12 
+    cg06740227     +383 bp  median beta=0.208  rho=-0.300  p=4.99e-08  p.adj=6.98e-08 
+    7 of 7 probes significant after BH correction 
+
+  RASSF10 (BH-corrected within gene): 
+    cg11518550    -1141 bp  median beta=0.896  rho=+0.022  p=0.697  p.adj=0.852 
+    cg08148891     -554 bp  median beta=0.413  rho=+0.010  p=0.852  p.adj=0.937 
+    cg19665644     -389 bp  median beta=0.053  rho=-0.085  p=0.129  p.adj=0.202 
+    cg20918243     -351 bp  median beta=0.234  rho=-0.072  p=0.198  p.adj=0.273 
+    cg09596429     -346 bp  median beta=0.277  rho=+0.002  p=0.974  p.adj=0.974 
+    cg05817758     -296 bp  median beta=0.365  rho=-0.220  p=7.02e-05  p.adj=3.86e-04 
+    cg08876434     -226 bp  median beta=0.101  rho=-0.270  p=9.06e-07  p.adj=9.97e-06 
+    cg25344734     -220 bp  median beta=0.105  rho=-0.181  p=0.001  p.adj=0.002 
+    cg26005578     -187 bp  median beta=0.017  rho=-0.185  p=8.95e-04  p.adj=0.002 
+    cg05095158      +10 bp  median beta=0.022  rho=-0.200  p=3.24e-04  p.adj=0.001 
+    cg22740547      +13 bp  median beta=0.018  rho=-0.190  p=6.24e-04  p.adj=0.002 
+    6 of 11 probes significant after BH correction 
+
+== 3. Promoter mean: unadjusted and adjusted =================== 
+
+  RASSF9: 
+    Spearman (promoter mean vs expression): rho = -0.351, p = 1.10e-10 
+    Linear, unadjusted: beta = -1.206 [-1.609, -0.803], p = 9.94e-09 
+    Linear, adjusted  : beta = -1.227 [-1.661, -0.793], p = 5.77e-08, adjR2 = 0.106 
+    Promoter beta by sample type: primary 0.522 vs metastatic 0.466, p = 0.013 
+    Promoter beta vs UV burden: rho = +0.173, p = 0.002 
+
+  RASSF10: 
+    Spearman (promoter mean vs expression): rho = -0.129, p = 0.021 
+    Linear, unadjusted: beta = -0.758 [-1.248, -0.267], p = 0.003 
+    Linear, adjusted  : beta = -0.736 [-1.233, -0.238], p = 0.004, adjR2 = 0.087 
+    Promoter beta by sample type: primary 0.232 vs metastatic 0.225, p = 0.755 
+    Promoter beta vs UV burden: rho = -0.001, p = 0.992 
+
+== 4. Interpretation guide ===================================== 
+  A NEGATIVE methylation-expression correlation supports silencing. 
+  HIGHER promoter beta in metastases would support Gustavo's premise 
+  that RASSF10 is epigenetically silenced in metastatic melanoma. 
+  Note median beta values: a promoter sitting near beta = 0 is 
+  unmethylated in most tumours, which limits how much expression 
+  variation methylation could possibly explain. 
+
+== 5. Figures ================================================== 
+
+== 6. Results tables =========================================== 
+Wrote: results/table_main_08_rassf9_methylation.csv 
+Wrote: results/table_supp_08_rassf10_methylation.csv 
+
+== 7. Warnings ================================================= 
+  no warnings raised 
+
+== DONE ======================================================== 
+Figure 4 (main) : figures/figure4_rassf9_methylation.* 
+Figure S4 (supp): figures/figureS4_rassf10_methylation.* 
+Full log: E:/RASSF9 Project/results/logs/08_methylation.log 

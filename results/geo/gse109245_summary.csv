@@ -1,0 +1,2 @@
+gene,melanocyte,lines_median,lines_min,lines_max,n_lines,n_below_melanocyte,n_equal_melanocyte,n_above_melanocyte,detected,direction
+RASSF9,0,0.033690811361325845,0,0.486027481548982,5,0,2,3,FALSE,NOT DETECTED in any sample -- no direction can be read

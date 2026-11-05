@@ -1,0 +1,60 @@
+Group comparison — 2026-10-07 17:51:33 
+
+
+== 1. Cohort =================================================== 
+Primary cohort: n = 320 
+Full cohort:    n = 411 
+
+== 2. UV stratification ======================================== 
+Tertile cutoffs (primary cohort): lower = 324, upper = 714 
+   group   n
+  UV-low 107
+  Middle 105
+ UV-high 108
+
+== 3. Wilcoxon rank-sum tests ================================== 
+
+RASSF9: 
+  Primary                RASSF9   n=107/108  median 0.340 vs 0.247  W=4802  p=0.032  d=-0.273 [-0.54, -0.00]  (lower in UV-high) 
+  S1 full cohort         RASSF9   n=137/137  median 0.406 vs 0.246  W=6760  p=6.33e-05  d=-0.443 [-0.68, -0.20]  (lower in UV-high) 
+  S2 accuracy            RASSF9   n=106/106  median 0.336 vs 0.247  W=4730  p=0.047  d=-0.257 [-0.53, 0.01]  (lower in UV-high) 
+
+RASSF10: 
+  Primary                RASSF10  n=107/108  median 0.309 vs 0.208  W=4596  p=0.009  d=-0.497 [-0.77, -0.23]  (lower in UV-high) 
+  S1 full cohort         RASSF10  n=137/137  median 0.428 vs 0.195  W=6496  p=1.05e-05  d=-0.680 [-0.92, -0.44]  (lower in UV-high) 
+  S2 accuracy            RASSF10  n=106/106  median 0.304 vs 0.201  W=4459  p=0.009  d=-0.502 [-0.78, -0.23]  (lower in UV-high) 
+
+== 4. Figures ================================================== 
+
+== 5. Results tables =========================================== 
+
+MAIN (RASSF9): 
+       analysis   gene n_low n_high median_low median_high      W      p_value
+        Primary RASSF9   107    108  0.3399355   0.2470160 4802.0 3.244056e-02
+ S1 full cohort RASSF9   137    137  0.4058835   0.2459824 6760.5 6.326799e-05
+    S2 accuracy RASSF9   106    106  0.3362215   0.2470160 4730.0 4.688520e-02
+   cohens_d    d_lower     d_upper        direction
+ -0.2729961 -0.5415782 -0.00441399 lower in UV-high
+ -0.4434279 -0.6831320 -0.20372380 lower in UV-high
+ -0.2567684 -0.5270973  0.01356040 lower in UV-high
+
+SUPPLEMENTARY (RASSF10): 
+       analysis    gene n_low n_high median_low median_high      W      p_value
+        Primary RASSF10   107    108  0.3087104   0.2076962 4596.0 9.484327e-03
+ S1 full cohort RASSF10   137    137  0.4284640   0.1947175 6496.5 1.048234e-05
+    S2 accuracy RASSF10   106    106  0.3037430   0.2014453 4459.0 9.382134e-03
+   cohens_d    d_lower    d_upper        direction
+ -0.4973667 -0.7688083 -0.2259252 lower in UV-high
+ -0.6801787 -0.9237414 -0.4366160 lower in UV-high
+ -0.5016682 -0.7750918 -0.2282445 lower in UV-high
+
+Wrote: results/table_main_04_rassf9_groups.csv 
+Wrote: results/table_supp_04_rassf10_groups.csv 
+
+== 6. Warnings ================================================= 
+  no warnings raised 
+
+== DONE ======================================================== 
+Figure 1 (main)      : figures/figure1_rassf9_uv_groups.* 
+Figure S1 (supp)     : figures/figureS1_rassf10_uv_groups.* 
+Full log: E:/RASSF9 Project/results/logs/04_groups.log 

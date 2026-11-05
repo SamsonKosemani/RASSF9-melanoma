@@ -1,0 +1,53 @@
+GSE298774 deconvolution — 2026-10-13 16:17:17 
+
+
+== 1. Packages ================================================= 
+  STdeconvolve 1.3.2 
+  topicmodels  0.2.17 
+
+== 2. Combined matrix ========================================== 
+  sections: 18 
+  A16       5195 in-tissue spots,  18082 genes  [RASSF9 yes, RASSF10 yes] 
+  A17       2274 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  A21       2260 in-tissue spots,  18082 genes  [RASSF9 yes, RASSF10 yes] 
+  A22       4326 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  A23       2782 in-tissue spots,  18082 genes  [RASSF9 yes, RASSF10 yes] 
+  A24       6165 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  A34       4151 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  A7        2892 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  B1        3952 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  B13       3614 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  B14       2206 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  B15       3171 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  B38_2     2100 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  B38ex     1861 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  B4        6415 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  B8        5780 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  D20       1089 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+  D3        1501 in-tissue spots,  37072 genes  [RASSF9 yes, RASSF10 yes] 
+ 
+  distinct annotation sizes across sections: 18082, 37072 
+    18082 genes: A16, A21, A23 
+    37072 genes: A17, A22, A24, A34, A7, B1, B13, B14, B15, B38_2, B38ex, B4, B8, D20, D3 
+ 
+  union: 37072 genes | INTERSECTION USED: 18082 
+  dropped as not measured in every section: 18990 
+  RASSF9: in intersection = TRUE | in union = TRUE | present in all sections 
+  RASSF10: in intersection = TRUE | in union = TRUE | present in all sections 
+ 
+  combined: 18082 genes x 61734 spots 
+  sparsity: 13.07% non-zero (compare 6.52% with the zero-padded union) 
+
+== 3. Corpus =================================================== 
+  after cleanCounts: 18073 genes x 56660 spots 
+  after restrictCorpus: 1000 genes x 56660 spots 
+  spots with zero counts across the retained genes: 137 (0.24%) 
+  by section: B8=52, B15=36, B14=35, A17=6, A7=5, A34=2, A21=1 
+  corpus after dropping them: 1000 genes x 56523 spots 
+  (for the record, genes of interest in the fitted corpus: none) 
+  saved: data/processed/gse298774_corpus.rds 
+
+== 4. LDA, K = 15 ============================================== 
+  fitting -- this is the slow step, 30 minutes to a few hours 
+  started: 2026-10-13 16:20:29 
+  finished in 195.9 minutes 

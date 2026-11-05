@@ -1,0 +1,170 @@
+GSE298774 Kreuger metadata — 2026-10-14 11:56:58 
+
+
+== 1. Column alignment ========================================= 
+  header fields: 80 
+  data fields (rows 1-2): 80, 80 
+  -> field counts match; no row-name column. 
+  parsed: 39481 rows x 80 columns 
+ 
+  theta row sums: min 1.0000, median 1.0000, max 1.0000 
+  any negative topic proportion: FALSE 
+  -> columns are correctly aligned (theta sums to 1, no negatives) 
+  barcode column: orig.ident 
+  barcode example: AACAATGTGCTCCGAG-1 
+  barcodes unique across the whole file: TRUE 
+ 
+  barcode suffixes present: -1 -10 -11 -12 -13 -14 -15 -16 -17 -18 -19 -2 -3 -4 -5 -6 -7 -8 -9 
+  -> the suffix is a merge index, not spot identity. Stripping it. 
+  16-mer core example: AACAATGTGCTCCGAG 
+  core unique within each section: TRUE 
+
+== 2. The section column ======================================= 
+  our sections (18): A16, A17, A21, A22, A23, A24, A34, A7, B1, B13, B14, B15, B38_2, B38ex, B4, B8, D20, D3 
+ 
+  columns whose values look like our section names: 
+    library_id           95% of its values match 
+    fastqs               95% of its values match 
+    area                 33% of its values match 
+ 
+  using: library_id 
+  reconciled spellings: 
+    their B38.2 -> our B38_2 
+ 
+  sections in their file with no counterpart of ours: A2 
+  (A2 is expected here: GEO deposited no barcodes or features for 
+   it, so script 26 could not load it. Their labels for A2 exist 
+   but there is no count matrix to read expression from, so A2 
+   cannot contribute whatever we do.) 
+  dropping 217 spots from those sections 
+ 
+  spot keys unique: TRUE 
+
+== 3. Coverage ================================================= 
+  section  ours in-tiss     theirs    matched % of ours 
+  A16              5195       2768       2768     53.3% 
+  A17              2274        857        857     37.7% 
+  A21              2260       1934       1934     85.6% 
+  A22              4326       4056       4056     93.8% 
+  A23              2782       2143       2143     77.0% 
+  A24              6165       6048       6048     98.1% 
+  A34              4151       1613       1613     38.9% 
+  A7               2892       1278       1278     44.2% 
+  B1               3952       3930       3930     99.4% 
+  B13              3614       1512       1512     41.8% 
+  B14              2206        662        662     30.0% 
+  B15              3171       1048       1048     33.0% 
+  B38_2            2100       1080       1080     51.4% 
+  B38ex            1861       1851       1851     99.5% 
+  B4               6415       5371       5371     83.7% 
+  B8               5780        864        864     14.9% 
+  D20              1089       1053       1053     96.7% 
+  D3               1501       1196       1196     79.7% 
+ 
+  TOTAL          61734      39264      39264     63.6% 
+ 
+  their spots with no match in ours: 0 (0.0%) 
+ 
+  sections they cover: 18 of 18 
+  retention relative to our in-tissue spots: 14.9% to 99.5% (median 65.2%) 
+  -> UNEVEN across sections. This is not simple uniform QC. 
+     Sections retaining least: 
+       B8        14.9% retained (864 of 5780) 
+       B14       30.0% retained (662 of 2206) 
+       B15       33.0% retained (1048 of 3171) 
+       A17       37.7% retained (857 of 2274) 
+       A34       38.9% retained (1613 of 4151) 
+     Script 24 found a 170-fold depth range across sections, so 
+     a depth-based filter would hit shallow sections hardest. 
+     This costs spots, and so patients, but it does NOT bias the 
+     paired comparison: both compartments of a patient are 
+     filtered by the same rule in the same section. 
+ 
+  their nCount_Spatial: min 577, Q1 2275, median 5336, Q3 25205, max 488196 
+
+== 4. Labels =================================================== 
+  label                       spots       % 
+  Fibroblasts 2                7804   19.9% 
+  Fibroblasts 1                7208   18.4% 
+  Nevus                        3404    8.7% 
+  Tumor 1                      3003    7.6% 
+  Keratinocytes 2              2725    6.9% 
+  Keratinocytes 1              2221    5.7% 
+  Endothelial cells            2160    5.5% 
+  Eccrine gland                2138    5.4% 
+  Immune cells 1               1760    4.5% 
+  Sebaceous gland              1686    4.3% 
+  Eccrine gland duct           1396    3.6% 
+  Tumor 2                      1199    3.1% 
+  Keratinocytes 3               952    2.4% 
+  Immune cells 2                820    2.1% 
+  Hair follicle                 788    2.0% 
+ 
+  their topic number -> name: 
+    X1    Fibroblasts 2 
+    X10   Immune cells 2 
+    X11   Fibroblasts 1 
+    X12   Eccrine gland duct 
+    X13   Keratinocytes 3 
+    X14   Immune cells 1 
+    X15   Nevus 
+    X2    Endothelial cells 
+    X3    Tumor 1 
+    X4    Tumor 2 
+    X5    Hair follicle 
+    X6    Sebaceous gland 
+    X7    Keratinocytes 1 
+    X8    Eccrine gland 
+    X9    Keratinocytes 2 
+
+== 5. Nevus and tumour spots per patient ======================= 
+  nevus label:   Nevus 
+  tumour labels: Tumor 1, Tumor 2 
+  (Tumor 1 and Tumor 2 are pooled as 'tumour': both are melanoma by 
+   their naming, and splitting them would halve an already small 
+   per-patient count on a distinction we have no stake in.) 
+ 
+  patient       nevus   tumour   usable 
+  A16             378      347      yes 
+  B1              301      334      yes 
+  B4              303      289      yes 
+  A21             353      284      yes 
+  D20             137      153      yes 
+  B14             152      132      yes 
+  A17             111      238      yes 
+  A7              176      102      yes 
+  A34              99       90      yes 
+  B13              75       89      yes 
+  B8               95       64      yes 
+  B15             648       51      yes 
+  B38              49       85      yes 
+  A22             377       48      yes 
+  D3               47       20      yes 
+  A23              94       16      yes 
+  A24               9     1860       no 
+ 
+  PATIENTS WITH >=10 SPOTS IN BOTH COMPARTMENTS: 16 of 17 
+  That is the sample size of the paired test. Not the spot count. 
+
+== 6. Save ===================================================== 
+  purity (max topic proportion): median 0.566, Q1 0.434, Q3 0.750 
+  spots with purity > 0.50: 24749 
+  spots with purity >= 0.75: 9837 
+  (purity thresholds now come from THEIR theta, so a 'pure nevus' 
+   spot is pure by their fit, not by our reproduction of it) 
+ 
+  saved: data/processed/gse298774_kreuger_labels.rds 
+
+== 7. Next ===================================================== 
+  Script 27 is now a VALIDATION, not the source of labels: our 
+  independent K=15 fit can be cross-tabulated against their 
+  MaxTopicsName. Agreement is evidence the reproduction was 
+  faithful; disagreement is worth knowing and would have been 
+  invisible without this file. 
+ 
+  Script 28 uses THEIR labels. The readout becomes 'RASSF9 in the 
+  nevus and melanoma compartments as defined by the authors of the 
+  dataset', which is a materially stronger claim than one resting 
+  on our own classifier, and it retires the limitation that the 
+  labels were our reproduction. 
+  no warnings raised 

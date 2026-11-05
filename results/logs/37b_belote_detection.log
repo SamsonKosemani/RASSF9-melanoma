@@ -1,0 +1,146 @@
+Belote GSE151091 RASSF9 detection — 2026-10-16 15:37:31 
+
+
+== 1. Metadata ================================================= 
+  metadata: 9719 cells x 28 columns 
+    Melanocyte      7088 cells 
+    Keratinocyte    1865 cells 
+    Eccrine          636 cells 
+    Dendritic         76 cells 
+    T cell            29 cells 
+    Mast              25 cells 
+  donors: 22 
+  donor A1015LM contributes 31 cells; 9719 - 31 = 9688 matches the published annotated total 
+
+== 2. Expression matrix ======================================== 
+  reading GSE151091_raw_matrix.csv.gz (75.9 MB gz) -- a minute or two 
+  matrix: 26577 genes x 14370 cells 
+  cells with annotation: 9719 of 14370 (4651 unannotated, excluded) 
+  library size: median 619,203, range 50,005-43,472,521 
+
+== 3. Depth by cell class -- the artefact to rule out ========== 
+  If one class is sequenced deeper, it will show higher detection for 
+  every gene regardless of biology. Section 6 removes this by 
+  thinning all cells to a common depth. 
+    Melanocyte     n =  7088 | median counts      585,229 | median genes   3170 
+    Keratinocyte   n =  1865 | median counts      788,398 | median genes   3378 
+    Eccrine        n =   636 | median counts      583,002 | median genes   3799 
+    Dendritic      n =    76 | median counts      922,202 | median genes   3606 
+    T cell         n =    29 | median counts      545,072 | median genes   1763 
+    Mast           n =    25 | median counts      489,991 | median genes   2537 
+  depth range across classes: 1.9-fold 
+
+== 4. Marker gate ============================================== 
+  The annotations are the authors'. This checks they behave before 
+  anything is concluded from them. 
+    MLANA   melanocyte     66.14 vs keratinocyte      0.45  ok 
+    PMEL    melanocyte    180.09 vs keratinocyte      1.20  ok 
+    TYR     melanocyte     22.41 vs keratinocyte      0.14  ok 
+    DCT     melanocyte     37.66 vs keratinocyte      0.37  ok 
+    MITF    melanocyte     13.40 vs keratinocyte      0.17  ok 
+    SOX10   melanocyte      2.38 vs keratinocyte      0.02  ok 
+    TYRP1   melanocyte     84.91 vs keratinocyte      0.45  ok 
+    KRT14   keratinocyte    510.56 vs melanocyte      1.27  ok 
+    KRT1    keratinocyte    252.69 vs melanocyte      1.10  ok 
+  gate: 100% of checks passed 
+
+== 5. Detection by cell class (raw, depth NOT matched) ========= 
+
+  RASSF9: 
+    class            cells     det    % det  mean CP10K 
+    Melanocyte        7088       8    0.11%       0.000 
+    Keratinocyte      1865     192   10.29%       0.079 
+    Eccrine            636      48    7.55%       0.044 
+    Dendritic           76       0    0.00%       0.000 
+    T cell              29       0    0.00%       0.000 
+    Mast                25       0    0.00%       0.000 
+
+  RASSF10: 
+    class            cells     det    % det  mean CP10K 
+    Melanocyte        7088      12    0.17%       0.001 
+    Keratinocyte      1865     189   10.13%       0.070 
+    Eccrine            636     365   57.39%       0.532 
+    Dendritic           76       0    0.00%       0.000 
+    T cell              29       0    0.00%       0.000 
+    Mast                25       0    0.00%       0.000 
+
+== 6. Detection after thinning to a common depth =============== 
+  target depth = 153,496 counts (10th percentile of the shallowest compared class) 
+  cells retained: 8892 of 9719 (91.5%) 
+    Melanocyte      6379 of  7088 retained 
+    Eccrine          601 of   636 retained 
+    Keratinocyte    1790 of  1865 retained 
+
+  RASSF9: 
+    class            cells     det    % det  mean CP10K 
+    Melanocyte        6379       5    0.08%       0.000 
+    Keratinocyte      1790     164    9.16%       0.082 
+    Eccrine            601      38    6.32%       0.044 
+    Dendritic           72       0    0.00%       0.000 
+    T cell              27       0    0.00%       0.000 
+    Mast                23       0    0.00%       0.000 
+
+  RASSF10: 
+    class            cells     det    % det  mean CP10K 
+    Melanocyte        6379       7    0.11%       0.001 
+    Keratinocyte      1790     159    8.88%       0.070 
+    Eccrine            601     321   53.41%       0.518 
+    Dendritic           72       0    0.00%       0.000 
+    T cell              27       0    0.00%       0.000 
+    Mast                23       0    0.00%       0.000 
+
+== 7. Pre-registered prediction: eccrine > melanocyte ========== 
+  From GSE298774 Visium, on a different platform, before this dataset 
+  was examined. Donors are the unit; the cell-level test is shown 
+  only for completeness and is pseudo-replicated. 
+
+  RASSF9 after thinning: melanocyte 0.08% | eccrine 6.32% | keratinocyte 9.16% 
+    eccrine / melanocyte = 80.67x 
+    cell-level Fisher p = < 2.2e-16 (PSEUDO-REPLICATED, not the test) 
+
+  RASSF10 after thinning: melanocyte 0.11% | eccrine 53.41% | keratinocyte 8.88% 
+    eccrine / melanocyte = 486.73x 
+    cell-level Fisher p = < 2.2e-16 (PSEUDO-REPLICATED, not the test) 
+
+  RASSF9: donors with >= 20 cells in both classes: 3 
+    too few donors contribute both classes for a paired test; 
+    the donor-level claim cannot be made and is not made. 
+
+  RASSF10: donors with >= 20 cells in both classes: 3 
+    too few donors contribute both classes for a paired test; 
+    the donor-level claim cannot be made and is not made. 
+
+== 8. Is RASSF9's sparsity normal for its abundance? =========== 
+  2000 random genes, melanocytes only, depth-matched. 
+  detection across those genes: median 1.38%, 90th pct 36.94% 
+
+  RASSF9 in melanocytes: 5 of 6379 detected = 0.08% [0.03%, 0.18%] 
+    143 genes within 2-fold of its expression level detect in 0.13% of cells (median) 
+    RASSF9 sits at the 29.4 percentile of that band 
+    percentile among all 2000 calibration genes: 25.2 
+
+  RASSF10 in melanocytes: 7 of 6379 detected = 0.11% [0.04%, 0.23%] 
+    175 genes within 2-fold of its expression level detect in 0.20% of cells (median) 
+    RASSF10 sits at the 19.4 percentile of that band 
+    percentile among all 2000 calibration genes: 28.0 
+
+== 9. Verdict against the pre-set criterion ==================== 
+  ADEQUATE            = >= 10% of melanocytes after thinning 
+  INFORMATIVE ABSENCE = below that AND eccrine >= 3x melanocyte, or 
+                        abundance-matched genes >= 3x 
+  UNINFORMATIVE       = below that AND neither reference is higher 
+ 
+  RASSF9: INFORMATIVE ABSENCE -- the assay can see genes like this; melanocytes lack it 
+    melanocyte 0.08% | eccrine 6.32% (80.67x) | matched-gene median 0.13% (1.60x) 
+ 
+  RASSF10: INFORMATIVE ABSENCE -- the assay can see genes like this; melanocytes lack it 
+    melanocyte 0.11% | eccrine 53.41% (486.73x) | matched-gene median 0.20% (1.86x) 
+ 
+  WHAT THIS CANNOT SAY: this dataset has no nevus melanocytes and no 
+  melanoma, so it cannot deliver Gustavo's three-way comparison on 
+  its own. It establishes the normal-melanocyte arm, and whether that 
+  arm is measurable at all. 
+
+== 10. Figure ================================================== 
+  wrote: geo_rassf9_belote_detection 
+  no warnings raised 

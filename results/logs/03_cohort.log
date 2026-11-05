@@ -1,0 +1,85 @@
+Cohort construction — 2026-10-02 13:00:43 
+
+
+== 1. Inputs =================================================== 
+Expression object: 60660 genes x 473 samples 
+UV proxy table:    412 melanoma samples 
+
+== 2. Expression extraction ==================================== 
+  [ ok ] RASSF9 (ENSG00000198774.5) extracted; log2(TPM+1) median = 0.318 
+  [ ok ] RASSF10 (ENSG00000189431.8) extracted; log2(TPM+1) median = 0.28 
+  barcode column class: character -> coerced to character 
+  example barcode: TCGA-EB-A85I-01A-11R-A352-07 
+  expression table assembled: 473 rows x 6 columns 
+
+== 3. Duplicate resolution (D9) ================================ 
+Patients with >1 expression sample: 4 
+
+Before resolution: 
+      patient                      barcode           sample_type
+ TCGA-D3-A1QA TCGA-D3-A1QA-06A-11R-A18T-07            Metastatic
+ TCGA-D3-A1QA TCGA-D3-A1QA-07A-11R-A37K-07 Additional Metastatic
+ TCGA-ER-A19T TCGA-ER-A19T-01A-11R-A18T-07         Primary Tumor
+ TCGA-ER-A19T TCGA-ER-A19T-06A-11R-A18U-07            Metastatic
+ TCGA-ER-A2NF TCGA-ER-A2NF-01A-11R-A18T-07         Primary Tumor
+ TCGA-ER-A2NF TCGA-ER-A2NF-06A-11R-A18T-07            Metastatic
+ TCGA-GN-A4U8 TCGA-GN-A4U8-06A-11R-A32P-07            Metastatic
+ TCGA-GN-A4U8 TCGA-GN-A4U8-11A-11R-A32P-07   Solid Tissue Normal
+ matches_sig_sample
+               TRUE
+              FALSE
+               TRUE
+              FALSE
+              FALSE
+              FALSE
+               TRUE
+              FALSE
+
+Expression samples: 473 -> 469 after one-per-patient resolution 
+
+== 4. UV table, one row per patient ============================ 
+Patients with >1 signature sample: 0 
+UV rows: 412 -> 412 
+
+== 5. Merge ==================================================== 
+UV-only patients:         412 
+Expression-only patients: 469 
+Matched (merged) cohort:  411 
+Pairs where DNA and RNA came from the same sample vial: 411 / 411 (100%) 
+Sample-type disagreement between DNA and RNA records: 100 
+
+== 6. Tumour purity ============================================ 
+  ESTIMATE  available for 410 / 411 samples (median 0.827) 
+  ABSOLUTE  available for 0 / 411 samples (median NA) 
+  LUMP      available for 400 / 411 samples (median 0.685) 
+  IHC       available for 411 / 411 samples (median 0.850) 
+  CPE       available for 411 / 411 samples (median 0.769) 
+
+Primary purity measure: ABSOLUTE (per D10). CPE is a consensus estimate and is retained as a fallback where ABSOLUTE is missing. 
+
+== 7. Cohort definition ======================================== 
+Full cohort (incl. SBS7 = 0):  n = 411 
+Primary cohort (SBS7 > 0):     n = 320 
+Excluded for SBS7 = 0:         n = 91 
+Low signature accuracy (<0.80) within primary cohort: 2  (D6 sensitivity analysis) 
+
+Sample types in primary cohort: 
+   sample_type   n  pct
+    Metastatic 242 75.6
+ Primary Tumor  78 24.4
+
+UV burden in primary cohort: 
+  SBS7_total  median [IQR] = 482 [256, 1002]  range = [5, 23393] 
+  Tertile cutoffs: lower = 324, upper = 714   <-- these are the cutoffs script 04 will use 
+
+  RASSF9 log2(TPM+1): median [IQR] = 0.27 [0.12, 0.65], range = [0.00, 3.45], %zero = 3.1 
+
+  RASSF10 log2(TPM+1): median [IQR] = 0.24 [0.06, 0.68], range = [0.00, 3.94], %zero = 13.4 
+
+== 8. Output =================================================== 
+Wrote: data/processed/analysis_cohort.csv (n = 320) 
+Wrote: data/processed/full_cohort.csv (n = 411) 
+
+== DONE ======================================================== 
+Add the final cohort numbers above to docs/decisions-log.md under 'Still to document'. 
+Full log: E:/RASSF9 Project/results/logs/03_cohort.log 

@@ -1,0 +1,93 @@
+HM450 methylation download — 2026-10-02 15:41:48 
+
+
+== 1. Methylation data ========================================= 
+Found existing file: E:/RASSF9 Project/data/raw/skcm_hm450.rds 
+Size: 1481.8 MB 
+Loading it instead of re-downloading. 
+
+Probes:  485577 
+Samples: 475 
+
+== 2. Probe annotation ========================================= 
+Probe coordinates: seqnames / start (hg38) 
+Gene labels:       gene_HGNC 
+  RASSF9   chr12:85,800,703-85,836,409 (- strand), TSS at 85,836,409 
+  RASSF10  chr11:13,009,316-13,012,119 (+ strand), TSS at 13,009,316 
+
+== 3. Probe selection (D11, TSS-distance definition) =========== 
+Promoter window: TSS -1500 to +500 bp (strand-aware) 
+Gene-body probes are retained but analysed separately. 
+
+  RASSF9   7 probes at the locus (7 gene-labelled) 
+   region n
+ Promoter 7
+    promoter probes (7): 
+      cg18827107   chr12:85,837,179  -770 bp from TSS 
+      cg19622623   chr12:85,837,047  -638 bp from TSS 
+      cg27035734   chr12:85,836,779  -370 bp from TSS 
+      cg25456477   chr12:85,836,589  -180 bp from TSS 
+      cg00310523   chr12:85,836,398  +11 bp from TSS 
+      cg02569458   chr12:85,836,315  +94 bp from TSS 
+      cg06740227   chr12:85,836,026  +383 bp from TSS 
+
+  RASSF10  16 probes at the locus (14 gene-labelled) 
+     region  n
+ Downstream  1
+  Gene body  3
+   Promoter 11
+   Upstream  1
+    promoter probes (11): 
+      cg11518550   chr11:13,008,175  -1141 bp from TSS 
+      cg08148891   chr11:13,008,762  -554 bp from TSS 
+      cg19665644   chr11:13,008,927  -389 bp from TSS 
+      cg20918243   chr11:13,008,965  -351 bp from TSS 
+      cg09596429   chr11:13,008,970  -346 bp from TSS 
+      cg05817758   chr11:13,009,020  -296 bp from TSS 
+      cg08876434   chr11:13,009,090  -226 bp from TSS 
+      cg25344734   chr11:13,009,096  -220 bp from TSS 
+      cg26005578   chr11:13,009,129  -187 bp from TSS 
+      cg05095158   chr11:13,009,326  +10 bp from TSS 
+      cg22740547   chr11:13,009,329  +13 bp from TSS 
+
+== 4. Beta values ============================================== 
+Extracting 23 probes across 475 samples 
+
+Missingness per probe: 
+  cg18827107   0.6% missing 
+  cg19622623   1.5% missing 
+  cg27035734   0.2% missing 
+  cg25456477   2.1% missing 
+  cg00310523   0.0% missing 
+  cg02569458   0.0% missing 
+  cg06740227   0.8% missing 
+  cg23548136   0.0% missing 
+  cg11518550   0.0% missing 
+  cg08148891   0.0% missing 
+  cg19665644   0.0% missing 
+  cg20918243   0.0% missing 
+  cg09596429   0.0% missing 
+  cg05817758   0.0% missing 
+  cg08876434   0.0% missing 
+  cg25344734   0.0% missing 
+  cg26005578   0.0% missing 
+  cg05095158   0.0% missing 
+  cg22740547   0.0% missing 
+  cg07600636   0.0% missing 
+  cg00326127   0.0% missing 
+  cg20098471   0.0% missing 
+  cg08161666   0.4% missing 
+
+Methylation samples: 475 -> 470 one per patient 
+Patients with both expression and methylation: 320 of 320 
+Methylation from the same sample vial as RNA: 100% 
+
+Wrote: data/processed/methylation_probes.csv 
+Wrote: data/processed/methylation_betas.csv 
+
+== 5. Warnings ================================================= 
+  no warnings raised 
+
+== DONE ======================================================== 
+Next: script 08 tests methylation against expression using the probes inventoried above. Review the probe counts and regions in this log before running it -- if a gene has only one or two usable promoter probes, that is a real limitation and belongs in the manuscript rather than being discovered later. 
+Full log: E:/RASSF9 Project/results/logs/07_methylation_download.log 

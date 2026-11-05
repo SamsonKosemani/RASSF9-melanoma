@@ -1,0 +1,271 @@
+Burden vs site confound — 2026-10-16 18:54:08 
+
+
+== 1. Cohort =================================================== 
+  411 samples with burden, purity and expression 
+
+== 2. Looking for anatomical site ============================== 
+  loading colData from skcm_star_counts.rds -- about a minute 
+  clinical columns available: 174 
+  site-like columns: tissue_or_organ_of_origin, primary_diagnosis, diagnosis_is_primary_disease, melanoma_known_primary, site_of_resection_or_biopsy, sites_of_involvement, tumor_of_origin, primary_site, paper_ALL_PRIMARY_VS_METASTATIC, paper_REGIONAL_VS_PRIMARY, paper_CURATED_KNOWN_PRIMARY, paper_CURATED_SITE_OF_PRIMARY_TUMOR_KNOWN_PRIMARY_ONLY, paper_CURATED_SITE_OF_PRIMARY_TUMOR_INCLUDING_UNKNOWN, paper_CURATED_TCGA_SPECIMEN_SITE, paper_CURATED_DISTANT_ANATOMIC_SITE 
+
+    tissue_or_organ_of_origin — 38 distinct, 0 missing 
+      Skin, NOS                                               361 
+      Not Reported                                             19 
+      Lung, NOS                                                13 
+      Brain, NOS                                               12 
+      Liver                                                    11 
+      Lymph node, NOS                                          11 
+      Thorax, NOS                                               5 
+      Bone, NOS                                                 3 
+      Mediastinum, NOS                                          3 
+      Connective, subcutaneous and other soft tissues of abdomen    2 
+      Intra-abdominal lymph nodes                               2 
+      Intrathoracic lymph nodes                                 2 
+      Lymph nodes of head, face and neck                        2 
+      Peritoneum, NOS                                           2 
+      ... and 24 more 
+
+    primary_diagnosis — 16 distinct, 0 missing 
+      Malignant melanoma, NOS                                 430 
+      Nodular melanoma                                          9 
+      Not Reported                                              8 
+      Epithelioid cell melanoma                                 6 
+      Amelanotic melanoma                                       3 
+      Basal cell carcinoma, NOS                                 3 
+      Melanoma, NOS                                             3 
+      Spindle cell melanoma, NOS                                2 
+      Superficial spreading melanoma                            2 
+      Acral lentiginous melanoma, malignant                     1 
+      Chronic myeloid leukemia, NOS                             1 
+      Intraductal carcinoma, noninfiltrating, NOS               1 
+      Lentigo maligna melanoma                                  1 
+      Papillary urothelial carcinoma                            1 
+      ... and 2 more 
+
+    diagnosis_is_primary_disease — 2 distinct, 0 missing 
+      FALSE                                                   320 
+      TRUE                                                    153 
+
+    melanoma_known_primary — 2 distinct, 333 missing 
+      Yes                                                     111 
+      No                                                       29 
+
+    site_of_resection_or_biopsy — 31 distinct, 0 missing 
+      Not Reported                                            320 
+      Lymph nodes of axilla or arm                             35 
+      Skin of trunk                                            20 
+      Skin, NOS                                                14 
+      Lymph node, NOS                                          10 
+      Lymph nodes of head, face and neck                       10 
+      Lymph nodes of inguinal region or leg                    10 
+      Connective, subcutaneous and other soft tissues of lower limb and hip    7 
+      Connective, subcutaneous and other soft tissues of upper limb and shoulder    7 
+      Skin of lower limb and hip                                7 
+      Skin of upper limb and shoulder                           7 
+      Connective, subcutaneous and other soft tissues, NOS      3 
+      Connective, subcutaneous and other soft tissues of pelvis    2 
+      Connective, subcutaneous and other soft tissues of trunk, NOS    2 
+      ... and 17 more 
+
+    sites_of_involvement — 7 distinct, 0 missing 
+      NULL                                                    350 
+      Skin, Extremities                                        55 
+      Skin, Trunk                                              52 
+      Skin, Head and Neck                                      12 
+      Unknown                                                   2 
+      Skin, Groin                                               1 
+      Vulva, NOS                                                1 
+
+    tumor_of_origin — 106 distinct, 366 missing 
+      TCGA-ER-A2NF_diagnosis                                    2 
+      TCGA-BF-A1PU_diagnosis                                    1 
+      TCGA-BF-A3DJ_diagnosis                                    1 
+      TCGA-D3-A1Q1_diagnosis                                    1 
+      TCGA-D3-A1Q7_diagnosis                                    1 
+      TCGA-D3-A1Q8_diagnosis                                    1 
+      TCGA-D3-A1QB_diagnosis                                    1 
+      TCGA-D3-A2J6_diagnosis                                    1 
+      TCGA-D3-A2J8_diagnosis                                    1 
+      TCGA-D3-A2J9_diagnosis                                    1 
+      TCGA-D3-A2JA_diagnosis                                    1 
+      TCGA-D3-A2JD_diagnosis                                    1 
+      TCGA-D3-A2JE_diagnosis                                    1 
+      TCGA-D3-A2JG_diagnosis                                    1 
+      ... and 92 more 
+
+    primary_site — 1 distinct, 0 missing 
+      c("Skin", "Connective, subcutaneous and other soft tissues", "Lymph nodes", "Nasal cavity and middle ear", "Vulva", "Breast", "Bones, joints and articular cartilage of other and unspecified sites", "Retroperitoneum and peritoneum", "Vagina", "Colon", "Adrenal gland", "Corpus uteri", "Other and ill-defined sites", "Liver and intrahepatic bile ducts", "Anus and anal canal", "Spinal cord, cranial nerves, and other parts of central nervous system", "Small intestine", "Bronchus and lung", "Brain", "Parotid gland"
+)  473 
+
+    paper_ALL_PRIMARY_VS_METASTATIC — 2 distinct, 407 missing 
+      All_Primaries                                            65 
+      All_Metastases                                            1 
+
+    paper_REGIONAL_VS_PRIMARY — 2 distinct, 407 missing 
+      Primary_Disease                                          40 
+      -                                                        26 
+
+    paper_CURATED_KNOWN_PRIMARY — 2 distinct, 407 missing 
+      YES                                                      43 
+      -                                                        23 
+
+    paper_CURATED_SITE_OF_PRIMARY_TUMOR_KNOWN_PRIMARY_ONLY — 7 distinct, 407 missing 
+      -                                                        23 
+      Trunk                                                    17 
+      Extremities                                              15 
+      Head and Neck                                             6 
+      Other  Specify                                            3 
+      [Not Available]                                           1 
+      Trunk|Extremities                                         1 
+
+    paper_CURATED_SITE_OF_PRIMARY_TUMOR_INCLUDING_UNKNOWN — 7 distinct, 407 missing 
+      -                                                        23 
+      Trunk                                                    17 
+      Extremities                                              15 
+      Head and Neck                                             6 
+      Other  Specify                                            3 
+      [Not Available]                                           1 
+      Trunk|Extremities                                         1 
+
+    paper_CURATED_TCGA_SPECIMEN_SITE — 3 distinct, 407 missing 
+      Primary Tumor                                            42 
+      -                                                        23 
+      [Not Available]                                           1 
+
+    paper_CURATED_DISTANT_ANATOMIC_SITE — 2 distinct, 407 missing 
+      [Not Available]                                          43 
+      -                                                        23 
+
+  USING: tissue_or_organ_of_origin 
+
+== 3. Classifying site ========================================= 
+    Skin NOS        318 
+    Unspecified      52 
+    Lymph node       16 
+    Other            14 
+    Cutaneous        11 
+  acral cases identified: 0 | mucosal: 0 | Skin NOS (uninformative): 318 
+  [FLAG] NO acral or mucosal case is identifiable from this column. 
+  The site adjustment below therefore CANNOT address the acral 
+  confound; it only separates skin from lymph node and other. Any 
+  verdict must say so. The informative test is the one restricted 
+  to UV-POSITIVE tumours in 39b (rho -0.120, p = 0.033, n = 320), 
+  which is a gradient by degree of UV damage among UV-exposed 
+  melanomas rather than a contrast between exposed and shielded 
+  sites. 
+  informative for the acral/mucosal question: 11 of 411 (3%) 
+  [FLAG] fewer than half the samples carry an informative site. 
+  TCGA records many melanomas as 'Skin, NOS', so the adjustment 
+  below is limited and the verdict may be UNRESOLVED. That is a 
+  real answer about the metadata, not a failure of the analysis. 
+
+  site against UV signature -- the premise of the worry: 
+    site                no UV         UV       % UV 
+    Cutaneous               1         10      90.9% 
+    Lymph node              3         13      81.2% 
+    Other                   5          9      64.3% 
+    Skin NOS               68        250      78.6% 
+    Unspecified            14         38      73.1% 
+  If acral and mucosal are overwhelmingly UV-negative while 
+  cutaneous are UV-positive, site and UV burden are entangled and 
+  the adjustment below is the whole question. 
+
+  RASSF9 and RASSF10 expression by site: 
+    Skin NOS       n =  318 | RASSF9  0.272 | RASSF10  0.288 | median SBS7    379.0 
+    Unspecified    n =   52 | RASSF9  0.355 | RASSF10  0.246 | median SBS7    289.5 
+    Lymph node     n =   16 | RASSF9  0.635 | RASSF10  0.372 | median SBS7    310.5 
+    Other          n =   14 | RASSF9  0.455 | RASSF10  0.193 | median SBS7    238.5 
+    Cutaneous      n =   11 | RASSF9  0.311 | RASSF10  0.141 | median SBS7    390.0 
+    RASSF9 differs by site: Kruskal-Wallis p = 0.490 
+    RASSF10 differs by site: Kruskal-Wallis p = 0.818 
+
+== 4. Adjustment for site ====================================== 
+  site factor levels used: Cutaneous, Lymph node, Other, Skin NOS, Unspecified 
+
+  RASSF9 / UV (SBS7): 
+    M0 unadjusted                n = 411  beta = -0.0852 [-0.1365, -0.0339]  p = 0.001       100% retained 
+    M1 + purity + type           n = 411  beta = -0.0852 [-0.1359, -0.0344]  p = 0.001       100% retained 
+    M2 + site                    n = 411  beta = -0.0838 [-0.1354, -0.0323]  p = 0.001        98% retained 
+    M3 + site + purity + type    n = 411  beta = -0.0849 [-0.1360, -0.0338]  p = 0.001       100% retained 
+
+  RASSF9 / UV fraction: 
+    M0 unadjusted                n = 411  beta = -0.2913 [-0.4594, -0.1233]  p = 7.20e-04    100% retained 
+    M1 + purity + type           n = 411  beta = -0.2789 [-0.4448, -0.1130]  p = 0.001        96% retained 
+    M2 + site                    n = 411  beta = -0.2903 [-0.4592, -0.1215]  p = 7.95e-04    100% retained 
+    M3 + site + purity + type    n = 411  beta = -0.2801 [-0.4470, -0.1133]  p = 0.001        96% retained 
+
+  RASSF9 / Total burden: 
+    M0 unadjusted                n = 411  beta = -0.0165 [-0.1309, +0.0979]  p = 0.777        baseline ~ 0 
+    M1 + purity + type           n = 411  beta = -0.0586 [-0.1747, +0.0575]  p = 0.321        baseline ~ 0 
+    M2 + site                    n = 411  beta = -0.0156 [-0.1302, +0.0989]  p = 0.789        baseline ~ 0 
+    M3 + site + purity + type    n = 411  beta = -0.0560 [-0.1725, +0.0604]  p = 0.345        baseline ~ 0 
+
+  RASSF9 / Non-UV burden: 
+    M0 unadjusted                n = 411  beta = +0.1188 [+0.0147, +0.2229]  p = 0.025       100% retained 
+    M1 + purity + type           n = 411  beta = +0.0863 [-0.0195, +0.1921]  p = 0.109        73% retained 
+    M2 + site                    n = 411  beta = +0.1170 [+0.0123, +0.2217]  p = 0.029        98% retained 
+    M3 + site + purity + type    n = 411  beta = +0.0871 [-0.0192, +0.1935]  p = 0.108        73% retained 
+
+  RASSF10 / UV (SBS7): 
+    M0 unadjusted                n = 411  beta = -0.1537 [-0.2129, -0.0945]  p = 5.09e-07    100% retained 
+    M1 + purity + type           n = 411  beta = -0.1473 [-0.2048, -0.0897]  p = 7.47e-07     96% retained 
+    M2 + site                    n = 411  beta = -0.1557 [-0.2153, -0.0961]  p = 4.42e-07    101% retained 
+    M3 + site + purity + type    n = 411  beta = -0.1475 [-0.2055, -0.0894]  p = 8.68e-07     96% retained 
+
+  RASSF10 / UV fraction: 
+    M0 unadjusted                n = 411  beta = -0.4214 [-0.6175, -0.2252]  p = 2.97e-05    100% retained 
+    M1 + purity + type           n = 411  beta = -0.4319 [-0.6212, -0.2426]  p = 9.48e-06    103% retained 
+    M2 + site                    n = 411  beta = -0.4290 [-0.6265, -0.2315]  p = 2.43e-05    102% retained 
+    M3 + site + purity + type    n = 411  beta = -0.4364 [-0.6269, -0.2459]  p = 8.76e-06    104% retained 
+
+  RASSF10 / Total burden: 
+    M0 unadjusted                n = 411  beta = -0.3282 [-0.4589, -0.1975]  p = 1.15e-06    100% retained 
+    M1 + purity + type           n = 411  beta = -0.2554 [-0.3871, -0.1237]  p = 1.60e-04     78% retained 
+    M2 + site                    n = 411  beta = -0.3286 [-0.4598, -0.1974]  p = 1.24e-06    100% retained 
+    M3 + site + purity + type    n = 411  beta = -0.2546 [-0.3869, -0.1224]  p = 1.77e-04     78% retained 
+
+  RASSF10 / Non-UV burden: 
+    M0 unadjusted                n = 411  beta = -0.0893 [-0.2122, +0.0335]  p = 0.154       100% retained 
+    M1 + purity + type           n = 411  beta = -0.0116 [-0.1340, +0.1108]  p = 0.852        13% retained 
+    M2 + site                    n = 411  beta = -0.0877 [-0.2116, +0.0362]  p = 0.165        98% retained 
+    M3 + site + purity + type    n = 411  beta = -0.0109 [-0.1341, +0.1122]  p = 0.861        12% retained 
+
+== 5. Within cutaneous melanomas only ========================== 
+  Restricting to cutaneous cases removes acral and mucosal entirely, 
+  so any surviving gradient cannot be a site effect between those 
+  groups. It costs sample size. 
+  NOTE: this subset is skin of unspecified type. It is not verified 
+  to exclude acral melanoma, because the metadata cannot identify 
+  acral cases at all. 
+  cutaneous samples: 329 
+    RASSF9   UV (SBS7)      n = 329  rho = -0.178  p = 0.001      | adj beta -0.0873 (p = 0.002) 
+    RASSF9   UV fraction    n = 329  rho = -0.186  p = 6.89e-04   | adj beta -0.3039 (p = 0.001) 
+    RASSF9   Total burden   n = 329  rho = +0.002  p = 0.977      | adj beta -0.0651 (p = 0.302) 
+    RASSF9   Non-UV burden  n = 329  rho = +0.106  p = 0.055      | adj beta +0.1033 (p = 0.088) 
+    RASSF10  UV (SBS7)      n = 329  rho = -0.255  p = 2.90e-06   | adj beta -0.1716 (p = 1.16e-07) 
+    RASSF10  UV fraction    n = 329  rho = -0.181  p = 9.44e-04   | adj beta -0.5170 (p = 1.09e-06) 
+    RASSF10  Total burden   n = 329  rho = -0.180  p = 0.001      | adj beta -0.2561 (p = 3.77e-04) 
+    RASSF10  Non-UV burden  n = 329  rho = -0.046  p = 0.402      | adj beta +0.0113 (p = 0.872) 
+
+== 6. Verdict against the pre-set criterion ==================== 
+  SITE-INDEPENDENT = UV effect keeps > 60% with site in the model at 
+                     p < 0.05, AND holds within cutaneous only 
+  SITE-CONFOUNDED  = loses more than that, or significance 
+  UNRESOLVED       = site data too coarse to decide 
+ 
+  RASSF9 vs UV burden: UNRESOLVED for acral/mucosal -- no such case is identifiable in the metadata; see the UV-positive-only test in 39b 
+    unadjusted -0.0852 -> with site -0.0849 (100% retained, p = 0.001) 
+    cutaneous only: n = 329, rho = -0.178, p = 0.001 
+ 
+  RASSF10 vs UV burden: UNRESOLVED for acral/mucosal -- no such case is identifiable in the metadata; see the UV-positive-only test in 39b 
+    unadjusted -0.1537 -> with site -0.1475 (96% retained, p = 8.68e-07) 
+    cutaneous only: n = 329, rho = -0.255, p = 2.90e-06 
+ 
+  A caution on over-adjustment: if UV burden is largely a CONSEQUENCE 
+  of where a melanoma arose, then site sits on the causal path rather 
+  than beside it, and adjusting for it removes real signal along with 
+  the confound. Surviving adjustment is therefore strong evidence; 
+  failing it is not proof that the association is spurious. The 
+  cutaneous-only analysis is the cleaner test for that reason. 
+  no warnings raised 

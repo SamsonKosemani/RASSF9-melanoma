@@ -1,0 +1,105 @@
+GSE298774 inventory — 2026-10-13 14:56:45 
+
+
+== 1. File inventory (no download) ============================= 
+  files in the series-level supplement: 2 
+ 
+    GSE298774_A2_features.tsv.gz                                            ? MB 
+    GSE298774_RAW.tar                                                       ? MB 
+ 
+  wrote: results/geo/gse298774_file_inventory.csv 
+  total series-level supplement: 0.00 GB 
+ 
+  what the names suggest is present: 
+    matrix      0 file(s) 
+    positions   0 file(s) 
+    annotation  0 file(s) 
+    image       0 file(s) 
+ 
+  [NOTE] no obvious per-spot annotation file. Their nevus/tumour 
+  topic assignment is not in the deposit, so spot classification 
+  will have to be derived -- see the note at the top of this 
+  script. Check the per-SAMPLE supplements below too, since 
+  annotations are often deposited per GSM rather than per series. 
+
+== 2. Sample metadata ========================================== 
+  samples: 11 | metadata columns: 67 
+ 
+    title                                 11 distinct: Nevus and melanoma in a single slide of patient A2 and A17 | Nevus and melanoma in a single sli 
+    geo_accession                         11 distinct: GSM9022963 | GSM9022964 | GSM9022965 
+    source_name_ch1                        1 distinct: Skin 
+    characteristics_ch1                    1 distinct: tissue: Skin 
+    library_source                         1 distinct: transcriptomic 
+    supplementary_file_1                  11 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A17_aligned_fiduc 
+    supplementary_file_10                  8 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A2_matrix.mtx.gz  
+    supplementary_file_11                  8 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A2_scalefactors_j 
+    supplementary_file_12                  8 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A2_tissue_hires_i 
+    supplementary_file_13                  8 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A2_tissue_lowres_ 
+    supplementary_file_14                  8 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A2_tissue_positio 
+    supplementary_file_15                  7 distinct:  | ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022966/suppl/GSM9022966_A23_tissue_low 
+    supplementary_file_16                  7 distinct:  | ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022966/suppl/GSM9022966_A23_tissue_pos 
+    supplementary_file_17                  2 distinct:  | ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022972/suppl/GSM9022972_B38_2_aligned_ 
+    supplementary_file_18                  2 distinct:  | ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022972/suppl/GSM9022972_B38_2_barcodes 
+    supplementary_file_19                  2 distinct:  | ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022972/suppl/GSM9022972_B38_2_features 
+    supplementary_file_2                  11 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A17_barcodes.tsv. 
+    supplementary_file_20                  2 distinct:  | ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022972/suppl/GSM9022972_B38_2_matrix.m 
+    supplementary_file_21                  2 distinct:  | ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022972/suppl/GSM9022972_B38_2_scalefac 
+    supplementary_file_22                  2 distinct:  | ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022972/suppl/GSM9022972_B38_2_tissue_h 
+    supplementary_file_23                  2 distinct:  | ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022972/suppl/GSM9022972_B38_2_tissue_l 
+    supplementary_file_24                  2 distinct:  | ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022972/suppl/GSM9022972_B38_2_tissue_p 
+    supplementary_file_3                  11 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A17_features.tsv. 
+    supplementary_file_4                  11 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A17_matrix.mtx.gz 
+    supplementary_file_5                  11 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A17_scalefactors_ 
+    supplementary_file_6                  11 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A17_tissue_hires_ 
+    supplementary_file_7                  11 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A17_tissue_lowres 
+    supplementary_file_8                  11 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A17_tissue_positi 
+    supplementary_file_9                   8 distinct: ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9022nnn/GSM9022963/suppl/GSM9022963_A2_aligned_fiduci 
+ 
+  wrote: results/geo/gse298774_sample_metadata.csv 
+ 
+  sample titles: 
+    Nevus and melanoma in a single slide of patient A2 and A17 
+    Nevus and melanoma in a single slide of patient A7 
+    Nevus and melanoma in a single slide of patient A21 
+    Nevus and melanoma in a single slide of patient A16 and A23 
+    Nevus and melanoma in a single slide of patient A22 and A24 
+    Nevus and melanoma in a single slide of patient A34 
+    Nevus and melanoma in a single slide of patient B1 and B38ex 
+    Nevus and melanoma in a single slide of patient B4 
+    Nevus and melanoma in a single slide of patient B8 and B13 
+    Nevus and melanoma in a single slide of patient B14, B15 and B38.2 
+    Nevus and melanoma in a single slide of patient D3 and D20 
+
+== 3. Clinical table (Supplementary Table S1, transcribed) ===== 
+  lesions in the published table: 18 
+  sex: 10 female, 8 male 
+  age: median 47 (range 17-72) 
+  Breslow: median 1.05 mm (range 0.4-3.1) 
+  sites: abdomen n=1, back n=7, face n=5, shoulder n=3, upper arm n=2 
+  stages: Stage IA, Stage IB, Stage IIA, Stage IIIC 
+ 
+  NOTE: one patient is 17 years old. If a per-patient covariate 
+  model is fitted, age enters as a covariate as they did it; no 
+  individual is identifiable from these aggregate fields. 
+  wrote: results/geo/gse298774_clinical_tableS1.csv 
+
+== 4. Next step ================================================ 
+  Read section 1 and answer two questions: 
+ 
+    (a) Is there per-spot ANNOTATION in the deposit (nevus vs 
+        melanoma, or cluster/topic labels)? If yes, we use their 
+        classification and the analysis is a paired comparison of 
+        RASSF9 between annotated compartments within each patient. 
+        If no, we derive spot classes from melanocytic markers plus 
+        PRAME, which their paper reports as negative in the nevus 
+        component and positive in the melanoma component in all 18 
+        cases -- a weaker assignment, and it must be validated 
+        before any RASSF9 number is read off it. 
+ 
+    (b) How large is the download, and are the matrices per sample 
+        or one combined file? That decides whether we pull all 18 
+        samples or start with two or three. 
+ 
+  NOTHING has been downloaded by this script beyond the series 
+  matrix. The next script fetches only what these answers call for. 
+  no warnings raised 

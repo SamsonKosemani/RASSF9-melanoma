@@ -1,0 +1,95 @@
+SBS signature QC — 2026-10-02 12:13:13 
+
+
+== 1. Input file =============================================== 
+File:  E:/RASSF9 Project/data/raw/TCGA_WES_sigProfiler_SBS_signatures_in_samples.csv 
+Size:  1.64 MB 
+Mtime: 2026-10-01 13:10:04 
+MD5:   42e44c3b9c0c127c248cabcd01441600 
+
+== 2. File structure =========================================== 
+Dimensions: 9493 rows x 68 columns 
+First 6 column names: Cancer Types | Sample Names | Accuracy | SBS1 | SBS2 | SBS3 
+Last 3 column names:  SBS58 | SBS59 | SBS60 
+Detected cancer-type column: Cancer Types 
+Detected sample column:      Sample Names 
+Detected accuracy column:    Accuracy 
+Detected 65 SBS signature columns: SBS1, SBS2, SBS3, SBS4, SBS5 ... SBS58, SBS59, SBS60 
+All four UV signatures present: SBS7a, SBS7b, SBS7c, SBS7d 
+
+== 3. Cancer types ============================================= 
+Distinct cancer types: 32 
+                Cancer Types n_samples
+               Breast-cancer       930
+                Lung-AdenoCa       528
+                        DLBC       512
+            ColoRect-AdenoCa       496
+               Prost-AdenoCa       484
+                 Thy-AdenoCa       478
+              Uterus-AdenoCa       474
+                    Head-SCC       464
+                    Lung-SCC       427
+               Skin-Melanoma       412
+             Stomach-AdenoCa       401
+ Transitional-cell-carcinoma       389
+               Ovary-AdenoCa       385
+                     CNS-GBM       362
+                  Kidney-RCC       334
+                   Liver-HCC       311
+                   Cervix-CA       271
+            Kidney-Papillary       251
+                     Sarcoma       208
+                 Eso-AdenoCa       182
+            Pheochromocytoma       182
+                Panc-AdenoCa       174
+                   Testis-Ca       149
+                         AML       139
+                     Thymoma       123
+            Adrenal-neoplasm        91
+    Mesothelium-Mesothelioma        82
+                Eye-Melanoma        80
+                         UCS        57
+                Kidney-ChRCC        50
+             Biliary-AdenoCa        36
+                  Lymph-BNHL        31
+EXCLUDED (not UV-driven): Eye-Melanoma -- 80 samples 
+INCLUDED cutaneous melanoma label(s): Skin-Melanoma 
+Melanoma samples in file: 412 
+
+== 4. Integrity checks ========================================= 
+  [ ok ] duplicate sample names: 0 
+  [ ok ] missing values across SBS columns: 0 
+  [ ok ] negative signature exposures: 0 
+  Row sums: median = 626, range = 8 to 26482 
+  [ ok ] Values look like absolute mutation counts. 
+  [ ok ] sample names not matching TCGA barcode format: 0 
+  Example sample names: TCGA-3N-A9WB-06A-11D-A38G-08 | TCGA-3N-A9WC-06A-11D-A38G-08 | TCGA-3N-A9WD-06A-11D-A38G-08 
+  Barcode field count (first row): 7 — 3 means patient-level only, no sample-type code. 
+  Reconstruction accuracy: median = 0.988, min = 0.524 
+  [FLAG] samples with reconstruction accuracy < 0.80: 24 (consider excluding in a sensitivity analysis) 
+
+== 5. UV proxy derivation ====================================== 
+Samples with SBS7_total == 0: 91 
+Samples with SBS7_total  > 0: 321 
+
+Descriptive statistics (all melanoma samples): 
+  SBS7_total     n=412  mean=700  sd=1.49e+03  median=352  IQR=[34.5, 762]  range=[0, 2.34e+04] 
+  TMB_sig        n=412  mean=1.09e+03  sd=1.74e+03  median=626  IQR=[290, 1.32e+03]  range=[8, 2.65e+04] 
+  SBS7_fraction  n=412  mean=0.605  sd=0.366  median=0.798  IQR=[0.263, 0.885]  range=[0, 0.998] 
+
+Descriptive statistics (SBS7 > 0 only): 
+  SBS7_total     n=321  mean=899  sd=1.64e+03  median=482  IQR=[256, 1e+03]  range=[5, 2.34e+04] 
+  SBS7_fraction  n=321  mean=0.777  sd=0.195  median=0.85  IQR=[0.742, 0.9]  range=[0.117, 0.998] 
+
+Tertile cutoffs on SBS7_total (SBS7>0 samples): lower = 325, upper = 720 
+
+== 6. QC figure ================================================ 
+
+== 7. Output =================================================== 
+Wrote: E:/RASSF9 Project/data/processed/skcm_uv_proxies.csv (412 rows) 
+
+== SUMMARY ===================================================== 
+Review these before proceeding to 02: 
+  - samples with reconstruction accuracy < 0.80: 24 (consider excluding in a sensitivity analysis) 
+
+Full log: E:/RASSF9 Project/results/logs/01_sbs_qc.log 

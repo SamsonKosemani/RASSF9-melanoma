@@ -1,0 +1,159 @@
+Belote Smart-seq2 inspection — 2026-10-16 15:26:58 
+
+
+== 1. Files ==================================================== 
+  GSE151091_HighResLouvain.csv.gz                                  0.03 MB 
+  GSE151091_LowResLouvain.csv.gz                                   0.03 MB 
+  GSE151091_Metadata.csv.gz                                        0.29 MB 
+  GSE151091_raw_matrix.csv.gz                                     75.92 MB 
+
+== 2. Head of each text file =================================== 
+
+  GSE151091_HighResLouvain.csv.gz 
+    delimiter: , | header fields: 3 
+    [1] ,index,louvain 
+    [2] 0,H11_B003063,0 
+    [3] 1,O19_B003063,0 
+
+  GSE151091_LowResLouvain.csv.gz 
+    delimiter: , | header fields: 3 
+    [1] ,index,louvain 
+    [2] 0,H11_B003063,0 
+    [3] 1,O19_B003063,0 
+
+  GSE151091_Metadata.csv.gz 
+    delimiter: , | header fields: 28 
+    [1] cell_id,plate_index,age,age_bin,plate,general_location,anatomical_location,race,sex,color,patient,n_genes,n_counts,cell,cycling_score,cycling_cell,bsc,fsc,gate_label,true_year,dev_stage,subtypes,acral_subtype,dev_subtype ... 
+    [2] A1015LM_D3_B003063,D3_B003063,52,50_59,B003063,arm,arm,asian,Female,LM,A1015LM,3575,24552224,D3_B003063,0.25,G1_S,531557.6,242824.4,a6high,52.75,adt,cutaneous,not_acral,adt_cutaneous,krt,krt,krt,D3 
+    [3] A1015LM_D4_B003063,D4_B003063,52,50_59,B003063,arm,arm,asian,Female,LM,A1015LM,3801,26685940,D4_B003063,0.25,G1_S,718953.6,492906.8,a6high,52.75,adt,cutaneous,not_acral,adt_cutaneous,krt,krt,krt,D4 
+
+  GSE151091_raw_matrix.csv.gz 
+    delimiter: , | header fields: 14371 
+    [1] ,A1015LM_D6_B003063,A1015LM_L19_B003063,A1015LM_I11_B003063,A1015LM_K17_B003063,A1015LM_K15_B003063,A1015LM_D3_B003063,A1015LM_O12_B003063,A1015LM_F16_B003063,A1015LM_F3_B003063,A1015LM_O22_B003063,A1015LM_P13_B003063,A1 ... 
+    [2] A1BG,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 ... 
+    [3] A1BG-AS1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 ... 
+
+== 3. Which dimension holds genes? ============================= 
+  Strategy: read the first column of each file and test whether its 
+  values look like gene identifiers. Whichever axis carries the 
+  markers is the gene axis -- this is not assumed. 
+
+  GSE151091_HighResLouvain.csv.gz 
+    rows look like genes: 0% | columns look like genes: 0% 
+    rows read: 6889 (entire file) 
+    RASSF9: exact in rows = no | exact in cols = no 
+    RASSF10: exact in rows = no | exact in cols = no 
+    markers found in rows: none 
+    first 8 row names: 0, 1, 2, 3, 4, 5, 6, 7 
+    first 6 column names: index, louvain 
+
+  GSE151091_LowResLouvain.csv.gz 
+    rows look like genes: 0% | columns look like genes: 0% 
+    rows read: 6889 (entire file) 
+    RASSF9: exact in rows = no | exact in cols = no 
+    RASSF10: exact in rows = no | exact in cols = no 
+    markers found in rows: none 
+    first 8 row names: 0, 1, 2, 3, 4, 5, 6, 7 
+    first 6 column names: index, louvain 
+
+  GSE151091_Metadata.csv.gz 
+    rows look like genes: 0% | columns look like genes: 0% 
+    rows read: 9719 (entire file) 
+    RASSF9: exact in rows = no | exact in cols = no 
+    RASSF10: exact in rows = no | exact in cols = no 
+    markers found in rows: none 
+    first 8 row names: A1015LM_D3_B003063, A1015LM_D4_B003063, A1015LM_H11_B003063, A1015LM_O19_B003063, A1015LM_H16_B003063, A1015LM_H3_B003063, A1015LM_O14_B003063, A1015LM_H9_B003063 
+    first 6 column names: plate_index, age, age_bin, plate, general_location, anatomical_location 
+
+  GSE151091_raw_matrix.csv.gz 
+    rows look like genes: 100% | columns look like genes: 0% 
+    rows read: 26577 (entire file) 
+    RASSF9: exact in rows = RASSF9 | exact in cols = no 
+    RASSF10: exact in rows = RASSF10 | exact in cols = no 
+    markers found in rows: MLANA, PMEL, TYR, DCT, MITF, SOX10, TYRP1, KRT14, KRT1, PTPRC, COL1A1 
+    first 8 row names: A1BG, A1BG-AS1, A1CF, A2M, A2M-AS1, A2ML1, A2MP1, A3GALT2 
+    first 6 column names: A1015LM_D6_B003063, A1015LM_L19_B003063, A1015LM_I11_B003063, A1015LM_K17_B003063, A1015LM_K15_B003063, A1015LM_D3_B003063 
+
+== 4. Value scale ============================================== 
+  Raw counts, TPM and log-transformed values need different handling, 
+  so the scale is read off the data rather than assumed from the 
+  filename. 
+
+  GSE151091_HighResLouvain.csv.gz 
+    min 0.0000 | median 3.0000 | max 9.00 | zeros 11.6% | integer-valued 100% 
+    scale looks like: unclear 
+
+  GSE151091_LowResLouvain.csv.gz 
+    min 0.0000 | median 1.0000 | max 2.00 | zeros 14.1% | integer-valued 100% 
+    scale looks like: unclear 
+
+  GSE151091_Metadata.csv.gz 
+    min -1.0000 | median 3650.0000 | max 26685940.00 | zeros 0.0% | integer-valued 46% 
+    scale looks like: TPM/CPM (linear) 
+
+  GSE151091_raw_matrix.csv.gz 
+    min 0.0000 | median 0.0000 | max 22533.00 | zeros 98.0% | integer-valued 100% 
+    scale looks like: raw counts 
+
+== 5. Metadata and cell-type labels ============================ 
+
+  GSE151091_HighResLouvain.csv.gz: 6889 rows x 3 cols 
+    columns: ...1, index, louvain 
+
+  GSE151091_LowResLouvain.csv.gz: 6889 rows x 3 cols 
+    columns: ...1, index, louvain 
+
+  GSE151091_Metadata.csv.gz: 9719 rows x 28 cols 
+    columns: cell_id, plate_index, age, age_bin, plate, general_location, anatomical_location, race, sex, color, patient, n_genes, n_counts, cell, cycling_score, cycling_cell, bsc, fsc, gate_label, true_year, dev_stage, subtypes, acral_subtype, dev_subtype, class_1, class_2, class_3, well 
+    age_bin 
+      60_69=1587, FET_12WK=1408, 30_39=964, FET_10WK=919, NEO=899, FET_18WK=702, 50_59=628, 40_49=457, FET_16WK=329, 70_81=327, 70_85=317, 20_29=299, 70_79=276, 70_83=271, FET_9.5WK=246, 80_89=90 
+    general_location 
+      leg=3646, acral=2766, arm=2408, foreskin=899 
+    anatomical_location 
+      arm=2106, palm=1380, leg=1036, foreskin=899, calf=603, thigh=564, shin=536, sole=494, heel=457, arch=435, anterior forearm=302, ankle or upper foot=299, left thigh=295, right thigh=223, medial calf=90 
+    race 
+      nan=4503, white=2431, hispanic_latino=2036, asian=749 
+    sex 
+      Male=4681, Ukn=2832, Female=2206 
+    color 
+      nan=3604, LM=2457, M=2369, L=1289 
+    patient 
+      A1046M=1191, 10WK03=919, A1038LM=840, 12WKM01=772, 18WKM06=702, FS043_LM=646, 12WK05=636, A1011L=505, A1022M=457, 16WKM04=329, A1016LM=302, A1021M=299, A1033M=298, A1020LM=295, A1025L=295, A1014L=266, FS030_LM=253, 9.5WK02=246, A1026L=223, A1012M=124, A1017LM=90, A1015LM=31 
+    cycling_cell 
+      G1_S=9286, G2_M=433 
+    gate_label 
+      ckitpos=7439, a6high=992, a6low=741, null=513, a6mid=34 
+    dev_stage 
+      adt=5216, fet=3604, neo=899 
+    subtypes 
+      cutaneous=5982, acral=2766, foreskin=899, follicular=72 
+    acral_subtype 
+      not_acral=6953, acral=2766 
+    dev_subtype 
+      adt_cutaneous=4324, fet_acral=1874, fet_cutaneous=1730, neo_foreskin=899, adt_acral=892 
+    class_1 
+      mel=6889, krt=1741, eccrine=534, cyc_mel=199, cyc_krt=124, cyc_eccrine=102, dendritic=68, T-cell=29, mast=25, cyc_dendritic=8 
+    class_2 
+      cutaneous_mel=4457, krt=1741, acral_mel=1634, foreskin_mel=735, eccrine=534, cyc_mel=190, cyc_krt=124, cyc_eccrine=102, dendritic=68, light_foll_mel=42, T-cell=29, mast=25, dark_foll_mel=21, cyc_foll_mel=9, cyc_dendritic=8 
+    class_3 
+      adt_cutaneous_mel=3281, krt=1741, fet_cutaneous_mel=1176, fet_acral_mel=1014, neo_foreskin_mel=735, adt_acral_mel=620, eccrine=534, cyc_mel=190, cyc_krt=124, cyc_eccrine=102, dendritic=68, fet_light_foll_mel=42, T-cell=29, mast=25, fet_dark_foll_mel=21, cyc_foll_mel=9, cyc_dendritic=8 
+
+== 6. What 37b needs from this ================================= 
+  1. the matrix file name, its delimiter, and which axis is genes 
+  2. the EXACT feature spelling for RASSF9 (symbol or Ensembl, 
+     versioned or not) -- or confirmation that it is absent, which 
+     would itself be a finding about the reference annotation rather 
+     than about melanocyte biology 
+  3. the value scale, so counts are not treated as TPM 
+  4. the cell-type column and the exact melanocyte label string 
+  5. whether donor, age/stage and anatomical site are present, since 
+     those decide whether any stratified test is possible at all 
+ 
+  NOTE: if RASSF9 is absent as a feature, that is NOT evidence it is 
+  unexpressed. It would mean the processed matrix was filtered, and 
+  the test would have to move to the raw data. 37b will distinguish 
+  these two cases rather than reporting either as absence. 
+  3 warning(s), 3 unique: 
+    - closing unused connection 6 (E:/RASSF9 Project/data/raw/geo/belote/GSE151091_Metadata.csv.gz) 
+    - closing unused connection 4 (E:/RASSF9 Project/data/raw/geo/belote/GSE151091_LowResLouvain.csv.gz) 
+    - closing unused connection 3 (E:/RASSF9 Project/data/raw/geo/belote/GSE151091_HighResLouvain.csv.gz) 
