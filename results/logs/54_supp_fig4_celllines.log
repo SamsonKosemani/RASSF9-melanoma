@@ -1,0 +1,121 @@
+
+================================================================
+ Supplementary Figure 4 -- RASSF9 across cancer cell lines
+================================================================
+
+== 1. Inventory of candidate tables ============================
+  36 csv file(s) in results/ccle
+    42_gate_summary.csv                            7 rows | gene, n, n_detected, pct_det, pct_zero, median, iqr, sd, min, max, n_distinct, pct_tied, verdict, n_lines_primary, n_lines_uveal
+    42_rassf10_melanoma_lines.csv                113 rows | model_id, name, disease, subtype, uveal, RASSF10
+    42_rassf9_melanoma_lines.csv                 113 rows | model_id, name, disease, subtype, uveal, RASSF9
+    43_profile_collapse_comparison.csv             6 rows | gene, rule, n, pct_det, pct_floor, median, sd, max, pct_tied, verdict
+    43_subtype_breakdown_rassf10.csv               5 rows | group, n, n_det, pct_det, median, max
+    43_subtype_breakdown_rassf9.csv                5 rows | group, n, n_det, pct_det, median, max
+    44a_parse_plan.csv                             1 rows | file, delimiter, n_header_fields, n_data_fields, field_offset, layout, probe_data_field, n_beta_fields, n_pval_fields, beta_data_first, beta_data_last, pval_data_first, pval_data_last
+    44a_probe_table.csv                           48 rows | gene, probe, dist_tss, set, tcga_rho, tcga_beta
+    44a_sample_map.csv                           154 rows | match_key, model_id, name, sanger, disease, subtype, uveal, field, geo_name
+    44b_line_scores_rassf10.csv                   56 rows | gene, geo_name, subtype, core, shore, distal, n_core_probes
+    44b_line_scores_rassf9.csv                    56 rows | gene, geo_name, subtype, core, shore, distal, n_core_probes
+    44b_probe_summary_rassf10.csv                 36 rows | gene, probe, dist_tss, set, n_lines, line_median, line_iqr, line_min, line_max, other_median, tcga_median, tcga_rho, delta
+    44b_probe_summary_rassf9.csv                  12 rows | gene, probe, dist_tss, set, n_lines, line_median, line_iqr, line_min, line_max, other_median, tcga_median, tcga_rho, delta
+    45_lineage_core_rassf10.csv                   30 rows | lin, n, median_core, iqr
+    45_lineage_core_rassf9.csv                    30 rows | lin, n, median_core, iqr
+    45_probe_tests_rassf10.csv                    36 rows | gene, probe, dist_tss, set, n_mel, n_oth, med_mel, med_oth, shift, p, p_bh
+    45_probe_tests_rassf9.csv                     12 rows | gene, probe, dist_tss, set, n_mel, n_oth, med_mel, med_oth, shift, p, p_bh
+    45_set_tests.csv                               8 rows | gene, measure, n_mel, n_oth, med_mel, med_oth, shift, lo, hi, p
+    46_line_level_data.csv                       741 rows | model_id, name, geo_name, lineage, disease, subtype, group, RASSF9, RASSF9_core, RASSF9_shore, RASSF9_distal, RASSF9_cn, RASSF10, RASSF10_core, RASSF10_shore, RASSF10_distal, RASSF10_cn
+    46_models_rassf10.csv                          4 rows | gene, model, n, beta, lo, hi, p, pct_retained
+    46_models_rassf9.csv                           4 rows | gene, model, n, beta, lo, hi, p, pct_retained
+    46_pooled_tests.csv                            6 rows | gene, set, n, rho, p
+    46_within_lineage_rassf10.csv                 27 rows | lineage, n, rho, p, pct_det, median_core
+    46_within_lineage_rassf9.csv                  27 rows | lineage, n, rho, p, pct_det, median_core
+    47_melanoma_only.csv                           1 rows | n_lines, rho, p_perm, pct_detected, median_expr, max_expr, median_core, verdict, worst_control_rho
+    47_melanoma_only_controls.csv                  6 rows | gene, n, rho, p_perm
+    47_specificity_corrected.csv                   6 rows | gene, set, n, rho, p
+    47_within_lineage_corrected_rassf10.csv       28 rows | stratum, n, rho, p, pct_det, median_core
+    47_within_lineage_corrected_rassf9.csv        28 rows | stratum, n, rho, p, pct_det, median_core
+    48_methylation_summaries.csv                   4 rows | value, what, n, where
+    48_pvalue_audit.csv                            8 rows | comparison, n1, n2, median_1, median_2, shift_HL, U, sigma, z, log10_p, p_printable, z_max_possible, log10_p_floor, p_from_wilcox_test, wilcox_underflowed
+    48_sample_reconciliation.csv                  14 rows | n, label, where
+    49_models_common_n_rassf10.csv                 4 rows | gene, model, n, beta, lo, hi, p, pct_retained
+    49_models_common_n_rassf9.csv                  4 rows | gene, model, n, beta, lo, hi, p, pct_retained
+    49_pvalue_bounds.csv                           2 rows | method, n1, n2, statistic, log10_floor
+    49_subtypes_paired_lines.csv                   3 rows | subtype, n, pct_det_R9, median_R9, max_R9, median_core, min_core, max_core
+
+  melanoma per-line table: 42_rassf9_melanoma_lines.csv
+  line-level table:        46_line_level_data.csv
+  subtype breakdown:       43_subtype_breakdown_rassf9.csv
+
+== 2. Melanoma lines ===========================================
+  using 42_rassf9_melanoma_lines.csv (113 rows)
+  expression column: 'RASSF9' | name column: 'name'
+  lines with finite expression: 113
+
+== 3. Scale ====================================================
+  expression range: 0.000 to 1.887
+  treated as log2(TPM + 1) | threshold drawn at 1  (= 1 TPM on the log2(TPM+1) scale)
+  below threshold: 109 of 113 (96.5%)
+  the manuscript states 109 of 113
+
+== 4. Panel B : subtype ========================================
+  subtypes found on 'subtype':
+    Melanoma                            91 lines,  88 below 1 TPM, median 0.023
+    Cutaneous Melanoma                  15 lines,  15 below 1 TPM, median 0.009
+    Acral Melanoma                       6 lines,   5 below 1 TPM, median 0.000
+    Mucosal Melanoma                     1 lines,   1 below 1 TPM, median 0.000
+  cutaneous: 15 of 15 below 1 TPM (manuscript says all 15)
+
+== 5. Assembling ===============================================
+  wrote SupplementaryFigure4.pdf
+  wrote SupplementaryFigure4.png
+
+== 6. Layout report ============================================
+
+  6.1 Type sizes (pt), floor is 5.5
+    base          7.0  ok
+    axis          6.0  ok
+    annotation    5.5  ok
+    tag           9.0  ok
+
+  6.2 Panel A data against the axis
+    expression 0.000 to 1.887, threshold 1.00
+
+  6.3 Panel B rows
+    4 subtypes over ~61 mm -> 15.2 mm per row  ok
+    longest subtype label: 27 characters
+
+  6.4 Colour roles
+    #C0392B red   below 1 TPM
+    #2A2A2A ink   at or above 1 TPM
+    Red means 'below the detection threshold' in both panels, the same
+    meaning in each, and it is not used for anything else here.
+
+  6.5 Low-resolution view of the rendered figure
+    104 x 22 characters from the 708 x 307 px render
+    |--------------------------------------------------------------------------------------------------------|
+    |  @                                          @%                                                         |
+    | @@    %                                     @@               %                   +                     |
+    |     *%%                                                      %                   +                     |
+    |       %                   *****++++*+***%%                   % *******   *       +               %     |
+    |       %                   =**+=*=****=+-*          ******++*%% #**********    ** *%%%%                 |
+    |       %                                 %                    %                   +                     |
+    |   %%*%%                                                      %                   +                     |
+    |   %#  %                                                      % *                 +                     |
+    |   %%  %                                 %    ************++*%% #***              +                     |
+    |   %%  %++++                             %                    % *                 +                     |
+    |   %%*%%++++++++++++++++++++++++++++++++**+                   %                   +                     |
+    |   %%  %                                *                     %                   +                     |
+    |   %#  %                                        ******+***++*%% *                 +                     |
+    |   #%  %                                *                 .  .%                   +                     |
+    |   %#*%%                              ***                     %                   +                     |
+    |       %                             **                       %                   +                     |
+    |       %                          ****           *+***+***++*%% #                 +                     |
+    |       %                    ********             =**=*+*+*==*+% **                +          %          |
+    |     *%%***********************                               %                   +                     |
+    |       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  |
+    |       *-      #%%%%%%%%%##%%%#%%%%*                           **       *%%%%%%%#%%%%%%%%%+*       +*   |
+    |                                                                                  %+     =              |
+    |--------------------------------------------------------------------------------------------------------|
+    ink coverage 19.1%
+
+  Drawn at 180 mm, the final width. Place at 100%.
